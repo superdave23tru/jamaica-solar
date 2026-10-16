@@ -1,4 +1,4 @@
--- Proposed schema changes for the Jamaica Solar Supabase project (NOT yet applied).
+-- Schema changes for the Jamaica Solar Supabase project (applied 16 Oct 2026).
 -- Additive only: keeps the existing public.providers table and its columns.
 
 -- 1. Providers: allow suppliers, add contact/verification fields
@@ -20,6 +20,16 @@ alter table public.providers
   add column if not exists sources text[] default '{}',
   add column if not exists notes text;
 
+-- Mockup-era fields that imported listings don't have yet
+alter table public.providers
+  alter column short_name drop not null,
+  alter column tagline drop not null,
+  alter column experience_label drop not null,
+  alter column team_label drop not null,
+  alter column checked_date drop not null,
+  alter column about1 drop not null,
+  alter column about2 drop not null;
+
 -- "JPS-approved" is not a real register; keep the column for now but stop using it in the UI.
 comment on column public.providers.jps_approved is 'Deprecated: JPS publishes no approved-installer register. Use credentials/verified instead.';
 
@@ -37,7 +47,13 @@ create table if not exists public.leads (
 );
 alter table public.leads enable row level security;
 -- Anyone can submit a lead; nobody can read leads with the public key.
-create policy "public can insert leads" on public.leads for insert to anon with check (true);
+create policy "public can insert leads" on public.leads for insert to anon with check (
+  status = 'new'
+  and char_length(name) between 2 and 120
+  and char_length(phone) between 7 and 30
+  and coalesce(char_length(email), 0) <= 200
+  and coalesce(char_length(notes), 0) <= 2000
+);
 
 -- 3. Reference data
 create table if not exists public.bsj_inverters (
