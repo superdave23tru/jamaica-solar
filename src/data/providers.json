@@ -1,0 +1,1570 @@
+[
+ {
+  "slug": "alternate-energy-solutions",
+  "kind": "company",
+  "name": "Alternate Energy Solutions",
+  "businessType": "Installer",
+  "tagline": "Solar installation",
+  "tags": [
+   "Solar PV"
+  ],
+  "servicesRaw": "Solar PV",
+  "city": "",
+  "parishHq": null,
+  "parishes": [],
+  "address": "",
+  "website": "",
+  "phone": "",
+  "email": "",
+  "batteryStorage": false,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "JERA lenders catalogue (Oct 2023)"
+  ],
+  "notes": "COK Sodality CU partner - check vs Alternative Energy Plus"
+ },
+ {
+  "slug": "alternate-power-solutions",
+  "kind": "company",
+  "name": "Alternate Power Solutions (APS)",
+  "businessType": "Installer",
+  "tagline": "Solar installation",
+  "tags": [
+   "Solar PV",
+   "Battery Storage"
+  ],
+  "servicesRaw": "Solar PV",
+  "city": "",
+  "parishHq": null,
+  "parishes": [],
+  "address": "",
+  "website": "",
+  "phone": "",
+  "email": "",
+  "batteryStorage": true,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "ENF Solar directory",
+   "JERA lenders catalogue (Oct 2023)"
+  ],
+  "notes": "Full name from JERA lender catalogue; Caribbean Energy Finance partner"
+ },
+ {
+  "slug": "alternative-energy-plus",
+  "kind": "company",
+  "name": "Alternative Energy Plus",
+  "businessType": "Installer",
+  "tagline": "Solar installation",
+  "tags": [
+   "Solar PV",
+   "Battery Storage"
+  ],
+  "servicesRaw": "Solar PV",
+  "city": "Kingston",
+  "parishHq": "Kingston",
+  "parishes": [
+   "Kingston"
+  ],
+  "address": "93 Port Royal Street, Kingston",
+  "website": "",
+  "phone": "",
+  "email": "",
+  "batteryStorage": true,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "ENF Solar directory",
+   "JaRanks (Aug 2026)"
+  ],
+  "notes": ""
+ },
+ {
+  "slug": "atl",
+  "kind": "supplier",
+  "name": "ATL (Appliance Traders Ltd)",
+  "businessType": "Retailer (supply only)",
+  "tagline": "Solar equipment retailer",
+  "tags": [
+   "Solar PV",
+   "Financing"
+  ],
+  "servicesRaw": "Solar panels (ATL 460W, 550W mono); EcoFlow portable panels & power stations; Financing",
+  "city": "Kingston",
+  "parishHq": "St. Andrew",
+  "parishes": [
+   "St. Andrew"
+  ],
+  "address": "35 Half Way Tree Road, Kingston 5 (also Bogue City Centre, MoBay; 7 Newlin St, Ocho Rios)",
+  "website": "https://atljamaica.com/departments/energy/solar-pv-systems.html",
+  "phone": "888-285-7378",
+  "email": "",
+  "batteryStorage": false,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "atljamaica.com"
+  ],
+  "notes": "No solar install service shown - retail only; 3 stores"
+ },
+ {
+  "slug": "bailey-s-technology",
+  "kind": "company",
+  "name": "Bailey's Technology (BTECH)",
+  "businessType": "Installer + Seller",
+  "tagline": "Solar installation & equipment supply",
+  "tags": [
+   "Solar PV",
+   "Battery Storage"
+  ],
+  "servicesRaw": "Solar PV; Battery Storage",
+  "city": "Ocho Rios",
+  "parishHq": "St. Ann",
+  "parishes": [
+   "St. Ann"
+  ],
+  "address": "Shop 15, Double V Plaza, 109 Main Street, Ocho Rios",
+  "website": "https://btechj.com",
+  "phone": "",
+  "email": "",
+  "batteryStorage": true,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "ENF Solar directory"
+  ],
+  "notes": "Wholesaler; Deye/SRNE inverters, JA Solar panels"
+ },
+ {
+  "slug": "brittonearth-energy-ltd",
+  "kind": "company",
+  "name": "Brittonearth Energy Ltd",
+  "businessType": "Installer + Seller",
+  "tagline": "Solar installation & equipment supply",
+  "tags": [
+   "Solar PV",
+   "Battery Storage"
+  ],
+  "servicesRaw": "Solar PV; Battery Storage",
+  "city": "Ocho Rios",
+  "parishHq": "St. Ann",
+  "parishes": [
+   "St. Ann"
+  ],
+  "address": "Shop #4, Coconut Grove Shopping Complex, Ocho Rios",
+  "website": "https://brittonearth.com",
+  "phone": "",
+  "email": "",
+  "batteryStorage": true,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "ENF Solar directory",
+   "JaRanks (Aug 2026)"
+  ],
+  "notes": "Wholesaler"
+ },
+ {
+  "slug": "burton-steer-energy-solutions",
+  "kind": "company",
+  "name": "Burton Steer Energy Solutions",
+  "businessType": "Installer",
+  "tagline": "Solar installation",
+  "tags": [
+   "Solar PV",
+   "Water Heaters"
+  ],
+  "servicesRaw": "Solar PV; Water Heaters; AC",
+  "city": "Montego Bay",
+  "parishHq": "St. James",
+  "parishes": [
+   "St. James"
+  ],
+  "address": "Suite #6 Catherine Hall Plaza, Montego Bay",
+  "website": "",
+  "phone": "",
+  "email": "",
+  "batteryStorage": false,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "JaRanks (Aug 2026)"
+  ],
+  "notes": "Also AC sales/service; 10+ yrs"
+ },
+ {
+  "slug": "carisol-the-solar-place",
+  "kind": "company",
+  "name": "Carisol / The Solar Place (Carisol Group Int'l)",
+  "businessType": "Installer",
+  "tagline": "Solar installation",
+  "tags": [
+   "Solar PV",
+   "Battery Storage"
+  ],
+  "servicesRaw": "Solar PV; Home automation",
+  "city": "Kingston",
+  "parishHq": "St. Andrew",
+  "parishes": [
+   "St. Andrew"
+  ],
+  "address": "38 Cassia Park Road, Kingston 10",
+  "website": "",
+  "phone": "",
+  "email": "",
+  "batteryStorage": true,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "ENF Solar directory",
+   "JaRanks (Aug 2026)"
+  ],
+  "notes": "ENF lists 'Carisol'; JaRanks 'The Solar Place' - likely same group"
+ },
+ {
+  "slug": "carribsol",
+  "kind": "company",
+  "name": "Carribsol",
+  "businessType": "Installer",
+  "tagline": "Solar installation",
+  "tags": [
+   "Solar PV",
+   "Battery Storage"
+  ],
+  "servicesRaw": "Solar PV",
+  "city": "",
+  "parishHq": null,
+  "parishes": [],
+  "address": "",
+  "website": "",
+  "phone": "",
+  "email": "",
+  "batteryStorage": true,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "ENF Solar directory"
+  ],
+  "notes": "ENF start date 2024"
+ },
+ {
+  "slug": "civilectric-solutions-ltd",
+  "kind": "company",
+  "name": "Civilectric Solutions Ltd (Jampower)",
+  "businessType": "Installer",
+  "tagline": "Solar installation",
+  "tags": [
+   "Solar PV",
+   "Commercial",
+   "EV Charging"
+  ],
+  "servicesRaw": "Solar PV; Commercial; EV chargers",
+  "city": "Kingston",
+  "parishHq": null,
+  "parishes": [],
+  "address": "",
+  "website": "",
+  "phone": "",
+  "email": "",
+  "batteryStorage": false,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "Business View Caribbean (2022)"
+  ],
+  "notes": "C&I turnkey; announced rebrand to Jampower; warehouses Kingston + MoBay"
+ },
+ {
+  "slug": "conserve-it-ltd",
+  "kind": "company",
+  "name": "Conserve It Ltd",
+  "businessType": "Installer",
+  "tagline": "Solar installation",
+  "tags": [
+   "Solar PV",
+   "Battery Storage"
+  ],
+  "servicesRaw": "Solar PV; Battery Storage",
+  "city": "Kingston",
+  "parishHq": "St. Andrew",
+  "parishes": [
+   "St. Andrew"
+  ],
+  "address": "12 Truman Avenue, Kingston 10",
+  "website": "https://conserveitja.com",
+  "phone": "",
+  "email": "",
+  "batteryStorage": true,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "ENF Solar directory",
+   "JaRanks (Aug 2026)"
+  ],
+  "notes": ""
+ },
+ {
+  "slug": "eands-power-system-solutions",
+  "kind": "company",
+  "name": "E&S Power System Solutions",
+  "businessType": "Installer",
+  "tagline": "Solar installation",
+  "tags": [
+   "Solar PV",
+   "Battery Storage"
+  ],
+  "servicesRaw": "Solar PV",
+  "city": "",
+  "parishHq": null,
+  "parishes": [],
+  "address": "",
+  "website": "",
+  "phone": "",
+  "email": "",
+  "batteryStorage": true,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "ENF Solar directory"
+  ],
+  "notes": ""
+ },
+ {
+  "slug": "enersave-solutions",
+  "kind": "company",
+  "name": "Enersave Solutions",
+  "businessType": "Installer",
+  "tagline": "Solar installation",
+  "tags": [
+   "Solar PV",
+   "Battery Storage"
+  ],
+  "servicesRaw": "Solar PV",
+  "city": "",
+  "parishHq": null,
+  "parishes": [],
+  "address": "",
+  "website": "",
+  "phone": "",
+  "email": "",
+  "batteryStorage": true,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "ENF Solar directory"
+  ],
+  "notes": ""
+ },
+ {
+  "slug": "essential-solar",
+  "kind": "company",
+  "name": "Essential Solar",
+  "businessType": "Installer",
+  "tagline": "Solar installation",
+  "tags": [
+   "Solar PV",
+   "Battery Storage"
+  ],
+  "servicesRaw": "Solar PV",
+  "city": "",
+  "parishHq": null,
+  "parishes": [],
+  "address": "",
+  "website": "",
+  "phone": "",
+  "email": "",
+  "batteryStorage": true,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "ENF Solar directory"
+  ],
+  "notes": ""
+ },
+ {
+  "slug": "fosrich-company-ltd",
+  "kind": "supplier",
+  "name": "FosRich Company Ltd",
+  "businessType": "Distributor / Retailer",
+  "tagline": "Solar equipment retailer",
+  "tags": [
+   "Solar PV",
+   "Water Heaters",
+   "Financing"
+  ],
+  "servicesRaw": "Solar PV; Solar water heaters; LED; Hire purchase",
+  "city": "Kingston",
+  "parishHq": null,
+  "parishes": [],
+  "address": "",
+  "website": "https://fosrich.com",
+  "phone": "",
+  "email": "",
+  "batteryStorage": false,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "fosrich.com"
+  ],
+  "notes": "JSE-listed; financing partners First Global/DBJ, JN, NHT, Dolla"
+ },
+ {
+  "slug": "getsol-warehouse-ltd",
+  "kind": "supplier",
+  "name": "Getsol Warehouse Ltd",
+  "businessType": "Distributor / Retailer (online)",
+  "tagline": "Solar equipment retailer",
+  "tags": [
+   "Solar PV",
+   "Battery Storage",
+   "Off-grid",
+   "Financing"
+  ],
+  "servicesRaw": "Panels; Grid-tie & off-grid inverters; Charge controllers; Batteries; Mounting; Wiring; Solar kits; Financing admin",
+  "city": "Kingston",
+  "parishHq": "St. Andrew",
+  "parishes": [
+   "St. Andrew"
+  ],
+  "address": "4 Chilo Close, Kingston 10 (off Hagley Park Rd)",
+  "website": "https://www.getsolwarehouse.com",
+  "phone": "(876) 668-0416",
+  "email": "sales@getsolwarehouse.com; info@getsolwarehouse.com",
+  "batteryStorage": true,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "getsolwarehouse.com"
+  ],
+  "notes": "Dealer portal for installers; refers buyers to approved installers (list not public); brands incl. Canadian Solar, Outback, Schneider, Fronius, Midnite, US Battery; kit prices look dated (250W poly, lead-acid)"
+ },
+ {
+  "slug": "gmc-energy-limited",
+  "kind": "company",
+  "name": "GMc Energy Limited",
+  "businessType": "Installer",
+  "tagline": "Solar installation",
+  "tags": [
+   "Solar PV",
+   "Battery Storage"
+  ],
+  "servicesRaw": "Solar PV",
+  "city": "Portmore",
+  "parishHq": "St. Catherine",
+  "parishes": [
+   "St. Catherine"
+  ],
+  "address": "119 Alamanda Close, Walkway 5, Portmore",
+  "website": "",
+  "phone": "",
+  "email": "",
+  "batteryStorage": true,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "ENF Solar directory",
+   "JaRanks (Aug 2026)"
+  ],
+  "notes": "Online booking"
+ },
+ {
+  "slug": "iej",
+  "kind": "company",
+  "name": "IEJ",
+  "businessType": "Installer",
+  "tagline": "Solar installation",
+  "tags": [
+   "Solar PV",
+   "Battery Storage"
+  ],
+  "servicesRaw": "Solar PV",
+  "city": "",
+  "parishHq": null,
+  "parishes": [],
+  "address": "",
+  "website": "",
+  "phone": "",
+  "email": "",
+  "batteryStorage": true,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "ENF Solar directory"
+  ],
+  "notes": "Full name unknown - confirm"
+ },
+ {
+  "slug": "infinite-solar-limited",
+  "kind": "company",
+  "name": "Infinite Solar Limited",
+  "businessType": "Installer",
+  "tagline": "Solar installation",
+  "tags": [
+   "Solar PV"
+  ],
+  "servicesRaw": "Solar PV",
+  "city": "Montego Bay",
+  "parishHq": "St. James",
+  "parishes": [
+   "St. James"
+  ],
+  "address": "Montego Bay",
+  "website": "",
+  "phone": "",
+  "email": "",
+  "batteryStorage": false,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "JaRanks (Aug 2026)"
+  ],
+  "notes": "Instagram-active"
+ },
+ {
+  "slug": "iree-solar",
+  "kind": "company",
+  "name": "IREE Solar",
+  "businessType": "Installer",
+  "tagline": "Solar installation",
+  "tags": [
+   "Solar PV",
+   "Battery Storage",
+   "Water Heaters",
+   "Maintenance",
+   "Commercial",
+   "Financing"
+  ],
+  "servicesRaw": "Solar PV; Battery Storage (Tesla); Water Heaters; Pool heating; Water pumps; Financing; Maintenance; Commercial",
+  "city": "Kingston",
+  "parishHq": "St. Andrew",
+  "parishes": [
+   "St. Andrew"
+  ],
+  "address": "25 Grants Pen Road, Kingston 8",
+  "website": "https://www.ireesolar.com",
+  "phone": "(876) 371-4733",
+  "email": "sales@ireesolar.com",
+  "batteryStorage": true,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "ireesolar.com"
+  ],
+  "notes": "Tesla Energy installer; hybrid + grid-tied; added on Dave's tip"
+ },
+ {
+  "slug": "isratech-jamaica-ltd",
+  "kind": "company",
+  "name": "Isratech Jamaica Ltd",
+  "businessType": "Installer",
+  "tagline": "Solar installation",
+  "tags": [
+   "Solar PV"
+  ],
+  "servicesRaw": "Solar PV",
+  "city": "Kingston",
+  "parishHq": null,
+  "parishes": [],
+  "address": "",
+  "website": "",
+  "phone": "",
+  "email": "",
+  "batteryStorage": false,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "StarOfService"
+  ],
+  "notes": ""
+ },
+ {
+  "slug": "jamsolar",
+  "kind": "company",
+  "name": "Jamsolar",
+  "businessType": "Installer",
+  "tagline": "Solar installation",
+  "tags": [
+   "Solar PV",
+   "Battery Storage"
+  ],
+  "servicesRaw": "Solar PV",
+  "city": "",
+  "parishHq": null,
+  "parishes": [],
+  "address": "",
+  "website": "",
+  "phone": "",
+  "email": "",
+  "batteryStorage": true,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "ENF Solar directory"
+  ],
+  "notes": ""
+ },
+ {
+  "slug": "jmi-solar",
+  "kind": "company",
+  "name": "JMI Solar",
+  "businessType": "Installer",
+  "tagline": "Solar installation",
+  "tags": [
+   "Solar PV"
+  ],
+  "servicesRaw": "Solar PV",
+  "city": "Kingston",
+  "parishHq": null,
+  "parishes": [],
+  "address": "",
+  "website": "",
+  "phone": "",
+  "email": "",
+  "batteryStorage": false,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "LinkedIn list (2024)"
+  ],
+  "notes": "Old list - confirm active"
+ },
+ {
+  "slug": "konnexx-services",
+  "kind": "company",
+  "name": "Konnexx Services",
+  "businessType": "Installer",
+  "tagline": "Solar installation",
+  "tags": [
+   "Solar PV"
+  ],
+  "servicesRaw": "Solar PV",
+  "city": "",
+  "parishHq": null,
+  "parishes": [],
+  "address": "",
+  "website": "",
+  "phone": "",
+  "email": "",
+  "batteryStorage": false,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "ENF Solar directory"
+  ],
+  "notes": ""
+ },
+ {
+  "slug": "kristal-bond-jamaica",
+  "kind": "company",
+  "name": "Kristal Bond Jamaica",
+  "businessType": "Installer",
+  "tagline": "Solar installation",
+  "tags": [
+   "Solar PV"
+  ],
+  "servicesRaw": "Solar PV",
+  "city": "Kingston",
+  "parishHq": null,
+  "parishes": [],
+  "address": "",
+  "website": "",
+  "phone": "",
+  "email": "",
+  "batteryStorage": false,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "StarOfService"
+  ],
+  "notes": "Confirm solar is core business"
+ },
+ {
+  "slug": "mfs-solar",
+  "kind": "company",
+  "name": "MFS Solar",
+  "businessType": "Installer",
+  "tagline": "Solar installation",
+  "tags": [
+   "Solar PV",
+   "Battery Storage"
+  ],
+  "servicesRaw": "Solar PV",
+  "city": "",
+  "parishHq": null,
+  "parishes": [],
+  "address": "",
+  "website": "",
+  "phone": "",
+  "email": "",
+  "batteryStorage": true,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "ENF Solar directory"
+  ],
+  "notes": ""
+ },
+ {
+  "slug": "modern-solar-battery-and-supplies",
+  "kind": "company",
+  "name": "Modern Solar Battery and Supplies",
+  "businessType": "Installer + Seller",
+  "tagline": "Solar installation & equipment supply",
+  "tags": [
+   "Solar PV",
+   "Battery Storage"
+  ],
+  "servicesRaw": "Solar PV; Battery Storage",
+  "city": "Kingston",
+  "parishHq": null,
+  "parishes": [],
+  "address": "Building 2, 11-12 Goffe Terrace, Kingston",
+  "website": "",
+  "phone": "",
+  "email": "",
+  "batteryStorage": false,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "JaRanks (Aug 2026)"
+  ],
+  "notes": ""
+ },
+ {
+  "slug": "nr-electrical-solutions",
+  "kind": "company",
+  "name": "NR Electrical Solutions",
+  "businessType": "Installer",
+  "tagline": "Solar installation",
+  "tags": [
+   "Solar PV",
+   "Battery Storage"
+  ],
+  "servicesRaw": "Solar PV",
+  "city": "",
+  "parishHq": null,
+  "parishes": [],
+  "address": "",
+  "website": "",
+  "phone": "",
+  "email": "",
+  "batteryStorage": true,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "ENF Solar directory"
+  ],
+  "notes": ""
+ },
+ {
+  "slug": "paragon-renewable-energy",
+  "kind": "company",
+  "name": "Paragon Renewable Energy",
+  "businessType": "Installer",
+  "tagline": "Solar installation",
+  "tags": [
+   "Solar PV",
+   "Battery Storage"
+  ],
+  "servicesRaw": "Solar PV",
+  "city": "",
+  "parishHq": null,
+  "parishes": [],
+  "address": "",
+  "website": "",
+  "phone": "",
+  "email": "",
+  "batteryStorage": true,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "ENF Solar directory"
+  ],
+  "notes": ""
+ },
+ {
+  "slug": "powersource",
+  "kind": "company",
+  "name": "PowerSource",
+  "businessType": "Installer",
+  "tagline": "Solar installation",
+  "tags": [
+   "Solar PV",
+   "Battery Storage"
+  ],
+  "servicesRaw": "Solar PV",
+  "city": "",
+  "parishHq": null,
+  "parishes": [],
+  "address": "",
+  "website": "",
+  "phone": "",
+  "email": "",
+  "batteryStorage": true,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "ENF Solar directory"
+  ],
+  "notes": ""
+ },
+ {
+  "slug": "premier-energy-solution-ltd",
+  "kind": "company",
+  "name": "Premier Energy Solution Ltd",
+  "businessType": "Installer + Seller",
+  "tagline": "Solar installation & equipment supply",
+  "tags": [
+   "Solar PV",
+   "Battery Storage",
+   "Water Heaters"
+  ],
+  "servicesRaw": "Solar PV; Battery Storage; Water Heaters; Generators",
+  "city": "Kingston",
+  "parishHq": "St. Andrew",
+  "parishes": [
+   "St. Andrew"
+  ],
+  "address": "1A Chisholm Ave, Kingston 13 (ENF also lists 63 Lyndhurst Rd, Kgn 5 & Ocho Rios)",
+  "website": "https://premierenergysolutionja.com",
+  "phone": "",
+  "email": "",
+  "batteryStorage": true,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "ENF Solar directory",
+   "JaRanks (Aug 2026)"
+  ],
+  "notes": "Multiple addresses - confirm HQ"
+ },
+ {
+  "slug": "ps-jamaica",
+  "kind": "company",
+  "name": "PS Jamaica",
+  "businessType": "Installer",
+  "tagline": "Solar installation",
+  "tags": [
+   "Solar PV"
+  ],
+  "servicesRaw": "Solar PV; Monitoring",
+  "city": "",
+  "parishHq": null,
+  "parishes": [],
+  "address": "",
+  "website": "",
+  "phone": "",
+  "email": "",
+  "batteryStorage": false,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "ENF Solar directory"
+  ],
+  "notes": "ENF start date 2014"
+ },
+ {
+  "slug": "radiant-energy",
+  "kind": "company",
+  "name": "Radiant Energy",
+  "businessType": "Installer",
+  "tagline": "Solar installation",
+  "tags": [
+   "Solar PV",
+   "Battery Storage"
+  ],
+  "servicesRaw": "Solar PV",
+  "city": "",
+  "parishHq": null,
+  "parishes": [],
+  "address": "",
+  "website": "",
+  "phone": "",
+  "email": "",
+  "batteryStorage": true,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "ENF Solar directory"
+  ],
+  "notes": ""
+ },
+ {
+  "slug": "redis",
+  "kind": "company",
+  "name": "REDIS",
+  "businessType": "Installer",
+  "tagline": "Solar installation",
+  "tags": [
+   "Solar PV"
+  ],
+  "servicesRaw": "Solar PV",
+  "city": "",
+  "parishHq": null,
+  "parishes": [],
+  "address": "",
+  "website": "",
+  "phone": "",
+  "email": "",
+  "batteryStorage": false,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "JERA lenders catalogue (Oct 2023)"
+  ],
+  "notes": "JMMB & First Heritage CU partner; JERA member"
+ },
+ {
+  "slug": "roctech-and-solar-supplies",
+  "kind": "company",
+  "name": "ROCTECH & Solar Supplies",
+  "businessType": "Installer + Seller",
+  "tagline": "Solar installation & equipment supply",
+  "tags": [
+   "Solar PV"
+  ],
+  "servicesRaw": "Solar PV",
+  "city": "Montego Bay",
+  "parishHq": "St. James",
+  "parishes": [
+   "St. James"
+  ],
+  "address": "Montego Bay",
+  "website": "",
+  "phone": "",
+  "email": "",
+  "batteryStorage": false,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "JaRanks (Aug 2026)"
+  ],
+  "notes": "Online-based"
+ },
+ {
+  "slug": "rta-biz-energy-solutions",
+  "kind": "company",
+  "name": "RTA Biz Energy Solutions",
+  "businessType": "Installer",
+  "tagline": "Solar installation",
+  "tags": [
+   "Solar PV"
+  ],
+  "servicesRaw": "Solar PV",
+  "city": "",
+  "parishHq": null,
+  "parishes": [],
+  "address": "",
+  "website": "",
+  "phone": "",
+  "email": "",
+  "batteryStorage": false,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "ENF Solar directory",
+   "JERA lenders catalogue (Oct 2023)"
+  ],
+  "notes": "Dolla Financial partner"
+ },
+ {
+  "slug": "saddle-energy-ltd",
+  "kind": "company",
+  "name": "Saddle Energy Ltd",
+  "businessType": "Installer",
+  "tagline": "Solar installation",
+  "tags": [
+   "Solar PV",
+   "Commercial"
+  ],
+  "servicesRaw": "Solar PV; Monitoring; Residential; Commercial",
+  "city": "Kingston",
+  "parishHq": "St. Andrew",
+  "parishes": [
+   "St. Andrew"
+  ],
+  "address": "19 Wellington Drive, Kingston 6",
+  "website": "https://www.saddleenergy.com",
+  "phone": "876-827-4793 / 876-884-5528",
+  "email": "info@saddleenergy.com",
+  "batteryStorage": false,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "saddleenergy.com"
+  ],
+  "notes": "Islandwide; publishes sample pricing"
+ },
+ {
+  "slug": "samkhi-limited",
+  "kind": "company",
+  "name": "Samkhi Limited",
+  "businessType": "Seller / Distributor",
+  "tagline": "Solar equipment distributor",
+  "tags": [
+   "Solar PV",
+   "Battery Storage"
+  ],
+  "servicesRaw": "Solar PV; Battery Storage",
+  "city": "Ocho Rios",
+  "parishHq": "St. Ann",
+  "parishes": [
+   "St. Ann"
+  ],
+  "address": "Shop C1, New Pineapple Shopping Centre, Main Street, Ocho Rios",
+  "website": "https://www.samkhi.com",
+  "phone": "",
+  "email": "",
+  "batteryStorage": false,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "ENF Solar directory",
+   "JaRanks (Aug 2026)"
+  ],
+  "notes": "Distributor/wholesaler since 2011 - confirm if installs"
+ },
+ {
+  "slug": "sbj",
+  "kind": "company",
+  "name": "SBJ",
+  "businessType": "Installer",
+  "tagline": "Solar installation",
+  "tags": [
+   "Solar PV"
+  ],
+  "servicesRaw": "Solar PV",
+  "city": "",
+  "parishHq": null,
+  "parishes": [],
+  "address": "",
+  "website": "",
+  "phone": "",
+  "email": "",
+  "batteryStorage": false,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "ENF Solar directory"
+  ],
+  "notes": "Possibly Solar Buzz Jamaica - check for duplicate"
+ },
+ {
+  "slug": "sedai-jam",
+  "kind": "company",
+  "name": "Sedai-Jam",
+  "businessType": "Installer",
+  "tagline": "Solar installation",
+  "tags": [
+   "Solar PV",
+   "Battery Storage"
+  ],
+  "servicesRaw": "Solar PV; Battery Storage",
+  "city": "Montego Bay",
+  "parishHq": "St. James",
+  "parishes": [
+   "St. James"
+  ],
+  "address": "42 Jarrett Street, Montego Bay",
+  "website": "https://sedai-jam.com",
+  "phone": "",
+  "email": "",
+  "batteryStorage": true,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "ENF Solar directory"
+  ],
+  "notes": "SMA inverters"
+ },
+ {
+  "slug": "segona-solar-and-systems-ltd",
+  "kind": "company",
+  "name": "Segona Solar and Systems Ltd",
+  "businessType": "Installer",
+  "tagline": "Solar installation",
+  "tags": [
+   "Solar PV"
+  ],
+  "servicesRaw": "Solar PV",
+  "city": "Montego Bay",
+  "parishHq": "St. James",
+  "parishes": [
+   "St. James"
+  ],
+  "address": "Montego Bay",
+  "website": "",
+  "phone": "",
+  "email": "",
+  "batteryStorage": false,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "JaRanks (Aug 2026)"
+  ],
+  "notes": ""
+ },
+ {
+  "slug": "solar-buzz-jamaica",
+  "kind": "company",
+  "name": "Solar Buzz Jamaica",
+  "businessType": "Installer",
+  "tagline": "Solar installation",
+  "tags": [
+   "Solar PV",
+   "Battery Storage",
+   "Maintenance"
+  ],
+  "servicesRaw": "Solar PV; Battery Storage; Maintenance",
+  "city": "Kingston",
+  "parishHq": null,
+  "parishes": [],
+  "address": "",
+  "website": "",
+  "phone": "",
+  "email": "",
+  "batteryStorage": true,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "JaRanks (Aug 2026)",
+   "StarOfService",
+   "LinkedIn list (2024)"
+  ],
+  "notes": "Long-established; CEO Jason Robinson (2018)"
+ },
+ {
+  "slug": "solar-fanatic-ltd",
+  "kind": "company",
+  "name": "Solar Fanatic Ltd",
+  "businessType": "Installer",
+  "tagline": "Solar installation",
+  "tags": [
+   "Solar PV",
+   "Water Heaters",
+   "Maintenance"
+  ],
+  "servicesRaw": "Solar PV; Water Heaters; Maintenance",
+  "city": "Kingston",
+  "parishHq": "St. Andrew",
+  "parishes": [
+   "St. Andrew"
+  ],
+  "address": "41 Flemington Drive, Meadowbrook, Kingston 19",
+  "website": "https://www.solarfanatic.net",
+  "phone": "",
+  "email": "",
+  "batteryStorage": false,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "solarfanatic.net"
+  ],
+  "notes": "Also engineering consultancy; islandwide"
+ },
+ {
+  "slug": "solar-king",
+  "kind": "company",
+  "name": "Solar King",
+  "businessType": "Installer",
+  "tagline": "Solar installation",
+  "tags": [
+   "Solar PV"
+  ],
+  "servicesRaw": "Solar PV",
+  "city": "",
+  "parishHq": null,
+  "parishes": [],
+  "address": "",
+  "website": "",
+  "phone": "",
+  "email": "",
+  "batteryStorage": false,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "LinkedIn list (2024)"
+  ],
+  "notes": "Old list - confirm active"
+ },
+ {
+  "slug": "solart-professional-fabrication-and-installation-ltd",
+  "kind": "company",
+  "name": "Solart Professional Fabrication And Installation Ltd",
+  "businessType": "Installer",
+  "tagline": "Solar installation",
+  "tags": [
+   "Solar PV"
+  ],
+  "servicesRaw": "Solar PV",
+  "city": "Kingston",
+  "parishHq": null,
+  "parishes": [],
+  "address": "",
+  "website": "",
+  "phone": "",
+  "email": "",
+  "batteryStorage": false,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "StarOfService"
+  ],
+  "notes": ""
+ },
+ {
+  "slug": "solartech-jamaica-ltd",
+  "kind": "company",
+  "name": "Solartech Jamaica Ltd",
+  "businessType": "Installer",
+  "tagline": "Solar installation",
+  "tags": [
+   "Solar PV"
+  ],
+  "servicesRaw": "Solar PV",
+  "city": "Kingston",
+  "parishHq": null,
+  "parishes": [],
+  "address": "",
+  "website": "",
+  "phone": "",
+  "email": "",
+  "batteryStorage": false,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "StarOfService"
+  ],
+  "notes": ""
+ },
+ {
+  "slug": "soreet",
+  "kind": "company",
+  "name": "SOREET",
+  "businessType": "Installer",
+  "tagline": "Solar installation",
+  "tags": [
+   "Solar PV"
+  ],
+  "servicesRaw": "Solar PV; AC",
+  "city": "Montego Bay",
+  "parishHq": "St. James",
+  "parishes": [
+   "St. James"
+  ],
+  "address": "Mt. Salem, Montego Bay",
+  "website": "https://take.app/soreetja",
+  "phone": "",
+  "email": "",
+  "batteryStorage": false,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "take.app/soreetja"
+  ],
+  "notes": "Est. 2022; also HVAC"
+ },
+ {
+  "slug": "sunterra-energy-solutions",
+  "kind": "company",
+  "name": "SunTerra Energy Solutions",
+  "businessType": "Installer",
+  "tagline": "Solar installation",
+  "tags": [
+   "Solar PV",
+   "Battery Storage"
+  ],
+  "servicesRaw": "Solar PV; Battery Storage",
+  "city": "",
+  "parishHq": null,
+  "parishes": [],
+  "address": "",
+  "website": "",
+  "phone": "",
+  "email": "",
+  "batteryStorage": true,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "LinkedIn post"
+  ],
+  "notes": "Hybrid PV+storage - confirm details"
+ },
+ {
+  "slug": "suntrap-technologies-jamaica-ltd",
+  "kind": "company",
+  "name": "Suntrap Technologies Jamaica Ltd",
+  "businessType": "Installer",
+  "tagline": "Solar installation",
+  "tags": [
+   "Solar PV",
+   "Battery Storage"
+  ],
+  "servicesRaw": "Solar PV",
+  "city": "Kingston",
+  "parishHq": null,
+  "parishes": [],
+  "address": "",
+  "website": "",
+  "phone": "",
+  "email": "",
+  "batteryStorage": true,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "ENF Solar directory",
+   "StarOfService"
+  ],
+  "notes": ""
+ },
+ {
+  "slug": "tank-weld-group",
+  "kind": "supplier",
+  "name": "Tank-Weld Group (solar division)",
+  "businessType": "Distributor (no install)",
+  "tagline": "Solar equipment distributor",
+  "tags": [
+   "Solar PV",
+   "Battery Storage"
+  ],
+  "servicesRaw": "Panels; Inverters; Batteries",
+  "city": "Kingston",
+  "parishHq": null,
+  "parishes": [],
+  "address": "",
+  "website": "",
+  "phone": "",
+  "email": "",
+  "batteryStorage": true,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "Gleaner Jan 2026"
+  ],
+  "notes": "Supplies independent installers - good source for installer leads"
+ },
+ {
+  "slug": "the-solar-specialist",
+  "kind": "company",
+  "name": "The Solar Specialist (Green Lantan Energy)",
+  "businessType": "Installer",
+  "tagline": "Solar installation",
+  "tags": [
+   "Solar PV",
+   "Battery Storage"
+  ],
+  "servicesRaw": "Solar PV; Battery Storage",
+  "city": "Junction",
+  "parishHq": "St. Elizabeth",
+  "parishes": [
+   "St. Elizabeth"
+  ],
+  "address": "1 Market St, Junction, St. Elizabeth",
+  "website": "https://solarspecialistja.com",
+  "phone": "",
+  "email": "",
+  "batteryStorage": true,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "ENF Solar directory",
+   "LinkedIn list (2024)"
+  ],
+  "notes": ""
+ },
+ {
+  "slug": "total-solar-energy-ltd",
+  "kind": "company",
+  "name": "Total Solar Energy Ltd",
+  "businessType": "Installer + Seller",
+  "tagline": "Solar installation & equipment supply",
+  "tags": [
+   "Solar PV",
+   "Battery Storage",
+   "Off-grid"
+  ],
+  "servicesRaw": "Solar PV; Battery Storage; Off-grid; Solar freezers; Packaged systems",
+  "city": "Kingston",
+  "parishHq": "St. Andrew",
+  "parishes": [
+   "St. Andrew"
+  ],
+  "address": "46 Studio One Boulevard, Kingston 5 (Cross Roads)",
+  "website": "https://totalsolarenergyltd.com",
+  "phone": "(876) 290-6213 / (876) 562-4108; WhatsApp (876) 778-1685",
+  "email": "totalsolarenergyltd@gmail.com",
+  "batteryStorage": true,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "totalsolarenergyltd.com"
+  ],
+  "notes": "Publishes package prices (Deye 48V 6-30kW, solar freezers); some packages incl. labour - confirm install scope"
+ },
+ {
+  "slug": "tropical-battery-tropical-renewable-energy",
+  "kind": "supplier",
+  "name": "Tropical Battery / Tropical Renewable Energy",
+  "businessType": "Distributor",
+  "tagline": "Solar equipment distributor",
+  "tags": [
+   "Solar PV",
+   "Battery Storage"
+  ],
+  "servicesRaw": "Battery Storage; Solar equipment",
+  "city": "Kingston",
+  "parishHq": "St. Andrew",
+  "parishes": [
+   "St. Andrew"
+  ],
+  "address": "Ferry Pen, St. Andrew",
+  "website": "",
+  "phone": "",
+  "email": "",
+  "batteryStorage": true,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "Jamaica Observer"
+  ],
+  "notes": "~1,000 resellers; stores in Kgn, Ochi, Mandeville, MoBay"
+ },
+ {
+  "slug": "us-solar-jamaica",
+  "kind": "company",
+  "name": "Us Solar Jamaica",
+  "businessType": "Installer",
+  "tagline": "Solar installation",
+  "tags": [
+   "Solar PV"
+  ],
+  "servicesRaw": "Solar PV",
+  "city": "Kingston",
+  "parishHq": null,
+  "parishes": [],
+  "address": "",
+  "website": "",
+  "phone": "",
+  "email": "",
+  "batteryStorage": false,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "StarOfService"
+  ],
+  "notes": ""
+ },
+ {
+  "slug": "vertex-solutions",
+  "kind": "company",
+  "name": "Vertex Solutions",
+  "businessType": "Installer",
+  "tagline": "Solar installation",
+  "tags": [
+   "Solar PV",
+   "Battery Storage"
+  ],
+  "servicesRaw": "Solar PV",
+  "city": "",
+  "parishHq": null,
+  "parishes": [],
+  "address": "",
+  "website": "",
+  "phone": "",
+  "email": "",
+  "batteryStorage": true,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "ENF Solar directory"
+  ],
+  "notes": ""
+ },
+ {
+  "slug": "wigton-energy",
+  "kind": "company",
+  "name": "Wigton Energy",
+  "businessType": "Developer / Installer",
+  "tagline": "Solar developer & installer",
+  "tags": [
+   "Solar PV",
+   "Battery Storage",
+   "Commercial"
+  ],
+  "servicesRaw": "Solar PV; Commercial; Lease",
+  "city": "",
+  "parishHq": "Manchester",
+  "parishes": [
+   "Manchester"
+  ],
+  "address": "",
+  "website": "",
+  "phone": "",
+  "email": "",
+  "batteryStorage": true,
+  "sponsored": false,
+  "verified": false,
+  "checked": "",
+  "sources": [
+   "ENF Solar directory",
+   "JERA statement"
+  ],
+  "notes": "Gov't-owned; JERA lease partner - mostly C&I"
+ }
+]

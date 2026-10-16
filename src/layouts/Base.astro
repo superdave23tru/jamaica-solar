@@ -1,0 +1,143 @@
+---
+import '../styles/global.css';
+import Logo from '../components/Logo.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  section?: 'home' | 'learn' | 'find' | 'tools' | 'resources' | 'about' | 'quote';
+}
+const { title, description = 'Impartial solar information and provider directory for Jamaica. Compare costs, estimate savings and find solar companies and installers in all 14 parishes.', section } = Astro.props;
+const fullTitle = title === 'Home' ? 'Jamaica Solar — Your guide to solar in Jamaica' : `${title} · Jamaica Solar`;
+const chev = '<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9l7 7 7-7"></path></svg>';
+const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://jamaicasolar.com.jm');
+---
+<!doctype html>
+<html lang="en-JM">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{fullTitle}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+  <meta property="og:title" content={fullTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/img/hero-coast-1200.webp" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+<div class="page">
+  <header class="site-header">
+    <div class="wrap bar">
+      <a href="/" aria-label="Jamaica Solar home"><Logo /></a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav" data-menu-toggle>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <span class="sr-only">Menu</span>
+      </button>
+      <nav class="nav" id="site-nav" aria-label="Main">
+        <a href="/" class:list={[{ active: section === 'home' }]}>Home</a>
+        <details class="dd">
+          <summary class:list={[{ active: section === 'learn' }]}>Learn <Fragment set:html={chev} /></summary>
+          <div class="dd-menu">
+            <a href="/learn/">All guides<small>Plain-language solar guides for Jamaica</small></a>
+            <a href="/learn/net-billing/">JPS net billing<small>Selling power back, the 10 kW cap</small></a>
+            <a href="/learn/licences-and-approvals/">Licences &amp; approvals<small>Net billing, auxiliary, wheeling</small></a>
+            <a href="/learn/batteries/">Batteries &amp; backup<small>Is storage worth it for you?</small></a>
+            <a href="/journey/">Your solar journey<small>Six steps from bill to install</small></a>
+          </div>
+        </details>
+        <a href="/companies/" class:list={[{ active: section === 'find' }]}>Find Installers</a>
+        <details class="dd">
+          <summary class:list={[{ active: section === 'tools' }]}>Tools <Fragment set:html={chev} /></summary>
+          <div class="dd-menu">
+            <a href="/tools/calculator/">Payback calculator<small>Size, cost and savings in JMD</small></a>
+            <a href="/tools/inverter-check/">Is my inverter approved?<small>Search the BSJ approved list</small></a>
+            <a href="/quote/">Get quotes<small>One form, matched by parish</small></a>
+          </div>
+        </details>
+        <details class="dd">
+          <summary class:list={[{ active: section === 'resources' }]}>Resources <Fragment set:html={chev} /></summary>
+          <div class="dd-menu">
+            <a href="/financing/">Financing &amp; tax credit<small>Solar loans for homeowners</small></a>
+            <a href="/news/">News &amp; policy<small>Rates, rules and incentives</small></a>
+            <a href="/suppliers/">Equipment suppliers<small>Where to buy panels and batteries</small></a>
+          </div>
+        </details>
+        <a href="/methodology/" class:list={[{ active: section === 'about' }]}>About</a>
+        <a href="/companies/" class="nav-search" aria-label="Search the directory">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l4.5 4.5"></path></svg>
+        </a>
+        <a href="/quote/" class="btn btn-sun">Get Started</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <slot />
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div>
+        <div style="margin-bottom:14px"><Logo size="footer" /></div>
+        <div style="font-size:14.5px; line-height:1.6; color:#5B6B75; max-width:270px">Impartial solar information and provider directory for Jamaica.</div>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <div class="footer-links">
+          <a href="/">Home</a>
+          <a href="/journey/">Your Solar Journey</a>
+          <a href="/learn/">Learn</a>
+          <a href="/tools/calculator/">Calculator</a>
+          <a href="/news/">News</a>
+        </div>
+      </div>
+      <div>
+        <h4>Popular Topics</h4>
+        <div class="footer-links">
+          <a href="/learn/net-billing/">JPS net billing</a>
+          <a href="/financing/">Costs &amp; financing</a>
+          <a href="/tools/inverter-check/">BSJ-approved inverters</a>
+          <a href="/companies/">Provider directory</a>
+          <a href="/suppliers/">Equipment suppliers</a>
+        </div>
+      </div>
+      <div>
+        <h4>About</h4>
+        <div class="footer-links">
+          <a href="/methodology/">Methodology &amp; disclosure</a>
+          <a href="/list-your-business/">List or claim your business</a>
+          <a href="/contact/">Contact</a>
+          <a href="/privacy/">Privacy</a>
+        </div>
+      </div>
+      <div style="display:flex; align-items:flex-start; justify-content:flex-end">
+        <div class="script" style="transform:rotate(-4deg)">Cleaner Energy<br>Brighter Tomorrows
+          <svg width="150" height="10" viewBox="0 0 150 10" style="display:block; margin:2px auto 0"><path d="M3 7C40 2 110 2 147 5" stroke="#F5B92E" stroke-width="3.5" fill="none" stroke-linecap="round"></path></svg>
+        </div>
+      </div>
+    </div>
+    <div class="wrap footer-base">
+      <span>© 2026 Jamaica Solar · JamaicaSolar.com.jm · All prices in Jamaican dollars (JMD)</span>
+      <span>A cleaner, brighter, more self-reliant Jamaica.</span>
+    </div>
+  </footer>
+</div>
+<script>
+  const t = document.querySelector('[data-menu-toggle]');
+  const n = document.getElementById('site-nav');
+  t?.addEventListener('click', () => {
+    const open = n?.classList.toggle('open');
+    t.setAttribute('aria-expanded', String(!!open));
+  });
+  // close other dropdowns when one opens; close on outside click
+  const dds = Array.from(document.querySelectorAll<HTMLDetailsElement>('details.dd'));
+  dds.forEach(d => d.addEventListener('toggle', () => { if (d.open) dds.forEach(o => o !== d && (o.open = false)); }));
+  document.addEventListener('click', e => { dds.forEach(d => { if (!d.contains(e.target as Node)) d.open = false; }); });
+</script>
+</body>
+</html>

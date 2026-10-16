@@ -1,0 +1,44 @@
+---
+import Base from '../layouts/Base.astro';
+import { PARISHES, SERVICES } from '../lib/data';
+---
+<Base title="List or claim your business" description="Solar companies, individual installers and suppliers in Jamaica can be listed free on Jamaica Solar, or claim and correct an existing listing." section="about">
+  <div class="wrap" style="max-width:808px; padding-top:48px; padding-bottom:80px">
+    <div class="kicker">For solar businesses</div>
+    <h1 class="h1">List or claim your business — free</h1>
+    <p class="lede">Companies, individual installers and equipment suppliers can be listed at no cost. Already listed? Claim your page to correct details, add your logo and service area, and get the <em>Details verified</em> badge.</p>
+    <form data-list style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px">
+      <div class="field" style="grid-column:1/-1"><label for="l-claim">Claiming an existing listing?</label><input id="l-claim" name="claim" placeholder="Listing name or link (leave blank for a new listing)" /></div>
+      <div class="field"><label for="l-name">Business or trading name</label><input id="l-name" name="name" required /></div>
+      <div class="field"><label for="l-type">Type</label>
+        <select id="l-type" name="type" class="select" style="width:100%"><option>Solar company</option><option>Individual installer</option><option>Equipment supplier</option></select></div>
+      <div class="field"><label for="l-contact">Your name</label><input id="l-contact" name="contact" required /></div>
+      <div class="field"><label for="l-phone">Phone / WhatsApp</label><input id="l-phone" name="phone" required inputmode="tel" /></div>
+      <div class="field"><label for="l-email">Email</label><input id="l-email" name="email" type="email" /></div>
+      <div class="field"><label for="l-web">Website or social page</label><input id="l-web" name="website" /></div>
+      <fieldset style="grid-column:1/-1; border:1px solid #E2E8F0; border-radius:10px; padding:14px 16px">
+        <legend style="font-size:14px; font-weight:600; color:#14324F; padding:0 6px">Parishes you serve</legend>
+        <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:6px 12px; font-size:14.5px">{PARISHES.map(p => <label><input type="checkbox" name="parishes" value={p} /> {p}</label>)}</div>
+      </fieldset>
+      <fieldset style="grid-column:1/-1; border:1px solid #E2E8F0; border-radius:10px; padding:14px 16px">
+        <legend style="font-size:14px; font-weight:600; color:#14324F; padding:0 6px">Services</legend>
+        <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:6px 12px; font-size:14.5px">{SERVICES.map(s => <label><input type="checkbox" name="services" value={s} /> {s}</label>)}</div>
+      </fieldset>
+      <div class="field" style="grid-column:1/-1"><label for="l-cred">Credentials (optional)</label><input id="l-cred" name="credentials" placeholder="e.g. GER-registered electrician, NABCEP certified, inverter brands you install" /></div>
+      <div style="grid-column:1/-1; display:flex; gap:14px; align-items:center; flex-wrap:wrap">
+        <button type="submit" class="btn btn-sun btn-sq">Submit</button>
+        <span class="small" data-msg></span>
+      </div>
+    </form>
+    <div class="panel" style="margin-top:30px">Interested in a sponsored placement? Sponsored listings appear first and are always labelled. <a href="/contact/" style="text-decoration:underline">Contact us</a>.</div>
+  </div>
+</Base>
+<script>
+  const f = document.querySelector<HTMLFormElement>('[data-list]')!;
+  const claim = new URLSearchParams(location.search).get('claim');
+  if (claim) (f.elements.namedItem('claim') as HTMLInputElement).value = claim;
+  f.addEventListener('submit', e => {
+    e.preventDefault();
+    document.querySelector('[data-msg]')!.textContent = 'Preview mode: submissions are not being saved yet. Please email us in the meantime.';
+  });
+</script>

@@ -1,0 +1,79 @@
+---
+import Guide from '../../layouts/Guide.astro';
+const toc = [
+  { id: 'who', label: 'Who is involved' },
+  { id: 'routes', label: 'Three licence routes' },
+  { id: 'docs', label: 'What you need to apply' },
+  { id: 'steps', label: 'Step by step' },
+  { id: 'permits', label: 'Building permits' },
+  { id: 'unlicensed', label: 'Skipping the licence' },
+];
+const sources = [
+  { label: 'JERA / SESR-Jamaica, “Solar PV Grid Interconnection Licenses and Processes” factsheet, January 2024', url: 'https://cadmusgroup.com/wp-content/uploads/2024/03/SESR-Jamaica_Factsheet_PV-Licenses-and-Processes.pdf' },
+  { label: 'CARILEC CE Journal, Feb 2024 — interconnection types under the Electricity Act 2015', url: 'https://carilec.org/file/flipbook/38/files/basic-html/page9.html' },
+  { label: 'Jamaica Observer — “Solar energy squabble” (3 Nov 2024)', url: 'https://jamaicaobserver.com/2024/11/03/solar-energy-squabble' },
+  { label: 'Jamaica Information Service — 2026/27 Sectoral Debate (6 May 2026)', url: 'https://jis.gov.jm/?p=416479' },
+];
+---
+<Guide slug="licences-and-approvals" kicker="Approvals" updated="16 October 2026" toc={toc} sources={sources}
+  title="Licences and approvals: net billing, auxiliary and wheeling"
+  description="Which solar licence you need in Jamaica — net billing, auxiliary connection or power wheeling — plus fees, documents and the approval steps.">
+  <p class="intro">Any solar system that connects to the JPS grid needs approval. Which licence you need depends on one question: do you want to send power back to the grid?</p>
+
+  <h2 id="who">Who is involved</h2>
+  <ul>
+    <li><strong>Ministry of Energy</strong> — issues the licences and runs the net billing programme.</li>
+    <li><strong>JPS</strong> — signs the interconnection contract and connects your system.</li>
+    <li><strong>Office of Utilities Regulation (OUR)</strong> — sets the rate JPS pays for exported power.</li>
+    <li><strong>Government Electrical Regulator (GER)</strong> — registers the electrical inspectors who certify your system.</li>
+    <li><strong>Bureau of Standards Jamaica (BSJ)</strong> — approves inverters and sets equipment standards. <a href="/tools/inverter-check/">Check an inverter</a>.</li>
+  </ul>
+
+  <h2 id="routes">Three licence routes</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>&nbsp;</th><th>Net billing</th><th>Auxiliary connection</th><th>Power wheeling</th></tr></thead>
+      <tbody>
+        <tr><td><strong>What it allows</strong></td><td>Use your solar power and sell the excess to JPS</td><td>Connect to the grid, but no selling</td><td>Generate at one property, use the power at another</td></tr>
+        <tr><td><strong>System size</strong></td><td>Up to 10 kW residential; 100 kW commercial</td><td>No published limit</td><td>Over 1 MW</td></tr>
+        <tr><td><strong>Equipment</strong></td><td>BSJ-approved inverter</td><td>BSJ-approved inverter and export blocking device</td><td>BSJ-approved inverter</td></tr>
+        <tr><td><strong>Good for</strong></td><td>Most homes and small businesses</td><td>Larger homes, EV charging, high daytime use</td><td>Large businesses with several sites</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout"><strong>Note:</strong> only draft regulations exist for auxiliary connections and wheeling, and installers have reported difficulty applying for an auxiliary licence. Ask your installer how they will handle it before you sign.</div>
+
+  <h2 id="docs">What you need to apply</h2>
+  <ul>
+    <li>A completed application form</li>
+    <li>Proof you are a JPS customer (customer number and premises number)</li>
+    <li>Proof you own the property, or the owner’s written permission</li>
+    <li>A proposed electrical line diagram certified by a licensed electrician</li>
+    <li>A J$10,000 non-refundable processing fee</li>
+  </ul>
+
+  <h2 id="steps">Step by step</h2>
+  <h3>Phase 1 — Licence</h3>
+  <ol>
+    <li>Hire an installer, who prepares the application documents.</li>
+    <li>Submit the application to the Ministry.</li>
+    <li>The Ministry sends a letter when the application is approved.</li>
+    <li>Pay the licence fee — J$1,500 per kW of excess electricity permitted.</li>
+    <li>The licence is issued.</li>
+  </ol>
+  <h3>Phase 2 — Contract, install and commission</h3>
+  <ol>
+    <li>Your installer prepares and submits the contract to JPS.</li>
+    <li>JPS reviews and signs it, and shares copies with the Ministry and OUR.</li>
+    <li>The system is installed.</li>
+    <li>A GER-registered licensed electrician inspects and certifies it.</li>
+    <li>You give JPS the inspection certificate, pay a one-time use-of-system charge, and the system is commissioned.</li>
+  </ol>
+
+  <h2 id="permits">Building permits</h2>
+  <p>Some installations also need a building or environmental permit. Check with your parish municipal corporation (Local Building Authority) — contact details for every local authority are at <a href="https://localauthorities.gov.jm" target="_blank" rel="noopener">localauthorities.gov.jm</a>.</p>
+
+  <h2 id="unlicensed">What if I skip the licence?</h2>
+  <p>The Jamaica Renewable Energy Association has estimated that around half of systems never apply for a licence, citing a slow and costly process. It is tempting, especially for systems over 10 kW. But an unlicensed grid-tied system earns nothing for exported power, may have to be modified later, and can raise safety issues for line workers if it is not set up to shut off during outages.</p>
+  <p>The process is changing: the Government has said an online application platform is due by December 2026, and that licence fees and size caps are under review.</p>
+</Guide>

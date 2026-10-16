@@ -1,0 +1,118 @@
+---
+import ListingCard from './ListingCard.astro';
+import { PARISHES, SERVICES, byKind, DATA_AS_OF } from '../lib/data';
+import { checkTick } from './Icons';
+interface Props { kind: 'company' | 'installer' | 'supplier' }
+const { kind } = Astro.props;
+const items = byKind(kind);
+const copy = {
+  company: { title: 'Solar companies in Jamaica', blurb: 'Solar installation companies serving Jamaica. Listings are free; sponsored placements are labelled.', noun: 'companies' },
+  installer: { title: 'Individual solar installers', blurb: 'Individual electricians and small crews working across the island. Individual installers are listed free and cannot buy placement.', noun: 'installers' },
+  supplier: { title: 'Solar equipment suppliers', blurb: 'Retailers and distributors selling panels, inverters and batteries. Most do not install — pair them with a company or installer.', noun: 'suppliers' },
+}[kind];
+---
+<div class="page-head">
+  <div class="wrap">
+    <nav class="tabs" aria-label="Directory type">
+      <a href="/companies/" class:list={[{ on: kind === 'company' }]}>Companies</a>
+      <a href="/installers/" class:list={[{ on: kind === 'installer' }]}>Individual installers</a>
+      <a href="/suppliers/" class:list={[{ on: kind === 'supplier' }]}>Equipment suppliers</a>
+    </nav>
+    <h1 class="h1" style="font-size:36px">{copy.title}</h1>
+    <p style="font-size:16.5px; color:#5C6B80; margin:0; max-width:680px; line-height:1.55">{copy.blurb} <a href="/methodology/" style="text-decoration:underline">How we rank and label listings</a></p>
+  </div>
+</div>
+
+<div class="wrap dir">
+  <aside class="filters" aria-label="Filters" data-filters>
+    <button type="button" class="filters-toggle" aria-expanded="false" data-filters-toggle><span>Filter <span data-active-n style="font-weight:600; color:#0B6E3C"></span></span><span aria-hidden="true">▾</span></button>
+    <div class="filters-body">
+    <div class="hide-mobile-label" style="font-family:var(--display); font-weight:700; font-size:16px; color:#14324F; margin-bottom:18px">Filter</div>
+    <label class="lbl" for="f-parish">Parish</label>
+    <select id="f-parish" data-f-parish>
+      <option value="All">All 14 parishes</option>
+      {PARISHES.map(p => <option value={p}>{p}</option>)}
+    </select>
+    <div class="lbl">Service</div>
+    <div class="chip-list">
+      {['All services', ...SERVICES].map((s, i) => <button type="button" class="chip" data-f-service={s} aria-pressed={i === 0 ? 'true' : 'false'}>{s}</button>)}
+    </div>
+    <div style="height:1px; background:#EDF1F6; margin:22px 0"></div>
+    <div class="lbl">Status</div>
+    <div style="display:flex; flex-direction:column; gap:8px; margin-bottom:22px">
+      <button type="button" class="check" data-f-verified aria-pressed="false">
+        <span class="box"><Fragment set:html={checkTick} /></span>
+        <span><span class="l">Details verified</span><span class="h">Contact details confirmed with the business</span></span>
+      </button>
+      <button type="button" class="check" data-f-maint aria-pressed="false">
+        <span class="box"><Fragment set:html={checkTick} /></span>
+        <span><span class="l">Offers post-install service</span><span class="h">Maintenance and repairs after handover</span></span>
+      </button>
+    </div>
+    <button type="button" data-f-reset style="width:100%; padding:10px; border-radius:7px; border:1px solid #D8E0EA; background:#FFFFFF; cursor:pointer; font-size:14px; font-weight:600; color:#5C6B80">Clear filters</button>
+    </div>
+  </aside>
+  <div>
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:18px; flex-wrap:wrap; gap:10px; font-size:14.5px; color:#5C6B80">
+      <div data-count data-noun={copy.noun}>{items.length} {copy.noun} island-wide</div>
+      <div>{kind === 'installer' ? 'Sorted alphabetically' : 'Sorted by sponsorship, then alphabetically'}</div>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:16px">
+      {items.map(p => <ListingCard p={p} />)}
+      <div class="empty" data-empty hidden={items.length > 0}>
+        {kind === 'installer'
+          ? <span>We're adding individual installers now. <a href="/list-your-business/">Are you an installer? Get listed free →</a></span>
+          : <span>No {copy.noun} match those filters. Many listings don't have a confirmed service area yet — try "All 14 parishes".</span>}
+      </div>
+    </div>
+    <div class="panel" style="margin-top:26px">
+      Listings are free. Sponsored placement is paid and always labelled; it does not affect the information we publish about a provider.
+      Listings marked <strong>Unverified</strong> were compiled from public sources on {DATA_AS_OF} and have not yet been confirmed with the business.
+      <a href="/list-your-business/" style="text-decoration:underline">Claim or correct a listing</a> · <a href="/methodology/" style="text-decoration:underline">Read our disclosure</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  const q = new URLSearchParams(location.search);
+  const parishSel = document.querySelector<HTMLSelectElement>('[data-f-parish]')!;
+  const chips = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-f-service]'));
+  const ver = document.querySelector<HTMLButtonElement>('[data-f-verified]')!;
+  const maint = document.querySelector<HTMLButtonElement>('[data-f-maint]')!;
+  const cards = Array.from(document.querySelectorAll<HTMLElement>('[data-listing]'));
+  const count = document.querySelector<HTMLElement>('[data-count]')!;
+  const empty = document.querySelector<HTMLElement>('[data-empty]')!;
+  let service = 'All services';
+
+  if (q.get('parish')) parishSel.value = q.get('parish')!;
+  if (q.get('service')) service = q.get('service')!;
+
+  function apply() {
+    const parish = parishSel.value;
+    chips.forEach(c => c.setAttribute('aria-pressed', String(c.dataset.fService === service)));
+    let n = 0;
+    cards.forEach(c => {
+      const ok = (parish === 'All' || (c.dataset.parishes || '').split('|').includes(parish)) &&
+        (service === 'All services' || (c.dataset.tags || '').split('|').includes(service)) &&
+        (ver.getAttribute('aria-pressed') !== 'true' || c.dataset.verified === '1') &&
+        (maint.getAttribute('aria-pressed') !== 'true' || c.dataset.maint === '1');
+      c.hidden = !ok; if (ok) n++;
+    });
+    const noun = n === 1 ? count.dataset.noun!.replace(/ies$/, 'y').replace(/s$/, '') : count.dataset.noun;
+    count.textContent = `${n} ${noun} ${parish === 'All' ? 'island-wide' : 'serving ' + parish}`;
+    empty.hidden = n > 0;
+    const act = (parish !== 'All' ? 1 : 0) + (service !== 'All services' ? 1 : 0) + (ver.getAttribute('aria-pressed') === 'true' ? 1 : 0) + (maint.getAttribute('aria-pressed') === 'true' ? 1 : 0);
+    document.querySelector('[data-active-n]')!.textContent = act ? `(${act} active)` : '';
+  }
+  parishSel.addEventListener('change', apply);
+  chips.forEach(c => c.addEventListener('click', () => { service = c.dataset.fService!; apply(); }));
+  [ver, maint].forEach(b => b.addEventListener('click', () => { b.setAttribute('aria-pressed', String(b.getAttribute('aria-pressed') !== 'true')); apply(); }));
+  document.querySelector('[data-f-reset]')!.addEventListener('click', () => {
+    parishSel.value = 'All'; service = 'All services';
+    ver.setAttribute('aria-pressed', 'false'); maint.setAttribute('aria-pressed', 'false'); apply();
+  });
+  const fbox = document.querySelector<HTMLElement>('[data-filters]')!;
+  const ftog = document.querySelector<HTMLButtonElement>('[data-filters-toggle]')!;
+  ftog.addEventListener('click', () => { const o = fbox.classList.toggle('open'); ftog.setAttribute('aria-expanded', String(o)); });
+  apply();
+</script>

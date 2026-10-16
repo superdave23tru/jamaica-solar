@@ -1,0 +1,72 @@
+---
+import Base from '../layouts/Base.astro';
+import { lenders } from '../lib/data';
+const known = lenders.filter(l => l.status !== 'To research');
+const toResearch = lenders.filter(l => l.status === 'To research');
+const firstUrl = (s: string) => String(s || '').split(';')[0].trim();
+const pmt = (rate: number, years: number, amt: number) => { const r = rate / 12, n = years * 12; return amt * r / (1 - Math.pow(1 + r, -n)); };
+const terms = [5, 7, 10, 15], rates = [0.06, 0.08, 0.10, 0.12];
+---
+<Base title="Solar financing & tax credit" description="Solar loans for Jamaican homeowners — NHT Smart Energy Loan, bank and credit union options — plus the 30% solar income tax credit and example monthly payments." section="resources">
+  <div class="wrap pad-section">
+    <div class="kicker">Paying for solar</div>
+    <h1 class="h1">Financing &amp; the solar tax credit</h1>
+    <p class="lede">Most homeowners finance solar. Here are the products we have found so far, the 30% income tax credit, and what monthly payments look like. Terms change often — confirm with the lender before you apply.</p>
+
+    <div class="grid-3" style="margin-bottom:44px">
+      <div class="card" style="padding:24px; border-color:#F0DFA8; background:#FFFBF0">
+        <div class="kicker" style="color:#9A6A00">Tax credit</div>
+        <div style="font-family:var(--display); font-weight:800; font-size:34px; color:#14324F; letter-spacing:-1px">30%</div>
+        <div style="font-size:15px; color:#22314A; line-height:1.6; margin-top:6px">of the cost to buy and install solar PV, counted on costs up to J$4 million — a maximum credit of <strong>J$1.2 million</strong>. Primary residence only.</div>
+        <a href="/news/solar-income-tax-credit/" class="link-arrow" style="display:inline-block; margin-top:12px; font-size:14.5px">How it works →</a>
+      </div>
+      <div class="card" style="padding:24px">
+        <div class="kicker">NHT Smart Energy Loan</div>
+        <div style="font-family:var(--display); font-weight:800; font-size:34px; color:#14324F; letter-spacing:-1px">J$2.5M</div>
+        <div style="font-size:15px; color:#22314A; line-height:1.6; margin-top:6px">maximum, at a concessional rate, for NHT contributors who own and live in the home. Covers panels <strong>and batteries</strong>, solar water heaters and rainwater harvesting.</div>
+        <a href="https://www.nht.gov.jm/smart-energy-loan" target="_blank" rel="noopener" class="link-arrow" style="display:inline-block; margin-top:12px; font-size:14.5px">NHT details ↗</a>
+      </div>
+      <div class="card" style="padding:24px">
+        <div class="kicker">Check before you borrow</div>
+        <ul style="margin:0; padding-left:18px; font-size:15px; color:#22314A; line-height:1.7">
+          <li>Is the rate fixed, and is it per year or per month?</li>
+          <li>Does the loan cover batteries?</li>
+          <li>Must you use an approved installer?</li>
+          <li>Can it be added to your mortgage?</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 class="h2" style="font-size:26px">Lenders and products</h2>
+    <p class="small" style="margin:0 0 16px; font-size:14.5px">Rates marked “business data” come from the JERA lender catalogue (October 2023) and may not apply to homeowners. Nothing here is a recommendation; we are not financial advisers.</p>
+    <div style="overflow:auto; border:1px solid #E2E8F0; border-radius:12px; margin-bottom:16px">
+      <table class="dtable">
+        <thead><tr><th>Lender</th><th>Product</th><th>Who qualifies</th><th>Rate</th><th>Term</th><th>Max amount</th><th>Covers batteries</th><th>Source</th></tr></thead>
+        <tbody>
+          {known.map(l => (
+            <tr>
+              <td style="font-weight:600; color:#14324F">{l.lender}<div style="font-size:12px; color:#8A99AC; font-weight:500">{l.lender_type}</div></td>
+              <td>{l.product}</td>
+              <td>{l.who_qualifies || '—'}</td>
+              <td>{l.interest_rate || '—'}</td>
+              <td>{l.max_term_years ? `${l.max_term_years} yrs` : '—'}</td>
+              <td>{l.max_amount || '—'}</td>
+              <td>{l.covers_batteries || '—'}</td>
+              <td>{firstUrl(String(l.source)) ? <a href={firstUrl(String(l.source))} target="_blank" rel="noopener" style="text-decoration:underline">Link</a> : '—'}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="small" style="margin-bottom:44px; font-size:14px">Still researching: {toResearch.map(l => l.lender).join(' · ')}. Are you a lender with a solar product? <a href="/contact/">Tell us</a>.</p>
+
+    <h2 class="h2" style="font-size:26px" id="payments">Example monthly payments</h2>
+    <p class="small" style="margin:0 0 16px; font-size:14.5px">Monthly payment on a <strong>J$1,500,000</strong> loan — roughly a 3–4 kW system. Illustrative only.</p>
+    <div style="overflow:auto; border:1px solid #E2E8F0; border-radius:12px; max-width:720px">
+      <table class="dtable">
+        <thead><tr><th>Annual rate</th>{terms.map(t => <th>{t} years</th>)}</tr></thead>
+        <tbody>{rates.map(r => <tr><td style="font-weight:600; color:#14324F">{(r * 100).toFixed(0)}%</td>{terms.map(t => <td>J${Math.round(pmt(r, t, 1500000)).toLocaleString('en-US')}</td>)}</tr>)}</tbody>
+      </table>
+    </div>
+  </div>
+</Base>

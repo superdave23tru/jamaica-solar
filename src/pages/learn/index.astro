@@ -1,0 +1,24 @@
+---
+import Base from '../../layouts/Base.astro';
+import { guides } from '../../lib/data';
+---
+<Base title="Learn about solar in Jamaica" description="Plain-language guides to solar in Jamaica: net billing, licences, batteries and how solar PV works." section="learn">
+  <div class="wrap pad-section">
+    <div class="kicker">Learn about solar</div>
+    <h1 class="h1">Knowledge for a Brighter Tomorrow</h1>
+    <p class="lede">Plain-language guides for Jamaican homeowners and small businesses. Every guide lists its sources.</p>
+    <div class="grid-4" style="margin-bottom:40px">
+      {guides.map(g => (
+        <a href={`/learn/${g.slug}/`} class="article-card">
+          <div class="img" style={`background:${g.tint}`}><span style="font-size:11.5px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#fff; background:rgba(0,0,0,.18); padding:4px 8px; border-radius:4px">{g.kicker}</span></div>
+          <div class="body"><div class="t">{g.title}</div><div class="d">{g.desc}</div><span style="font-size:14px; font-weight:600; color:#0B6E3C">Read more →</span></div>
+        </a>
+      ))}
+    </div>
+    <div class="grid-3">
+      <a href="/journey/" class="guide-card"><div class="k">Start here</div><div class="t">Your solar journey: six steps from bill to install</div><div class="d">What to decide and what to ask for in writing at each stage.</div></a>
+      <a href="/financing/" class="guide-card"><div class="k">Money</div><div class="t">Financing and the 30% solar tax credit</div><div class="d">Solar loans for homeowners and how the tax credit works.</div></a>
+      <a href="/tools/inverter-check/" class="guide-card"><div class="k">Equipment</div><div class="t">Is my inverter BSJ-approved?</div><div class="d">Search 390+ inverter models on the Bureau of Standards list.</div></a>
+    </div>
+  </div>
+</Base>

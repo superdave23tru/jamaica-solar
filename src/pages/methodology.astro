@@ -1,0 +1,37 @@
+---
+import Base from '../layouts/Base.astro';
+import { shield } from '../components/Icons';
+import { DATA_AS_OF } from '../lib/data';
+---
+<Base title="Methodology & disclosure" description="How Jamaica Solar lists providers, what we verify, how sponsored placement works and the assumptions behind our calculator." section="about">
+  <div class="wrap" style="max-width:808px; padding-top:48px; padding-bottom:80px">
+    <h1 class="h1">Methodology &amp; disclosure</h1>
+    <p style="font-size:19px; line-height:1.65; color:#22314A; margin:0 0 30px">How listings appear, what we check, and how we make money.</p>
+    <div style="display:flex; flex-direction:column; gap:24px">
+      <div class="m-card"><h2>Free listings for everyone</h2><p>Any solar company, individual installer or equipment supplier operating in Jamaica can be listed at no cost. We do not remove or downgrade a provider for declining to pay.</p></div>
+      <div class="m-card sun"><h2>Sponsored placement is paid and labelled</h2><p>Companies can pay for higher placement in directory results and on the homepage. Every paid position carries a “Sponsored” label. Paid placement never changes the facts we publish about a provider, and it does not affect guides, news coverage or calculator assumptions. Individual installers cannot buy placement.</p></div>
+      <div class="m-card">
+        <h2>Our badges</h2>
+        <div style="display:flex; gap:22px; flex-wrap:wrap; margin:14px 0">
+          <div style="flex:1; min-width:210px; padding:16px; border:1px solid #E2E8F0; border-radius:10px">
+            <span class="badge-verified" style="margin-bottom:10px"><Fragment set:html={shield} />Details verified</span>
+            <div style="font-size:15px; line-height:1.6; color:#22314A">We have confirmed the provider’s contact details and business registration directly, and show the date checked. It cannot be bought.</div>
+          </div>
+          <div style="flex:1; min-width:210px; padding:16px; border:1px dashed #C6D0DC; border-radius:10px">
+            <span class="badge-unverified" style="margin-bottom:10px">Unverified</span>
+            <div style="font-size:15px; line-height:1.6; color:#22314A">Compiled from public sources (directories, websites, press) and not yet confirmed with the business. Our first listings were compiled on {DATA_AS_OF}.</div>
+          </div>
+          <div style="flex:1; min-width:210px; padding:16px; border:1px solid #F0DFA8; background:#FFFBF0; border-radius:10px">
+            <span class="badge-sponsored" style="margin-bottom:10px">Sponsored</span>
+            <div style="font-size:15px; line-height:1.6; color:#22314A">A paid placement disclosure. It says nothing about quality, approval status or the facts we publish.</div>
+          </div>
+        </div>
+        <p>We do not show “JPS-approved” badges: JPS does not publish an approved-installer register. What the rules do require is a <a href="/tools/inverter-check/">BSJ-approved inverter</a> and inspection by a GER-registered licensed electrician, so those are the credentials we will show once a provider confirms them.</p>
+      </div>
+      <div class="m-card"><h2>Ranking below the sponsored block</h2><p>Organic listings are ordered alphabetically within the filters you apply. There is no hidden quality score and no way to buy an organic position.</p></div>
+      <div class="m-card"><h2>What we verify, and what we do not</h2><p>We confirm contact details, business registration and licence details when a provider supplies them, and publish the date last checked. Service areas, years in operation and services offered are self-reported. We do not inspect installations, guarantee pricing, or endorse any provider.</p></div>
+      <div class="m-card" id="calculator"><h2>Calculator assumptions</h2><p>Default estimates use a residential rate of J$47 per kWh, installed cost of J$355,000 per kW plus a J$180,000 fixed allowance for mounting, wiring and permits, 4.6 peak sun hours per day, 82% of the bill offset and 6% annual electricity price inflation. You can change the rate and cost per kW on the calculator. All figures are in Jamaican dollars and are estimates only — compare written quotes.</p></div>
+      <div class="m-card"><h2>Sources and corrections</h2><p>Guides and news link to the regulator, ministry, standards bureau or press report they rely on. If something is wrong or out of date, <a href="/contact/">tell us</a> and we will correct it.</p></div>
+    </div>
+  </div>
+</Base>

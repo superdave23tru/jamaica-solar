@@ -1,0 +1,34 @@
+---
+import Base from '../../layouts/Base.astro';
+import { news } from '../../lib/data';
+const tints: Record<string, string> = { Policy: 'linear-gradient(135deg,#14324F,#17457F)', Incentives: 'linear-gradient(135deg,#F5B92E,#E0A514)', Market: 'linear-gradient(135deg,#0B6E3C,#08532C)' };
+---
+<Base title="Solar news & policy" description="Changes to rates, rules and incentives that affect what solar costs in Jamaica." section="resources">
+  <div class="wrap pad-section">
+    <h1 class="h1">Solar news &amp; policy</h1>
+    <p class="lede">Changes to rates, rules and incentives that affect what solar costs in Jamaica. Every story links to its source.</p>
+    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:30px">
+      {['All', 'Policy', 'Incentives', 'Market'].map((c, i) => <button type="button" class="pill-btn" data-cat={c} aria-pressed={i === 0 ? 'true' : 'false'}>{c === 'All' ? 'All news' : c}</button>)}
+    </div>
+    <div class="grid-3">
+      {news.map(n => (
+        <a href={`/news/${n.slug}/`} class="news-card" data-item={n.category}>
+          <div class="img" style={`background:${tints[n.category]}`}></div>
+          <div class="body">
+            <div style="display:flex; gap:10px; align-items:center"><span class="cat">{n.category}</span><span style="font-size:12.5px; color:#8A99AC">{n.date}</span></div>
+            <div class="t">{n.title}</div>
+            <div class="d">{n.excerpt}</div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</Base>
+<script>
+  const btns = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-cat]'));
+  const items = Array.from(document.querySelectorAll<HTMLElement>('[data-item]'));
+  btns.forEach(b => b.addEventListener('click', () => {
+    btns.forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+    items.forEach(i => i.hidden = b.dataset.cat !== 'All' && i.dataset.item !== b.dataset.cat);
+  }));
+</script>

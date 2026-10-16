@@ -1,0 +1,44 @@
+---
+import Base from '../layouts/Base.astro';
+const steps = [
+  { n: '1', label: 'Understand your bill', body: 'Read your JPS bill and find the daytime usage a system can actually offset.', ask: 'Twelve months of JPS bills, and a note of which appliances run between 8am and 4pm.', action: 'Read the net billing guide', href: '/learn/net-billing/' },
+  { n: '2', label: 'Estimate size and cost', body: 'Get a ballpark system size in kW, installed cost in JMD and payback period. Check whether you will be over the 10 kW net billing cap.', ask: 'System size in kW, not panel count. Installed cost in JMD, and whether a detailed site study is needed.', action: 'Open the calculator', href: '/tools/calculator/' },
+  { n: '3', label: 'Shortlist providers', body: 'Filter companies and individual installers by parish and service.', ask: 'Parishes actually served, years in business, references, and whether the provider offers post-install service.', action: 'Browse the directory', href: '/companies/' },
+  { n: '4', label: 'Compare written quotes', body: 'Request quotes through one form and compare them on kW, warranty and inverter brand.', ask: 'Written quotes on the same system size, with warranty terms, inverter make and model (check it is BSJ-approved), and who files the licence application.', action: 'Get a quote', href: '/quote/' },
+  { n: '5', label: 'Approval and install', body: 'Confirm who applies for the licence, then track approval, inspection and commissioning.', ask: 'Which licence route (net billing or auxiliary), the fees, the expected timeline, and who is responsible if approval is delayed.', action: 'Read about licences', href: '/learn/licences-and-approvals/' },
+  { n: '6', label: 'Service and monitoring', body: 'Know who maintains the system, what is covered and who to call when output drops.', ask: 'What maintenance costs per visit, what the warranty covers, post-storm inspection, and who to call when output drops.', action: 'Find service providers', href: '/companies/?service=Maintenance' },
+];
+---
+<Base title="Your solar journey" description="Six steps from your JPS bill to a solar system you can service — what to decide and what to ask for in writing at each stage." section="learn">
+  <div style="background:#14324F; color:#FFFFFF; padding:52px 0 56px">
+    <div class="wrap">
+      <div style="display:flex; align-items:center; gap:12px; margin-bottom:14px">
+        <span style="width:34px; height:3px; background:#F5B92E; border-radius:2px"></span>
+        <span style="font-size:12.5px; font-weight:700; letter-spacing:1.6px; text-transform:uppercase; color:#F5B92E">Your Solar Journey</span>
+      </div>
+      <h1 style="font-family:var(--display); font-size:clamp(32px,5vw,44px); line-height:1.08; letter-spacing:-1.5px; font-weight:800; margin:0 0 16px; max-width:760px">From your JPS bill to a system you can service</h1>
+      <p style="font-size:18.5px; line-height:1.6; color:#C8D8EC; margin:0; max-width:640px">Six stages in order. Each one tells you what to decide and what to ask for in writing.</p>
+    </div>
+  </div>
+  <div class="wrap" style="max-width:948px; padding-top:52px; padding-bottom:76px; display:flex; flex-direction:column; gap:18px">
+    {steps.map(j => (
+      <div class="step">
+        <div class="n">{j.n}</div>
+        <div style="min-width:0">
+          <h2 style="font-family:var(--display); font-size:22px; letter-spacing:-.5px; font-weight:700; color:#14324F; margin:0 0 8px">{j.label}</h2>
+          <p style="font-size:16.5px; line-height:1.66; color:#22314A; margin:0 0 14px">{j.body}</p>
+          <div style="font-size:12px; font-weight:700; letter-spacing:1.1px; text-transform:uppercase; color:#8A99AC; margin-bottom:8px">Ask for</div>
+          <div style="font-size:15.5px; line-height:1.6; color:#5C6B80; margin-bottom:16px">{j.ask}</div>
+          <a href={j.href} class="link-arrow">{j.action} →</a>
+        </div>
+      </div>
+    ))}
+    <div style="margin-top:14px; padding:26px; background:#FFFBF0; border:1px solid #F0DFA8; border-radius:12px; display:flex; gap:20px; align-items:center; flex-wrap:wrap">
+      <div style="flex:1; min-width:220px">
+        <div style="font-family:var(--display); font-weight:700; font-size:19px; color:#14324F; margin-bottom:6px">Ready for stage four?</div>
+        <div style="font-size:15px; color:#5C6B80">One form, routed to providers serving your parish.</div>
+      </div>
+      <a href="/quote/" class="btn btn-sun btn-sq" style="padding:14px 24px; font-size:15.5px">Get a Quote</a>
+    </div>
+  </div>
+</Base>

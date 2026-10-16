@@ -1,0 +1,48 @@
+---
+import Guide from '../../layouts/Guide.astro';
+const toc = [
+  { id: 'how', label: 'How it works' },
+  { id: 'parts', label: 'The main parts' },
+  { id: 'clouds', label: 'Clouds and night' },
+  { id: 'life', label: 'How long it lasts' },
+  { id: 'storms', label: 'Hurricanes' },
+  { id: 'installer', label: 'Choosing an installer' },
+];
+const sources = [
+  { label: 'JERA / SESR-Jamaica, “Frequently Asked Questions”', url: 'https://cadmusgroup.com/?p=19974' },
+  { label: 'JERA / SESR-Jamaica, “Solar PV for Jamaican Businesses” factsheet', url: 'https://cadmusgroup.com/?p=19974' },
+];
+---
+<Guide slug="how-solar-pv-works" kicker="Basics" updated="16 October 2026" toc={toc} sources={sources}
+  title="How solar PV works"
+  description="A plain-language guide to solar panels, inverters and the grid in Jamaica: how a system works, how long it lasts and what to look for.">
+  <p class="intro">Solar photovoltaic (PV) panels turn sunlight into electricity. In Jamaica, with strong sun all year, a well-installed system can supply a large share of a home’s daytime power for decades.</p>
+
+  <h2 id="how">How it works</h2>
+  <ol>
+    <li>Cells in the panels convert sunlight into direct current (DC) electricity.</li>
+    <li>An <strong>inverter</strong> converts DC into the alternating current (AC) your home uses.</li>
+    <li>Your home uses that power first. Any surplus can be stored in a battery or sent to the grid.</li>
+    <li>Power exported to JPS can be credited on your bill under <a href="/learn/net-billing/">net billing</a>.</li>
+  </ol>
+
+  <h2 id="parts">The main parts</h2>
+  <ul>
+    <li><strong>Panels</strong> — rated in watts (e.g. 550 W). System size is the total, in kilowatts (kW).</li>
+    <li><strong>Inverter</strong> — the most important electronic part. It must be on the <a href="/tools/inverter-check/">BSJ approved list</a> to connect to the grid.</li>
+    <li><strong>Mounting</strong> — racking rated for your roof type and for hurricane winds.</li>
+    <li><strong>Battery</strong> (optional) — stores power for the evening and for outages. See <a href="/learn/batteries/">batteries</a>.</li>
+  </ul>
+
+  <h2 id="clouds">Clouds and night</h2>
+  <p>Panels still produce on cloudy days, just less. They produce nothing at night, so without a battery your evening power comes from JPS.</p>
+
+  <h2 id="life">How long it lasts</h2>
+  <p>Typical solar systems generate electricity for <strong>25 to 35 years</strong>, though some parts — especially inverters and batteries — may need replacing along the way. Batteries usually last 5 to 15 years. Panels are very reliable: a U.S. study of 54,000 systems found fewer than 0.05% of panels needed replacing each year.</p>
+
+  <h2 id="storms">Hurricanes</h2>
+  <p>Systems can be designed to better withstand extreme weather. Ask about the wind rating of the mounting system, how panels are fixed to your roof type, and whether the installer will inspect the system after a storm.</p>
+
+  <h2 id="installer">Choosing an installer</h2>
+  <p>Confirm the installer is licensed and insured, has relevant experience, and can give you references. Compare written quotes on the same system size in kW, the inverter brand and model, warranty terms, and who handles the licence application. <a href="/companies/">Browse providers →</a></p>
+</Guide>

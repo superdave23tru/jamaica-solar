@@ -1,0 +1,110 @@
+// Site data. For now this reads JSON generated from the seed workbook (scripts/build_data.py).
+// Later: swap these loaders for Supabase queries at build time — page code does not change.
+import providersJson from '../data/providers.json';
+import lendersJson from '../data/lenders.json';
+import invertersJson from '../data/inverters.json';
+
+export type Provider = {
+  slug: string; kind: 'company' | 'installer' | 'supplier'; name: string; businessType: string;
+  tagline: string; tags: string[]; servicesRaw: string; city: string; parishHq: string | null;
+  parishes: string[]; address: string; website: string; phone: string; email: string;
+  batteryStorage: boolean; sponsored: boolean; verified: boolean; checked: string;
+  sources: string[]; notes: string;
+};
+
+export const PARISHES = ['Kingston', 'St. Andrew', 'St. Thomas', 'Portland', 'St. Mary', 'St. Ann', 'Trelawny',
+  'St. James', 'Hanover', 'Westmoreland', 'St. Elizabeth', 'Manchester', 'Clarendon', 'St. Catherine'];
+
+export const SERVICES = ['Solar PV', 'Battery Storage', 'Water Heaters', 'Maintenance', 'Off-grid', 'Commercial'];
+
+export const DATA_AS_OF = '15 October 2026';
+
+export const providers = (providersJson as Provider[]);
+export const byKind = (k: Provider['kind']) =>
+  providers.filter(p => p.kind === k).sort((a, b) => Number(b.sponsored) - Number(a.sponsored) || a.name.localeCompare(b.name));
+
+export const initials = (name: string) =>
+  name.replace(/\(.*?\)/g, '').split(/[\s/&-]+/).filter(w => /^[A-Za-z]/.test(w) && !['and', 'of', 'the', 'ltd', 'limited'].includes(w.toLowerCase()))
+    .slice(0, 2).map(w => w[0].toUpperCase()).join('');
+
+export const areaLabel = (p: Provider) =>
+  p.parishes.length ? p.parishes.join(', ') : (p.city ? `${p.city} (parish not yet confirmed)` : 'Service area not yet confirmed');
+
+export const hostOf = (url: string) => { try { return new URL(url).host.replace(/^www\./, ''); } catch { return url; } };
+
+export type Lender = Record<string, string | number>;
+export const lenders = lendersJson as Lender[];
+
+export type Inverter = { brand: string; model: string; key: string; kw: number | null; output: string; voltage: string;
+  size: string; hybrid: boolean; report: string; status: string; date: string; issue: string };
+export const inverters = invertersJson as Inverter[];
+
+// ---- Editorial content (replace placeholder news in the mockup with real, sourced items) ----
+export type NewsItem = { slug: string; category: 'Policy' | 'Incentives' | 'Market'; date: string; title: string; excerpt: string;
+  body: string[]; takeaway?: string; source: { label: string; url: string } };
+
+export const news: NewsItem[] = [
+  {
+    slug: 'net-billing-cap-review-2026', category: 'Policy', date: '6 May 2026',
+    title: 'Government reviewing the 10 kW net billing cap, with batteries and EV charging in view',
+    excerpt: 'The Energy Minister told Parliament the residential cap and licence fees are under review, and an online application platform is due by December 2026.',
+    body: [
+      'In the 2026/27 Sectoral Debate, Energy Minister Daryl Vaz said the Ministry has started discussions with JPS to raise the net billing threshold and to bring battery storage into the programme.',
+      'He said the Ministry is reviewing licence fees and the system capacity limits — currently 10 kW for residential and 100 kW for commercial customers — to better support modern needs such as electric-vehicle charging.',
+      'The net billing terms of reference have been completed, and a fully online application platform is expected to be operational by December 2026. The Government is also targeting an additional 100 MW of distributed renewable energy through a strengthened net billing programme.',
+    ],
+    takeaway: 'Nothing has changed yet. Today, a home system that sells power back to JPS is still capped at 10 kW. If you need more than that, ask your installer about an export-limited (auxiliary) setup, and watch for the new rules.',
+    source: { label: 'Jamaica Information Service, 6 May 2026', url: 'https://jis.gov.jm/?p=416479' },
+  },
+  {
+    slug: 'tank-weld-solar-distribution', category: 'Market', date: '28 January 2026',
+    title: 'Tank-Weld launches a solar distribution division after Hurricane Melissa',
+    excerpt: 'The construction supplier now sells panels, inverters and batteries to independent installers, citing a surge in demand in western Jamaica.',
+    body: [
+      'Tank-Weld Group has launched a solar division supplying panels, inverters and batteries across the Caribbean, as demand rose following Hurricane Melissa’s damage to grid infrastructure in western Jamaica.',
+      'The company does not install systems itself. It supplies independent installers serving residential and commercial customers, and says falling battery prices are driving residential demand.',
+    ],
+    takeaway: 'More distributors usually means better equipment availability and pricing for installers — but always check that the inverter in your quote is on the BSJ approved list.',
+    source: { label: 'Jamaica Gleaner, 28 January 2026', url: 'https://www.jamaica-gleaner.com/article/business/20260128/tank-weld-enters-solar-distribution-market' },
+  },
+  {
+    slug: 'electricity-licence-negotiating-team', category: 'Policy', date: '18 December 2025',
+    title: 'Government forms team to negotiate a new electricity licence framework',
+    excerpt: 'The Energy Ministry says a negotiating team will develop a new licensing arrangement for Jamaica’s electricity sector.',
+    body: [
+      'At a December 2025 press conference, Energy Minister Daryl Vaz said a negotiating team has been established to develop a new electricity licensing arrangement, saying the Government wants a licence that protects the interests of all stakeholders.',
+      'The announcement came alongside discussion of a seven per cent adjustment in JPS bills for customers with active supply.',
+    ],
+    source: { label: 'Jamaica Information Service, 18 December 2025', url: 'https://jis.gov.jm/govt-establishes-negotiating-team-to-advance-new-electricity-licensing-framework/' },
+  },
+  {
+    slug: 'unlicensed-solar-systems', category: 'Policy', date: '3 November 2024',
+    title: 'Renewable energy association says about half of systems skip licensing',
+    excerpt: 'The JREA estimated roughly 50% of renewable systems in Jamaica never apply for a licence, citing a slow and costly process.',
+    body: [
+      'The Jamaica Renewable Energy Association said it estimates around half of renewable energy systems in Jamaica do not apply for a licence, and criticised the net billing process as inefficient.',
+      'The Energy Ministry said residential (Rate 10) customers who install solar for their own use need an Auxiliary Connections licence. The association disputed that such a licence could currently be applied for, noting the regulations for auxiliary connections remain in draft.',
+    ],
+    takeaway: 'An unlicensed grid-tied system is a risk: it may need changes later, and it cannot earn credits for exported power. Ask your installer in writing which licence route your system will use.',
+    source: { label: 'Jamaica Observer, 3 November 2024', url: 'https://jamaicaobserver.com/2024/11/03/solar-energy-squabble' },
+  },
+  {
+    slug: 'solar-income-tax-credit', category: 'Incentives', date: '27 July 2024',
+    title: 'Homeowners can claim a 30% income tax credit on solar PV',
+    excerpt: 'The credit covers 30% of purchase and installation costs up to J$4 million, so a maximum credit of J$1.2 million, for a primary residence.',
+    body: [
+      'The Senate approved an Income Tax amendment giving taxpayers a credit of 30% of the cost of buying and installing a solar PV system, counted on costs up to J$4 million — a maximum credit of J$1.2 million.',
+      'The system must be at the taxpayer’s primary residence. Critics noted the credit is of little use to people at or below the income tax threshold, and excludes homes used as business premises.',
+    ],
+    takeaway: 'Check the current claim process with Tax Administration Jamaica before you buy, and keep your invoice and installation paperwork.',
+    source: { label: 'Jamaica Gleaner, 27 July 2024', url: 'https://jamaica-gleaner.com/article/lead-stories/20240727/jamaicans-benefit-income-tax-credit-solar-systems' },
+  },
+];
+
+export type Guide = { slug: string; kicker: string; title: string; desc: string; tint: string };
+export const guides: Guide[] = [
+  { slug: 'net-billing', kicker: 'Bills & savings', title: 'How JPS net billing works, and the 10 kW cap', desc: 'What you are paid for exports, and how it shapes system size.', tint: 'linear-gradient(135deg,#0B6E3C,#14324F)' },
+  { slug: 'licences-and-approvals', kicker: 'Approvals', title: 'Licences and approvals: net billing, auxiliary and wheeling', desc: 'Which route fits your system, the fees, and the steps.', tint: 'linear-gradient(135deg,#14324F,#17457F)' },
+  { slug: 'batteries', kicker: 'Batteries', title: 'Do you need battery storage?', desc: 'Backup during outages, using more of your own power, and costs.', tint: 'linear-gradient(135deg,#F5B92E,#E0A514)' },
+  { slug: 'how-solar-pv-works', kicker: 'Basics', title: 'How solar PV works', desc: 'Panels, inverters and the grid, in plain language.', tint: 'linear-gradient(135deg,#08532C,#0B6E3C)' },
+];

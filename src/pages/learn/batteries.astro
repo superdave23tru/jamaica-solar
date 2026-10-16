@@ -1,0 +1,47 @@
+---
+import Guide from '../../layouts/Guide.astro';
+const toc = [
+  { id: 'outages', label: 'Will solar work in a power cut?' },
+  { id: 'why', label: 'Why add a battery' },
+  { id: 'when', label: 'When it is worth it' },
+  { id: 'types', label: 'Lithium vs. lead-acid' },
+  { id: 'offgrid', label: 'Going off-grid' },
+  { id: 'rules', label: 'Rules and inspection' },
+];
+const sources = [
+  { label: 'JERA / SESR-Jamaica, “Solar PV + Storage for Jamaican Businesses” factsheet', url: 'https://cadmusgroup.com/?p=19974' },
+  { label: 'JERA / SESR-Jamaica, “Frequently Asked Questions”', url: 'https://cadmusgroup.com/?p=19974' },
+  { label: 'JERA / SESR-Jamaica, “Solar PV Grid Interconnection Licenses and Processes” factsheet, January 2024', url: 'https://cadmusgroup.com/wp-content/uploads/2024/03/SESR-Jamaica_Factsheet_PV-Licenses-and-Processes.pdf' },
+  { label: 'Jamaica Information Service — battery storage in net billing review (6 May 2026)', url: 'https://jis.gov.jm/?p=416479' },
+];
+---
+<Guide slug="batteries" kicker="Batteries" updated="16 October 2026" toc={toc} sources={sources}
+  title="Do you need battery storage, or just a bigger array?"
+  description="Solar batteries in Jamaica: backup during outages, getting more value from your own power under net billing, battery life and what to ask installers.">
+  <p class="intro">After Hurricane Melissa, many households learned the hard way that a standard grid-tied solar system goes dark when the grid does. A battery changes that — but it adds cost, so it is worth understanding what you are paying for.</p>
+
+  <h2 id="outages">Will my solar work in a power cut?</h2>
+  <p><strong>Not without a battery.</strong> A grid-tied system automatically shuts off during an outage to protect line workers repairing the network. A system with battery storage (often called “PV+”) can keep supplying power when the grid is down. How much and for how long depends on the battery size and what you run.</p>
+
+  <h2 id="why">Why add a battery</h2>
+  <ul>
+    <li><strong>Backup power</strong> during outages, including after storms.</li>
+    <li><strong>Use more of your own solar.</strong> Exported power earns far less than the retail price, so storing midday surplus for the evening is usually worth more than selling it.</li>
+    <li><strong>Get past the 10 kW cap.</strong> Above 10 kW you generally cannot sell the surplus, so storing it is the main way to use it.</li>
+    <li><strong>Cut demand charges</strong> for businesses billed on peak demand.</li>
+  </ul>
+
+  <h2 id="when">When it is worth it</h2>
+  <p>If most of your electricity is used during the day while the panels are producing, a battery may add little financially — though it still gives backup. If most of your use is in the evening and your array produces a surplus at midday, a battery lets you use that power yourself instead of exporting it cheaply.</p>
+  <div class="callout"><strong>Ask your installer:</strong> which circuits will the battery back up (whole house or essentials only)? How many hours of backup at your typical evening load? What does the battery warranty cover, and for how many cycles?</div>
+
+  <h2 id="types">Lithium vs. lead-acid</h2>
+  <p>Lead-acid batteries are cheaper but have shorter lives and are less efficient. Lithium-ion costs more upfront but lasts longer and uses more of its stored energy. Either way, batteries wear out: expect a useful life of <strong>5 to 15 years</strong>, while panels last <strong>25 to 35 years</strong> — so plan to replace the battery at least once.</p>
+
+  <h2 id="offgrid">Going off-grid</h2>
+  <p>It is possible, but demanding: you need enough panels to produce a full day’s power during daylight, and enough battery to cover nights and cloudy spells. Most households stay grid-connected and use batteries for backup and evening use.</p>
+
+  <h2 id="rules">Rules and inspection</h2>
+  <p>Battery systems must comply with the Jamaica Electricity Sector Book of Codes and BSJ standards, and grid-connected systems with storage are inspected by a licensed electrician before commissioning. Most battery-ready setups use a <strong>hybrid inverter</strong> — check that yours is on the <a href="/tools/inverter-check/">BSJ approved inverter list</a>.</p>
+  <p>The Government said in May 2026 that it plans to incorporate battery storage into the net billing programme. We will update this guide when the rules change.</p>
+</Guide>

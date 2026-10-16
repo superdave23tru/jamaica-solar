@@ -1,0 +1,73 @@
+---
+import Guide from '../../layouts/Guide.astro';
+const toc = [
+  { id: 'what', label: 'What net billing is' },
+  { id: 'vs', label: 'Net billing vs. net metering' },
+  { id: 'rate', label: 'What JPS pays for exports' },
+  { id: 'cap', label: 'The 10 kW cap' },
+  { id: 'sizing', label: 'Sizing a system' },
+  { id: 'apply', label: 'Applying for a licence' },
+  { id: 'mistakes', label: 'Common mistakes' },
+];
+const sources = [
+  { label: 'JERA / SESR-Jamaica, “Solar PV Grid Interconnection Licenses and Processes” factsheet, January 2024', url: 'https://cadmusgroup.com/wp-content/uploads/2024/03/SESR-Jamaica_Factsheet_PV-Licenses-and-Processes.pdf' },
+  { label: 'Office of Utilities Regulation — Net Billing (monthly validated export rates)', url: 'https://our.org.jm/sectors/electricity/net-billing/' },
+  { label: 'OUR Public Notice: Validated Net Billing Energy Rate, July 2024', url: 'https://our.org.jm/wp-content/uploads/2024/09/Public-Notice-Net-Billing-SOC-Rate-2024-July.pdf' },
+  { label: 'Jamaica Gleaner — Electricity (Net Billing) Regulations, 2022 debated in Parliament', url: 'https://past.jamaica-gleaner.com/article/news/20220721/regulations-selling-excess-electricity-jps-coming' },
+  { label: 'Jamaica Information Service — 2026/27 Sectoral Debate: net billing cap and licence fee review (6 May 2026)', url: 'https://jis.gov.jm/?p=416479' },
+];
+---
+<Guide slug="net-billing" kicker="Bills & savings" updated="16 October 2026" toc={toc} sources={sources}
+  title="How JPS net billing works, and what it means for your bill"
+  description="JPS net billing explained: what you are paid for exported solar power, the 10 kW residential cap, licence fees and how to size a system in Jamaica.">
+  <p class="intro">If you install solar in Jamaica and want to send your surplus power to the grid, you do it under the net billing programme. The rules decide how much of your bill a system can realistically remove, so they shape the size of system worth buying.</p>
+
+  <div class="callout callout-sun"><strong style="color:#14324F">Rules under review (2026):</strong> the Government said in May 2026 that it is reviewing the 10 kW residential cap and licence fees, and plans to bring battery storage into net billing. A fully online application platform is expected by December 2026. Everything below reflects the rules in force today. <a href="/news/net-billing-cap-review-2026/">Read the update →</a></div>
+
+  <h2 id="what">What net billing is</h2>
+  <p>Under net billing your solar system supplies your home first. Anything you do not use in the moment is exported to the grid and credited on your bill at a rate set by the Office of Utilities Regulation (OUR) — not at the retail rate you pay for power you import. The two rates are different, and the gap is the single most important number in a Jamaican solar business case.</p>
+  <div class="callout"><strong>In practice:</strong> the export rate has typically been about one-third of the retail price of electricity. So a kilowatt-hour you use yourself is worth roughly three times one you export. Systems sized to daytime use, not to total monthly consumption, tend to pay back fastest.</div>
+
+  <h2 id="vs">Net billing vs. net metering</h2>
+  <p>Net metering, used in some other markets, spins your meter backwards and credits exports at the full retail rate. Jamaica does not use that model. If a salesperson quotes savings that assume every kilowatt-hour you generate is worth the retail rate, the projection is too optimistic.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>&nbsp;</th><th>Net billing (Jamaica)</th><th>Net metering</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Export credit</strong></td><td>Regulated avoided-cost rate, set monthly</td><td>Full retail rate</td></tr>
+        <tr><td><strong>Best strategy</strong></td><td>Match daytime load</td><td>Match annual load</td></tr>
+        <tr><td><strong>Battery value</strong></td><td>High — shifts export to self-use</td><td>Mainly backup</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="rate">What JPS pays for exports</h2>
+  <p>The OUR validates the net billing energy rate every month and publishes it on its website. The formula is JPS’s short-term variable “avoided cost” of generation plus a 15% premium for renewable energy. For example, the validated rate for July 2024 was J$24.37 per kWh.</p>
+  <p>Credits for exported power appear on each bill and offset later purchases. Any net credit owed to you is settled twice a year, on 30 June and 31 December.</p>
+
+  <h2 id="cap">The 10 kW cap</h2>
+  <p>To sell power back under net billing, a <strong>residential system can be no larger than 10 kW</strong> and a <strong>commercial system no larger than 100 kW</strong>. That is enough for many homes, but not for a large house with several air conditioners and an electric car.</p>
+  <p>If you need a bigger system, the alternative today is an <strong>auxiliary connection</strong>: you stay connected to the grid but do not export, using a blocking device so no surplus flows to JPS. You get no credit for excess power, so batteries matter more. See <a href="/learn/licences-and-approvals/">licences and approvals</a> for how the routes compare.</p>
+
+  <h2 id="sizing">Sizing a system for net billing</h2>
+  <p>Start from your last twelve JPS bills, not from your roof. Work out how much of your usage happens between 8am and 4pm — pumps, refrigeration, air conditioning, home offices — and size the array around that. Households where everyone is out during the day usually get better value from a smaller array plus a battery than from a large array alone.</p>
+
+  <h2 id="apply">Applying for a licence</h2>
+  <p>Grid-tied systems need a licence before they are energised. Your installer normally prepares the application. As of January 2024 the published process was:</p>
+  <ol>
+    <li><strong>Apply to the Energy Ministry</strong> with the application form, your JPS customer and premises numbers, proof of ownership (or the owner’s permission), and a line diagram certified by a licensed electrician. Processing fee: <strong>J$10,000</strong>, non-refundable.</li>
+    <li><strong>Pay the licence fee</strong> once approved: <strong>J$1,500 per kW</strong> of export capacity permitted. Net billing licences are valid for 10 years.</li>
+    <li><strong>Sign the JPS contract.</strong> JPS issues a standard offer (net billing) contract, which it must do within 30 days of receiving your licence.</li>
+    <li><strong>Install, inspect and commission.</strong> The inverter must be on the <a href="/tools/inverter-check/">BSJ approved list</a>. A GER-registered licensed electrician inspects and certifies the system, and you pay JPS a one-time use-of-system charge.</li>
+  </ol>
+  <p>Ask your installer, in writing, who files the application, what the fees will be, and how long approval typically takes in your parish.</p>
+
+  <h2 id="mistakes">Common mistakes</h2>
+  <ul>
+    <li>Accepting savings figures with no stated assumption about the export rate.</li>
+    <li>Oversizing the array to zero out a bill that includes fixed charges you will still pay.</li>
+    <li>Buying more than 10 kW for a home and expecting to sell the surplus to JPS.</li>
+    <li>Comparing quotes on panel count instead of kW, warranty terms and inverter brand.</li>
+    <li>Signing before confirming who applies for the licence — and that the inverter is BSJ-approved.</li>
+  </ul>
+</Guide>

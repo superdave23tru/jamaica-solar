@@ -1,0 +1,37 @@
+---
+import type { Provider } from '../lib/data';
+import { initials, areaLabel, hostOf } from '../lib/data';
+import { pin, wrench, shield, globe } from './Icons';
+interface Props { p: Provider }
+const { p } = Astro.props;
+const isInstaller = p.kind === 'installer';
+---
+<div class:list={['listing', { sponsored: p.sponsored }]}
+  data-listing
+  data-parishes={p.parishes.join('|')}
+  data-tags={p.tags.join('|')}
+  data-verified={p.verified ? '1' : '0'}
+  data-maint={p.tags.includes('Maintenance') ? '1' : '0'}>
+  <div class="avatar" style={isInstaller ? 'border-radius:999px' : ''} aria-hidden="true">{initials(p.name)}</div>
+  <div style="flex:1; min-width:220px">
+    <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:5px">
+      <a class="name" href={`/providers/${p.slug}/`}>{p.name}</a>
+      {p.sponsored && <span class="badge-sponsored">Sponsored</span>}
+      {isInstaller && <span class="badge-indep">Individual installer</span>}
+      {p.verified
+        ? <span class="badge-verified"><Fragment set:html={shield} />Details verified</span>
+        : <span class="badge-unverified" title="Compiled from public sources; not yet confirmed with the business">Unverified</span>}
+    </div>
+    <div style="font-size:14.5px; color:#5C6B80; margin-bottom:12px">{p.tagline}</div>
+    <div class="tags" style="margin-bottom:12px">{p.tags.map(t => <span class="tag">{t}</span>)}</div>
+    <div class="meta-row">
+      <span><Fragment set:html={pin} /><span>{areaLabel(p)}</span></span>
+      {p.website && <span><Fragment set:html={globe} /><span>{hostOf(p.website)}</span></span>}
+      {p.tags.includes('Maintenance') && <span style="font-weight:600; color:#08532C"><Fragment set:html={wrench} />Post-install service</span>}
+    </div>
+  </div>
+  <div class="actions">
+    <a href={`/providers/${p.slug}/`} class="btn btn-outline-navy btn-sm">View profile</a>
+    {p.kind !== 'supplier' && <a href={`/quote/?provider=${p.slug}`} class="btn btn-sun btn-sq btn-sm">Request a quote</a>}
+  </div>
+</div>

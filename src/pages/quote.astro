@@ -1,0 +1,154 @@
+---
+import Base from '../layouts/Base.astro';
+import { PARISHES, byKind, areaLabel } from '../lib/data';
+const pool = [...byKind('company'), ...byKind('installer')].map(p => ({ slug: p.slug, name: p.name, parishes: p.parishes, area: areaLabel(p), sponsored: p.sponsored }));
+const steps = [
+  { key: 'property', title: 'What kind of property is this for?', blurb: 'We match you only to providers who work on this type of property.',
+    options: [['Home I own', 'Most common'], ['Home I rent', 'Landlord approval needed'], ['Small business', 'Shop, office, guest house'], ['Commercial or industrial', 'Over 50 kW']] },
+  { key: 'parish', title: 'Which parish is the property in?', blurb: 'Providers are matched by the parishes they actually serve.',
+    options: PARISHES.map(p => [p, '']) },
+  { key: 'bill', title: 'What is your average monthly JPS bill?', blurb: 'A range is fine. This sets the ballpark system size providers will quote.',
+    options: [['Under J$20,000', '~2–3 kW'], ['J$20,000 – J$40,000', '~3–6 kW'], ['J$40,000 – J$80,000', '~6–10 kW'], ['Over J$80,000', '10 kW and up']] },
+];
+const supa = { url: import.meta.env.PUBLIC_SUPABASE_URL ?? '', key: import.meta.env.PUBLIC_SUPABASE_ANON_KEY ?? '' };
+---
+<Base title="Get solar quotes" description="One short form, matched to solar providers that serve your parish in Jamaica. Free and no obligation." section="quote">
+  <div class="wrap" style="max-width:808px; padding-top:48px; padding-bottom:80px" data-quote data-pool={JSON.stringify(pool)} data-supa={JSON.stringify(supa)}>
+    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px">
+      <div style="font-size:13px; font-weight:700; letter-spacing:1.3px; text-transform:uppercase; color:#0B6E3C" data-step-label>Step 1 of 5 · Property</div>
+      <div style="font-size:13.5px; color:#8A99AC">Free · no obligation</div>
+    </div>
+    <div class="progress"><div data-bar style="width:20%"></div></div>
+    <h1 class="h1" style="font-size:32px" data-title>{steps[0].title}</h1>
+    <p style="font-size:16.5px; color:#5C6B80; margin:0 0 30px; line-height:1.6" data-blurb>{steps[0].blurb}</p>
+
+    {steps.map((s, i) => (
+      <div data-panel={i + 1} hidden={i > 0} data-key={s.key} data-title-text={s.title} data-blurb-text={s.blurb}>
+        <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:32px">
+          {s.options.map(([label, hint], j) => (
+            <button type="button" class="q-opt" data-val={label} aria-pressed={j === (i === 2 ? 1 : 0) ? 'true' : 'false'}>
+              <span>{label}</span><span class="h">{hint}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+    ))}
+
+    <form data-panel="4" hidden data-title-text="How should providers reach you?" data-blurb-text="Your details go only to the providers you are matched with.">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; margin-bottom:22px">
+        <div class="field"><label for="q-name">Full name</label><input id="q-name" name="name" required placeholder="Your name" autocomplete="name" /></div>
+        <div class="field"><label for="q-phone">Phone</label><input id="q-phone" name="phone" required placeholder="876 000 0000" autocomplete="tel" inputmode="tel" /></div>
+        <div class="field" style="grid-column:1/-1"><label for="q-email">Email</label><input id="q-email" name="email" type="email" placeholder="you@email.com" autocomplete="email" /></div>
+        <div class="field" style="grid-column:1/-1"><label for="q-notes">Anything the installer should know? (optional)</label><textarea id="q-notes" name="notes" rows="3" placeholder="Roof age, backup power needs, EV charging, budget range"></textarea></div>
+      </div>
+      <label style="display:flex; gap:10px; align-items:flex-start; font-size:14px; color:#5C6B80; line-height:1.5; margin-bottom:24px">
+        <input type="checkbox" name="consent" required style="margin-top:3px" />
+        <span>I agree that Jamaica Solar may share these details with the providers matched to my request. <a href="/privacy/" style="text-decoration:underline">Privacy</a></span>
+      </label>
+    </form>
+
+    <div data-panel="5" hidden data-title-text="Your matches">
+      <div data-sent style="padding:22px; border:1px solid #D2E6D9; background:#F3F9F4; border-radius:12px; margin-bottom:28px; font-size:16px; color:#08532C; line-height:1.6"></div>
+      <div style="display:flex; flex-direction:column; gap:14px; margin-bottom:30px" data-matches></div>
+    </div>
+
+    <div style="display:flex; gap:12px; align-items:center">
+      <button type="button" data-back hidden style="padding:14px 22px; border-radius:8px; border:1.5px solid #D8E0EA; background:#FFFFFF; cursor:pointer; font-size:15.5px; font-weight:600; color:#5C6B80">Back</button>
+      <button type="button" class="btn btn-sun btn-sq" data-next>Continue</button>
+    </div>
+  </div>
+</Base>
+
+<script>
+  const root = document.querySelector<HTMLElement>('[data-quote]')!;
+  const pool: { slug: string; name: string; parishes: string[]; area: string; sponsored: boolean }[] = JSON.parse(root.dataset.pool!);
+  const supa = JSON.parse(root.dataset.supa!);
+  const panels = Array.from(root.querySelectorAll<HTMLElement>('[data-panel]'));
+  const titles = ['Property', 'Parish', 'Your bill', 'Your details', 'Matched providers'];
+  const params = new URLSearchParams(location.search);
+  const state: Record<string, string> = { property: 'Home I own', parish: params.get('parish') || 'Kingston', bill: 'J$20,000 – J$40,000' };
+  const chosen = params.get('provider');
+  let step = 1;
+
+  // option buttons
+  panels.slice(0, 3).forEach(p => {
+    const key = p.dataset.key!;
+    const btns = Array.from(p.querySelectorAll<HTMLButtonElement>('[data-val]'));
+    const sync = () => btns.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.val === state[key])));
+    btns.forEach(b => b.addEventListener('click', () => { state[key] = b.dataset.val!; sync(); }));
+    sync();
+  });
+
+  const form = root.querySelector<HTMLFormElement>('form[data-panel]')!;
+  const next = root.querySelector<HTMLButtonElement>('[data-next]')!;
+  const back = root.querySelector<HTMLButtonElement>('[data-back]')!;
+
+  function matches() {
+    const inParish = pool.filter(p => p.parishes.includes(state.parish))
+      .sort((a, b) => Number(b.sponsored) - Number(a.sponsored) || a.name.localeCompare(b.name));
+    const pick = chosen ? pool.find(p => p.slug === chosen) : undefined;
+    const list = pick ? [pick, ...inParish.filter(p => p.slug !== pick.slug)] : inParish;
+    return list.slice(0, 4);
+  }
+
+  function render() {
+    panels.forEach(p => p.hidden = Number(p.dataset.panel) !== step);
+    const cur = panels.find(p => Number(p.dataset.panel) === step)!;
+    root.querySelector('[data-step-label]')!.textContent = `Step ${step} of 5 · ${titles[step - 1]}`;
+    (root.querySelector('[data-bar]') as HTMLElement).style.width = (step / 5 * 100) + '%';
+    root.querySelector('[data-title]')!.textContent = cur.dataset.titleText || '';
+    root.querySelector('[data-blurb]')!.textContent = step === 5
+      ? `These providers list ${state.parish} in their service area (${state.property.toLowerCase()}).`
+      : (cur.dataset.blurbText || '');
+    back.hidden = step === 1 || step === 5;
+    next.textContent = step === 4 ? 'Send my request' : step === 5 ? 'Done' : 'Continue';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  async function submit() {
+    const fd = new FormData(form);
+    const m = matches();
+    const lead = { property_type: state.property, parish: state.parish, bill_range: state.bill, system_kw: params.get('kw'),
+      name: fd.get('name'), phone: fd.get('phone'), email: fd.get('email') || null, notes: fd.get('notes') || null,
+      matched_providers: m.map(x => x.slug), source_provider: chosen };
+    let sent = false;
+    if (supa.url && supa.key) {
+      try {
+        const r = await fetch(`${supa.url}/rest/v1/leads`, { method: 'POST', headers: { apikey: supa.key, Authorization: `Bearer ${supa.key}`, 'Content-Type': 'application/json', Prefer: 'return=minimal' }, body: JSON.stringify(lead) });
+        sent = r.ok;
+      } catch { sent = false; }
+    }
+    const box = root.querySelector<HTMLElement>('[data-sent]')!;
+    box.textContent = sent
+      ? `Thanks — your request has been sent. ${m.length ? `We'll share it with ${m.length} provider${m.length > 1 ? 's' : ''} serving ${state.parish}.` : ''}`
+      : `Preview mode: quote requests are not being sent yet. In the live site your request would go to the providers below.`;
+    if (!sent) { box.style.background = '#FFFBF0'; box.style.borderColor = '#F0DFA8'; box.style.color = '#14324F'; }
+    const wrap = root.querySelector<HTMLElement>('[data-matches]')!;
+    wrap.innerHTML = '';
+    if (!m.length) {
+      wrap.innerHTML = `<div class="empty">We don't yet have a confirmed provider for ${state.parish}. Many providers work island-wide — <a href="/companies/">browse all companies</a> and contact them directly.</div>`;
+    }
+    m.forEach(p => {
+      const d = document.createElement('div');
+      d.style.cssText = 'display:flex; gap:16px; align-items:center; padding:18px; border:1px solid #E2E8F0; border-radius:12px';
+      d.innerHTML = `<div class="avatar" style="width:56px;height:56px;font-size:18px">${p.name.replace(/\(.*?\)/g,'').split(/\s+/).filter(Boolean).slice(0,2).map(w=>w[0]).join('').toUpperCase()}</div>
+        <div style="flex:1; min-width:0"><div style="display:flex; gap:9px; align-items:center; flex-wrap:wrap"><span style="font-family:var(--display); font-weight:700; font-size:16.5px; color:#14324F"></span>${p.sponsored ? '<span class="badge-sponsored">Sponsored</span>' : ''}</div>
+        <div style="font-size:13.5px; color:#5C6B80; margin-top:3px"></div></div>
+        <a href="/providers/${p.slug}/" style="font-size:14px; font-weight:600; flex-shrink:0">Profile →</a>`;
+      (d.querySelector('span') as HTMLElement).textContent = p.name;
+      (d.querySelectorAll('div')[3] as HTMLElement).textContent = p.area;
+      wrap.appendChild(d);
+    });
+  }
+
+  next.addEventListener('click', async () => {
+    if (step === 4) {
+      if (!form.reportValidity()) return;
+      next.disabled = true; await submit(); next.disabled = false;
+    }
+    if (step === 5) { location.href = '/'; return; }
+    step++; render();
+  });
+  back.addEventListener('click', () => { step = Math.max(1, step - 1); render(); });
+  render();
+</script>
