@@ -324,3 +324,5 @@ main { flex: 1; }
 /* Logos */
 .avatar-logo { background: #FFFFFF; padding: 8px; overflow: hidden; }
 .avatar-logo img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.avatar-wrap { flex-shrink: 0; position: relative; }
+.avatar-logo { border: 1px solid var(--line-3); }

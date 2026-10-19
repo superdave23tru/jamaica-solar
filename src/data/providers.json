@@ -110,7 +110,8 @@
   "sources": [
    "atljamaica.com"
   ],
-  "notes": "No solar install service shown - retail only; 3 stores"
+  "notes": "No solar install service shown - retail only; 3 stores",
+  "logo": "https://atljamaica.com/media/logo/stores/1/ATL_LOGO_-_PINK.png"
  },
  {
   "slug": "bailey-s-technology",
@@ -139,7 +140,8 @@
   "sources": [
    "ENF Solar directory"
   ],
-  "notes": "Wholesaler; Deye/SRNE inverters, JA Solar panels"
+  "notes": "Wholesaler; Deye/SRNE inverters, JA Solar panels",
+  "logo": "https://btechj.com/wp-content/uploads/2025/01/cropped-B-baily-1.webp"
  },
  {
   "slug": "brittonearth-energy-ltd",
@@ -169,7 +171,8 @@
    "ENF Solar directory",
    "JaRanks (Aug 2026)"
   ],
-  "notes": "Wholesaler"
+  "notes": "Wholesaler",
+  "logo": "https://brittonearth.com/wp-content/uploads/2020/08/brittonearth-logo.jpg"
  },
  {
   "slug": "burton-steer-energy-solutions",
@@ -313,7 +316,8 @@
    "ENF Solar directory",
    "JaRanks (Aug 2026)"
   ],
-  "notes": ""
+  "notes": "",
+  "logo": "https://conserveitja.com/wp-content/uploads/2023/02/Website-logo.png"
  },
  {
   "slug": "eands-power-system-solutions",
@@ -422,7 +426,8 @@
   "sources": [
    "fosrich.com"
   ],
-  "notes": "JSE-listed; financing partners First Global/DBJ, JN, NHT, Dolla"
+  "notes": "JSE-listed; financing partners First Global/DBJ, JN, NHT, Dolla",
+  "logo": "https://fosrich.com/wp-content/uploads/2021/04/logo1.png"
  },
  {
   "slug": "getsol-warehouse-ltd",
@@ -453,7 +458,8 @@
   "sources": [
    "getsolwarehouse.com"
   ],
-  "notes": "Dealer portal for installers; refers buyers to approved installers (list not public); brands incl. Canadian Solar, Outback, Schneider, Fronius, Midnite, US Battery; kit prices look dated (250W poly, lead-acid)"
+  "notes": "Dealer portal for installers; refers buyers to approved installers (list not public); brands incl. Canadian Solar, Outback, Schneider, Fronius, Midnite, US Battery; kit prices look dated (250W poly, lead-acid)",
+  "logo": "https://www.getsolwarehouse.com/images/bg_logo2.png"
  },
  {
   "slug": "gmc-energy-limited",
@@ -571,7 +577,8 @@
   "sources": [
    "ireesolar.com"
   ],
-  "notes": "Tesla Energy installer; hybrid + grid-tied; added on Dave's tip"
+  "notes": "Tesla Energy installer; hybrid + grid-tied; added on Dave's tip",
+  "logo": "https://images.squarespace-cdn.com/content/v1/5ebd99cc5bea3a4095be9350/528369b2-d477-4fae-b035-3128946a6b82/IREE+Solar+2.jpg?format=500w"
  },
  {
   "slug": "isratech-jamaica-ltd",
@@ -868,7 +875,8 @@
    "ENF Solar directory",
    "JaRanks (Aug 2026)"
   ],
-  "notes": "Multiple addresses - confirm HQ"
+  "notes": "Multiple addresses - confirm HQ",
+  "logo": "https://premierenergysolutionja.com/wp-content/uploads/2023/03/cropped-Solar-company-in-jamaica-270x270.webp"
  },
  {
   "slug": "ps-jamaica",
@@ -1031,7 +1039,8 @@
   "sources": [
    "saddleenergy.com"
   ],
-  "notes": "Islandwide; publishes sample pricing"
+  "notes": "Islandwide; publishes sample pricing",
+  "logo": "https://static.wixstatic.com/media/618afd_b19790e2992f47dc959147bd40f8b58a~mv2.png"
  },
  {
   "slug": "samkhi-limited",
@@ -1061,7 +1070,8 @@
    "ENF Solar directory",
    "JaRanks (Aug 2026)"
   ],
-  "notes": "Distributor/wholesaler since 2011 - confirm if installs"
+  "notes": "Distributor/wholesaler since 2011 - confirm if installs",
+  "logo": "https://fygaro-subscribers.s3.amazonaws.com/9669b088-1765-4e05-962b-abd27a3236ec/media_library/c65a3234-034a-40d8-b024-423a7d7aeb48.png"
  },
  {
   "slug": "sbj",
@@ -1116,7 +1126,8 @@
   "sources": [
    "ENF Solar directory"
   ],
-  "notes": "SMA inverters"
+  "notes": "SMA inverters",
+  "logo": "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=400/AiffYGQzlq9G7tSR/sedai-jam_logo-removebg-preview-Req18fMhzJdVk2Zj.png"
  },
  {
   "slug": "segona-solar-and-systems-ltd",
@@ -1204,7 +1215,8 @@
   "sources": [
    "solarfanatic.net"
   ],
-  "notes": "Also engineering consultancy; islandwide"
+  "notes": "Also engineering consultancy; islandwide",
+  "logo": "https://custom-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_300,w_300,f_auto,q_auto/11629785/373419_253901.png"
  },
  {
   "slug": "solar-king",
@@ -1452,7 +1464,8 @@
   "sources": [
    "totalsolarenergyltd.com"
   ],
-  "notes": "Publishes package prices (Deye 48V 6-30kW, solar freezers); some packages incl. labour - confirm install scope"
+  "notes": "Publishes package prices (Deye 48V 6-30kW, solar freezers); some packages incl. labour - confirm install scope",
+  "logo": "https://totalsolarenergyltd.com/wp-content/uploads/2026/01/TSE-Logo-New.png"
  },
  {
   "slug": "tropical-battery-tropical-renewable-energy",

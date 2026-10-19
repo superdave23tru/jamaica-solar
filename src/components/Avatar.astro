@@ -1,11 +1,19 @@
 ---
+// Fixed-size square logo box. Every logo is scaled to fit the same box (object-fit: contain) on a white tile,
+// so wide, tall and square logos all appear at a consistent size. Falls back to initials if the image fails to load.
 import { initials, type Provider } from '../lib/data';
 interface Props { p: Provider; size?: number; round?: boolean }
 const { p, size = 84, round = false } = Astro.props;
 const radius = round ? '999px' : '10px';
+const pad = Math.round(size * 0.1);
+const box = `width:${size}px; height:${size}px; border-radius:${radius}`;
 ---
-{p.logo
-  ? <div class="avatar avatar-logo" style={`width:${size}px; height:${size}px; border-radius:${radius}`}>
-      <img src={p.logo} alt={`${p.name} logo`} loading="lazy" width={size} height={size} />
+<div class="avatar-wrap" style={box}>
+  {p.logo && (
+    <div class="avatar avatar-logo" style={`${box}; padding:${pad}px`}>
+      <img src={p.logo} alt={`${p.name} logo`} loading="lazy" decoding="async" referrerpolicy="no-referrer"
+        onerror="this.parentElement.style.display='none'; this.parentElement.nextElementSibling.style.display='flex';" />
     </div>
-  : <div class="avatar" style={`width:${size}px; height:${size}px; border-radius:${radius}; font-size:${Math.round(size * 0.3)}px`} aria-hidden="true">{initials(p.name)}</div>}
+  )}
+  <div class="avatar" style={`${box}; font-size:${Math.round(size * 0.3)}px; ${p.logo ? 'display:none' : ''}`} aria-hidden="true">{initials(p.name)}</div>
+</div>
