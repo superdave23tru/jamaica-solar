@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import { PARISHES, byKind, areaLabel } from '../lib/data';
-const pool = [...byKind('company'), ...byKind('installer')].map(p => ({ slug: p.slug, name: p.name, parishes: p.parishes, area: areaLabel(p), sponsored: p.sponsored }));
+const pool = [...byKind('company'), ...byKind('installer')].map(p => ({ slug: p.slug, logo: p.logo ?? '', name: p.name, parishes: p.parishes, area: areaLabel(p), sponsored: p.sponsored }));
 const steps = [
   { key: 'property', title: 'What kind of property is this for?', blurb: 'We match you only to providers who work on this type of property.',
     options: [['Home I own', 'Most common'], ['Home I rent', 'Landlord approval needed'], ['Small business', 'Shop, office, guest house'], ['Commercial or industrial', 'Over 50 kW']] },
@@ -61,7 +61,7 @@ const supa = { url: import.meta.env.PUBLIC_SUPABASE_URL ?? '', key: import.meta.
 
 <script>
   const root = document.querySelector<HTMLElement>('[data-quote]')!;
-  const pool: { slug: string; name: string; parishes: string[]; area: string; sponsored: boolean }[] = JSON.parse(root.dataset.pool!);
+  const pool: { slug: string; logo: string; name: string; parishes: string[]; area: string; sponsored: boolean }[] = JSON.parse(root.dataset.pool!);
   const supa = JSON.parse(root.dataset.supa!);
   const panels = Array.from(root.querySelectorAll<HTMLElement>('[data-panel]'));
   const titles = ['Property', 'Parish', 'Your bill', 'Your details', 'Matched providers'];
@@ -131,7 +131,7 @@ const supa = { url: import.meta.env.PUBLIC_SUPABASE_URL ?? '', key: import.meta.
     m.forEach(p => {
       const d = document.createElement('div');
       d.style.cssText = 'display:flex; gap:16px; align-items:center; padding:18px; border:1px solid #E2E8F0; border-radius:12px';
-      d.innerHTML = `<div class="avatar" style="width:56px;height:56px;font-size:18px">${p.name.replace(/\(.*?\)/g,'').split(/\s+/).filter(Boolean).slice(0,2).map(w=>w[0]).join('').toUpperCase()}</div>
+      d.innerHTML = (p.logo ? `<div class="avatar avatar-logo" style="width:56px;height:56px"><img src="${encodeURI(p.logo)}" alt="" /></div>` : `<div class="avatar" style="width:56px;height:56px;font-size:18px">${p.name.replace(/\(.*?\)/g,'').split(/\s+/).filter(Boolean).slice(0,2).map(w=>w[0]).join('').toUpperCase()}</div>`) + `
         <div style="flex:1; min-width:0"><div style="display:flex; gap:9px; align-items:center; flex-wrap:wrap"><span style="font-family:var(--display); font-weight:700; font-size:16.5px; color:#14324F"></span>${p.sponsored ? '<span class="badge-sponsored">Sponsored</span>' : ''}</div>
         <div style="font-size:13.5px; color:#5C6B80; margin-top:3px"></div></div>
         <a href="/providers/${p.slug}/" style="font-size:14px; font-weight:600; flex-shrink:0">Profile →</a>`;

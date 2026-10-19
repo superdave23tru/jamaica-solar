@@ -24,6 +24,7 @@ import { PARISHES, SERVICES } from '../lib/data';
         <legend style="font-size:14px; font-weight:600; color:#14324F; padding:0 6px">Services</legend>
         <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:6px 12px; font-size:14.5px">{SERVICES.map(s => <label><input type="checkbox" name="services" value={s} /> {s}</label>)}</div>
       </fieldset>
+      <div class="field" style="grid-column:1/-1"><label for="l-logo">Logo (PNG, JPG or SVG, square, under 1 MB)</label><input id="l-logo" name="logo" type="file" accept="image/png,image/jpeg,image/webp,image/svg+xml" style="padding:10px" /><div class="small" style="margin-top:6px">By uploading, you confirm you're authorised to let Jamaica Solar display this logo on your listing.</div></div>
       <div class="field" style="grid-column:1/-1"><label for="l-cred">Credentials (optional)</label><input id="l-cred" name="credentials" placeholder="e.g. GER-registered electrician, NABCEP certified, inverter brands you install" /></div>
       <div style="grid-column:1/-1; display:flex; gap:14px; align-items:center; flex-wrap:wrap">
         <button type="submit" class="btn btn-sun btn-sq">Submit</button>

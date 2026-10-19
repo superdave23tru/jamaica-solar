@@ -2,10 +2,11 @@
 import Base from '../layouts/Base.astro';
 import { PARISHES, SERVICES, byKind, guides, initials, areaLabel, hostOf } from '../lib/data';
 import { book, calc, worker, pin, wrench, shield, globe } from '../components/Icons';
+import Avatar from '../components/Avatar.astro';
 
 // Featured: sponsored first; until there are sponsors, show the most complete public listings.
 const companies = byKind('company');
-const completeness = (p: any) => (p.website ? 2 : 0) + (p.phone ? 2 : 0) + (p.address ? 1 : 0) + p.tags.length * 0.3;
+const completeness = (p: any) => (p.logo ? 3 : 0) + (p.website ? 2 : 0) + (p.phone ? 2 : 0) + (p.address ? 1 : 0) + p.tags.length * 0.3;
 const featured = [...companies].sort((a, b) => Number(b.sponsored) - Number(a.sponsored) || completeness(b) - completeness(a)).slice(0, 3);
 ---
 <Base title="Home" section="home">
@@ -82,7 +83,7 @@ const featured = [...companies].sort((a, b) => Number(b.sponsored) - Number(a.sp
         <div class="card feature-card">
           {c.sponsored && <div class="badge-sponsored" style="position:absolute; top:-10px; left:20px">Sponsored</div>}
           <div style="display:flex; gap:16px; align-items:flex-start">
-            <div class="avatar" style="width:74px; height:74px; font-size:22px" aria-hidden="true">{initials(c.name)}</div>
+            <Avatar p={c} size={74} />
             <div style="min-width:0">
               <a href={`/providers/${c.slug}/`} style="font-family:var(--display); font-weight:700; font-size:18px; color:#14324F">{c.name}</a>
               <div style="font-size:13.5px; color:#6B7A88; margin-top:3px">{c.tagline}</div>

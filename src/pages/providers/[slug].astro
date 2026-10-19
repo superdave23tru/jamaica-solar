@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import { providers, initials, hostOf, DATA_AS_OF, type Provider } from '../../lib/data';
 import { shield } from '../../components/Icons';
+import Avatar from '../../components/Avatar.astro';
 
 export function getStaticPaths() {
   return providers.map(p => ({ params: { slug: p.slug }, props: { p } }));
@@ -34,7 +35,7 @@ const about = p.kind === 'supplier'
     <div class="profile">
       <div>
         <div style="display:flex; gap:24px; align-items:flex-start; flex-wrap:wrap; margin-bottom:30px">
-          <div class="avatar" style={`width:112px; height:112px; font-size:34px; ${isInstaller ? 'border-radius:999px' : ''}`} aria-hidden="true">{initials(p.name)}</div>
+          <Avatar p={p} size={112} round={isInstaller} />
           <div style="flex:1; min-width:240px">
             <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:8px">
               {p.sponsored && <span class="badge-sponsored">Sponsored listing</span>}
