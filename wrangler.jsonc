@@ -1,0 +1,10 @@
+{
+  // Cloudflare Workers static-assets deploy for the Astro build output
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "jamaica-solar",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page"
+  }
+}
