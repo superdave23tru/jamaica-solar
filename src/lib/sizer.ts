@@ -2,7 +2,7 @@
 // All figures are rough planning estimates in JMD — confirm against installer quotes and tariffs before relying on them.
 
 export const SIZER = {
-  rate: 47,            // J$/kWh all-in residential (matches the payback calculator default)
+  rate: 47,            // J$/kWh all-in residential
   sunHours: 5,         // peak sun hours/day
   derate: 0.8,         // system losses
   panelW: 620,         // typical panel used to count panels

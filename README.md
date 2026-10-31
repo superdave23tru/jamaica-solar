@@ -13,11 +13,13 @@ npm run build      # output in dist/
 ## Pages
 | Route | What it is |
 |---|---|
-| `/` | Home (hero, quick links, search, featured companies, calculator promo, guides) |
+| `/` | Home (hero, quick links, search, featured companies, solar sizer promo, guides) |
 | `/companies/` `/installers/` `/suppliers/` | Directory with parish / service / status filters |
 | `/providers/[slug]/` | Provider profile (one page per listing) |
 | `/learn/` + 4 guides | Net billing, licences & approvals, batteries, how PV works (sourced from SESR/JERA factsheets) |
-| `/tools/calculator/` | Payback calculator (flags systems over the 10 kW net billing cap) |
+| `/tools/system-sizer/` | Solar sizer: appliance-based spec, price, savings, financing; email-gated; flags the 10 kW net billing cap |
+| `/spec/` | Printable spec sheet from the sizer |
+| `/tools/calculator/` | Redirects to `/tools/system-sizer/` |
 | `/tools/inverter-check/` | Search the BSJ approved inverter list |
 | `/quote/` | 5-step quote request, matched by parish |
 | `/financing/` | Homeowner lenders, 30% solar tax credit, example payments |
@@ -44,6 +46,6 @@ Without these, the quote form runs in "preview mode" and does not send.
 4. Add the environment variables above, deploy, then add the custom domain `jamaicasolar.com.jm`.
 
 ## Before launch
-- Verify listings (status `Unverified` → `Verified`) and confirm calculator assumptions (J$/kWh rate, J$/kW cost).
+- Verify listings (status `Unverified` → `Verified`) and confirm solar sizer assumptions in `src/lib/sizer.ts` (J$/kWh rate, price model).
 - Apply the Supabase migration and set env vars so quotes are saved.
 - Set up hello@jamaicasolar.com.jm; review the Privacy page against the Data Protection Act, 2020.
