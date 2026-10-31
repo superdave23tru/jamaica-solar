@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { news } from '../../lib/data';
-const tints: Record<string, string> = { Policy: 'linear-gradient(135deg,#14324F,#17457F)', Incentives: 'linear-gradient(135deg,#F5B92E,#E0A514)', Market: 'linear-gradient(135deg,#0B6E3C,#08532C)' };
+const tints: Record<string, string> = { Policy: 'linear-gradient(135deg,#15211C,#22302A)', Incentives: 'linear-gradient(135deg,#F2A516,#D9920C)', Market: 'linear-gradient(135deg,#0F6B4C,#0B5239)' };
 ---
 <Base title="Solar news & policy" description="Changes to rates, rules and incentives that affect what solar costs in Jamaica." section="resources">
   <div class="wrap pad-section">
@@ -15,7 +15,7 @@ const tints: Record<string, string> = { Policy: 'linear-gradient(135deg,#14324F,
         <a href={`/news/${n.slug}/`} class="news-card" data-item={n.category}>
           <div class="img" style={`background:${tints[n.category]}`}></div>
           <div class="body">
-            <div style="display:flex; gap:10px; align-items:center"><span class="cat">{n.category}</span><span style="font-size:12.5px; color:#8A99AC">{n.date}</span></div>
+            <div style="display:flex; gap:10px; align-items:center"><span class="cat">{n.category}</span><span style="font-size:12.5px; color:#8C9A92">{n.date}</span></div>
             <div class="t">{n.title}</div>
             <div class="d">{n.excerpt}</div>
           </div>

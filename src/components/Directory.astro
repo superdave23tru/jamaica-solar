@@ -19,15 +19,15 @@ const copy = {
       <a href="/suppliers/" class:list={[{ on: kind === 'supplier' }]}>Equipment suppliers</a>
     </nav>
     <h1 class="h1" style="font-size:36px">{copy.title}</h1>
-    <p style="font-size:16.5px; color:#5C6B80; margin:0; max-width:680px; line-height:1.55">{copy.blurb} <a href="/methodology/" style="text-decoration:underline">How we rank and label listings</a></p>
+    <p style="font-size:16.5px; color:#5B6B63; margin:0; max-width:680px; line-height:1.55">{copy.blurb} <a href="/methodology/" style="text-decoration:underline">How we rank and label listings</a></p>
   </div>
 </div>
 
 <div class="wrap dir">
   <aside class="filters" aria-label="Filters" data-filters>
-    <button type="button" class="filters-toggle" aria-expanded="false" data-filters-toggle><span>Filter <span data-active-n style="font-weight:600; color:#0B6E3C"></span></span><span aria-hidden="true">▾</span></button>
+    <button type="button" class="filters-toggle" aria-expanded="false" data-filters-toggle><span>Filter <span data-active-n style="font-weight:600; color:#0F6B4C"></span></span><span aria-hidden="true">▾</span></button>
     <div class="filters-body">
-    <div class="hide-mobile-label" style="font-family:var(--display); font-weight:700; font-size:16px; color:#14324F; margin-bottom:18px">Filter</div>
+    <div class="hide-mobile-label" style="font-family:var(--display); font-weight:700; font-size:16px; color:#15211C; margin-bottom:18px">Filter</div>
     <label class="lbl" for="f-parish">Parish</label>
     <select id="f-parish" data-f-parish>
       <option value="All">All 14 parishes</option>
@@ -37,7 +37,7 @@ const copy = {
     <div class="chip-list">
       {['All services', ...SERVICES].map((s, i) => <button type="button" class="chip" data-f-service={s} aria-pressed={i === 0 ? 'true' : 'false'}>{s}</button>)}
     </div>
-    <div style="height:1px; background:#EDF1F6; margin:22px 0"></div>
+    <div style="height:1px; background:#E8EDE9; margin:22px 0"></div>
     <div class="lbl">Status</div>
     <div style="display:flex; flex-direction:column; gap:8px; margin-bottom:22px">
       <button type="button" class="check" data-f-verified aria-pressed="false">
@@ -49,11 +49,11 @@ const copy = {
         <span><span class="l">Offers post-install service</span><span class="h">Maintenance and repairs after handover</span></span>
       </button>
     </div>
-    <button type="button" data-f-reset style="width:100%; padding:10px; border-radius:7px; border:1px solid #D8E0EA; background:#FFFFFF; cursor:pointer; font-size:14px; font-weight:600; color:#5C6B80">Clear filters</button>
+    <button type="button" data-f-reset style="width:100%; padding:10px; border-radius:7px; border:1px solid #CFD8D2; background:#FFFFFF; cursor:pointer; font-size:14px; font-weight:600; color:#5B6B63">Clear filters</button>
     </div>
   </aside>
   <div>
-    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:18px; flex-wrap:wrap; gap:10px; font-size:14.5px; color:#5C6B80">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:18px; flex-wrap:wrap; gap:10px; font-size:14.5px; color:#5B6B63">
       <div data-count data-noun={copy.noun}>{items.length} {copy.noun} island-wide</div>
       <div>{kind === 'installer' ? 'Sorted alphabetically' : 'Sorted by sponsorship, then alphabetically'}</div>
     </div>

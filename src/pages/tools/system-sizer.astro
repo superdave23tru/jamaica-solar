@@ -134,7 +134,7 @@ const seg = (key: string, opts: [string, string][]) => ({ key, opts });
             <a class="btn btn-sun btn-sq btn-block" style="margin-top:22px" data-sheet href="/spec/">Open my spec sheet</a>
             <div class="sz-preview" data-preview hidden>Preview mode: Supabase isn't configured, so this request wasn't saved.</div>
           </div>
-          <div style="height:1px; background:#1E4577; margin:22px 0 16px"></div>
+          <div style="height:1px; background:#2A3832; margin:22px 0 16px"></div>
           <div class="assump">Rough estimate from typical appliance use, about 5 sun-hours a day, J$47/kWh and 2026 Jamaican package prices. Not a quote. <a href="/methodology/#sizer">How we estimate</a></div>
         </div>
       </aside>
@@ -152,45 +152,45 @@ const seg = (key: string, opts: [string, string][]) => ({ key, opts });
   .sz-row { display:flex; flex-wrap:wrap; gap:10px 16px; align-items:center; justify-content:space-between; }
   .sz-row > label, .sz-l { font-weight:600; font-size:15px; color:var(--navy); flex:1 1 200px; min-width:0; }
   .sz-row small, .sz-l small { display:block; font-weight:400; font-size:13px; color:var(--muted); }
-  .sz-row select { padding:11px 12px; border:1px solid #D8E0EA; border-radius:8px; font-size:15px; color:var(--ink); background:var(--white); min-width:200px; max-width:100%; }
+  .sz-row select { padding:11px 12px; border:1px solid #CFD8D2; border-radius:8px; font-size:15px; color:var(--ink); background:var(--white); min-width:200px; max-width:100%; }
   .sz-seg { display:flex; flex-wrap:wrap; gap:6px; }
-  .sz-seg button, .sz-step button { cursor:pointer; border:1.5px solid #D8E0EA; background:var(--white); color:var(--ink); border-radius:8px; padding:9px 14px; font-size:15px; font-weight:500; }
+  .sz-seg button, .sz-step button { cursor:pointer; border:1.5px solid #CFD8D2; background:var(--white); color:var(--ink); border-radius:8px; padding:9px 14px; font-size:15px; font-weight:500; }
   .sz-seg button[aria-pressed="true"] { border-color:var(--green); background:var(--green-tint); color:var(--green-dark); font-weight:700; }
   .sz-step { display:flex; align-items:center; gap:10px; }
   .sz-step button { width:40px; height:40px; padding:0; font-size:20px; line-height:1; }
   .sz-step output { font-family:var(--display); font-weight:800; font-size:20px; min-width:2ch; text-align:center; color:var(--navy); }
   .sz-checks { display:flex; flex-wrap:wrap; gap:8px; }
-  .sz-checks label { display:flex; gap:8px; align-items:center; border:1.5px solid #D8E0EA; border-radius:8px; padding:8px 12px; font-size:14.5px; cursor:pointer; }
+  .sz-checks label { display:flex; gap:8px; align-items:center; border:1.5px solid #CFD8D2; border-radius:8px; padding:8px 12px; font-size:14.5px; cursor:pointer; }
   .sz-checks input { accent-color:var(--green); }
   .sz-sub { border-top:1px dashed var(--line); padding-top:14px; display:flex; flex-direction:column; gap:14px; }
   .sz-side { position:sticky; top:96px; min-width:0; }
   .sz-sub > .sz-l { flex:none; }
   @media (max-width: 900px) { .sz-side { position:static; } }
   .sz-side .calc-out { padding:28px; }
-  .sz-note { margin-top:14px; padding:12px 14px; border-radius:8px; font-size:13.5px; line-height:1.55; background:var(--navy-2); color:#D6E4F4; border-left:3px solid #6E93C2; }
+  .sz-note { margin-top:14px; padding:12px 14px; border-radius:8px; font-size:13.5px; line-height:1.55; background:var(--navy-2); color:#D5E0D9; border-left:3px solid #7FA08F; }
   .sz-note.is-warn { border-left-color:var(--sun); }
   .sz-note strong { display:block; color:#fff; font-family:var(--display); margin-bottom:3px; }
   .sz-blur { margin-top:22px; display:flex; flex-direction:column; gap:8px; filter:blur(3px); opacity:.55; user-select:none; }
-  .sz-blur div, .sz-kv div { display:flex; justify-content:space-between; gap:12px; font-size:14px; color:#A8C0DC; border-bottom:1px solid #1E4577; padding-bottom:7px; }
+  .sz-blur div, .sz-kv div { display:flex; justify-content:space-between; gap:12px; font-size:14px; color:#9DB0A5; border-bottom:1px solid #2A3832; padding-bottom:7px; }
   .sz-blur b, .sz-kv b { color:#fff; font-weight:600; text-align:right; font-variant-numeric:tabular-nums; }
-  .sz-gate { margin-top:18px; display:flex; flex-direction:column; gap:10px; background:#0F2740; border:1px solid #2A5C96; border-radius:12px; padding:18px; }
+  .sz-gate { margin-top:18px; display:flex; flex-direction:column; gap:10px; background:#1C2A24; border:1px solid #3A4A42; border-radius:12px; padding:18px; }
   .sz-gate .wt { font-family:var(--display); font-weight:800; font-size:18px; }
-  .sz-gate p { margin:0; font-size:13.5px; color:#A8C0DC; line-height:1.55; }
-  .sz-gate input:not([type=checkbox]) { padding:12px 13px; border-radius:8px; border:1px solid #2A5C96; background:#fff; color:var(--ink); font-size:15px; width:100%; }
-  .sz-consent { display:flex; gap:9px; align-items:flex-start; font-size:12.5px; color:#A8C0DC; line-height:1.5; }
+  .sz-gate p { margin:0; font-size:13.5px; color:#9DB0A5; line-height:1.55; }
+  .sz-gate input:not([type=checkbox]) { padding:12px 13px; border-radius:8px; border:1px solid #3A4A42; background:#fff; color:var(--ink); font-size:15px; width:100%; }
+  .sz-consent { display:flex; gap:9px; align-items:flex-start; font-size:12.5px; color:#9DB0A5; line-height:1.5; }
   .sz-consent input { margin-top:3px; accent-color:var(--sun); }
   .sz-consent a, .sz-side .assump a { color:var(--sun); text-decoration:underline; }
-  .sz-err { font-size:13.5px; color:#FFD27A; }
+  .sz-err { font-size:13.5px; color:#F6C25A; }
   .sz-kv { margin-top:20px; display:flex; flex-direction:column; gap:8px; }
   .sz-kv.sm { margin-top:8px; } .sz-kv.sm div { font-size:13px; }
   .sz-sec { margin-top:22px; font-size:12px; font-weight:700; letter-spacing:1.2px; text-transform:uppercase; color:var(--sun); }
   .sz-fin { margin-top:8px; display:flex; flex-direction:column; gap:8px; }
-  .sz-fin > div { background:#0F2740; border-radius:8px; padding:10px 12px; font-size:13px; color:#A8C0DC; }
+  .sz-fin > div { background:#1C2A24; border-radius:8px; padding:10px 12px; font-size:13px; color:#9DB0A5; }
   .sz-fin > div.best { outline:1.5px solid var(--sun); }
   .sz-fin strong { color:#fff; display:flex; justify-content:space-between; gap:10px; font-size:14px; margin-bottom:2px; }
   .sz-chips { margin-top:8px; display:flex; flex-wrap:wrap; gap:6px; }
-  .sz-chips span { font-size:12px; background:#0F2740; border:1px solid #2A5C96; border-radius:6px; padding:3px 8px; color:#D6E4F4; }
-  .sz-preview { margin-top:12px; font-size:12.5px; color:#FFD27A; }
+  .sz-chips span { font-size:12px; background:#1C2A24; border:1px solid #3A4A42; border-radius:6px; padding:3px 8px; color:#D5E0D9; }
+  .sz-preview { margin-top:12px; font-size:12.5px; color:#F6C25A; }
   .sz-bar { display:none; position:fixed; left:0; right:0; bottom:0; z-index:20; background:var(--navy); color:#fff; padding:12px 18px calc(12px + env(safe-area-inset-bottom,0px)); font-size:14px; font-weight:600; justify-content:space-between; gap:12px; align-items:center; }
   .sz-bar a { color:var(--sun); white-space:nowrap; }
   @media (max-width: 900px) { .sz-bar { display:flex; } }

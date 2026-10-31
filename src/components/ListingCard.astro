@@ -23,12 +23,12 @@ const isInstaller = p.kind === 'installer';
         ? <span class="badge-verified"><Fragment set:html={shield} />Details verified</span>
         : <span class="badge-unverified" title="Compiled from public sources; not yet confirmed with the business">Unverified</span>}
     </div>
-    <div style="font-size:14.5px; color:#5C6B80; margin-bottom:12px">{p.tagline}</div>
+    <div style="font-size:14.5px; color:#5B6B63; margin-bottom:12px">{p.tagline}</div>
     <div class="tags" style="margin-bottom:12px">{p.tags.map(t => <span class="tag">{t}</span>)}</div>
     <div class="meta-row">
       <span><Fragment set:html={pin} /><span>{areaLabel(p)}</span></span>
       {p.website && <span><Fragment set:html={globe} /><span>{hostOf(p.website)}</span></span>}
-      {p.tags.includes('Maintenance') && <span style="font-weight:600; color:#08532C"><Fragment set:html={wrench} />Post-install service</span>}
+      {p.tags.includes('Maintenance') && <span style="font-weight:600; color:#0B5239"><Fragment set:html={wrench} />Post-install service</span>}
     </div>
   </div>
   <div class="actions">

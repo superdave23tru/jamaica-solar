@@ -14,20 +14,20 @@ const A = { rate: 47, costPerKw: 355000, fixed: 180000, sunHours: 4.6, inflation
           <label class="l" for="bill">Average monthly JPS bill</label>
           <div class="big" data-bill-label>J$25,000</div>
           <input id="bill" type="range" min="8000" max="120000" step="1000" value="25000" data-bill />
-          <div style="display:flex; justify-content:space-between; font-size:12.5px; color:#8A99AC; margin-top:6px"><span>J$8,000</span><span>J$120,000</span></div>
+          <div style="display:flex; justify-content:space-between; font-size:12.5px; color:#8C9A92; margin-top:6px"><span>J$8,000</span><span>J$120,000</span></div>
         </div>
         <div style="margin-bottom:24px">
           <label class="l" for="parish">Parish</label>
           <select id="parish" data-parish>{PARISHES.map(p => <option value={p}>{p}</option>)}</select>
         </div>
         <div>
-          <div class="l" style="font-weight:600; font-size:15px; color:#14324F; margin-bottom:10px">Roof type</div>
+          <div class="l" style="font-weight:600; font-size:15px; color:#15211C; margin-bottom:10px">Roof type</div>
           <div style="display:flex; flex-direction:column; gap:8px">
             {['Concrete slab', 'Zinc / metal sheet', 'Clay or concrete tile'].map((r, i) => <button type="button" class="opt" data-roof={r} aria-pressed={i === 0 ? 'true' : 'false'}>{r}</button>)}
           </div>
         </div>
-        <details style="margin-top:24px; font-size:14.5px; color:#5C6B80">
-          <summary style="cursor:pointer; font-weight:600; color:#14324F">Adjust assumptions</summary>
+        <details style="margin-top:24px; font-size:14.5px; color:#5B6B63">
+          <summary style="cursor:pointer; font-weight:600; color:#15211C">Adjust assumptions</summary>
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:12px">
             <div class="field"><label for="rate">Electricity rate (J$/kWh)</label><input id="rate" type="number" min="20" max="90" step="1" value={A.rate} data-rate /></div>
             <div class="field"><label for="cpk">Installed cost (J$/kW)</label><input id="cpk" type="number" min="150000" max="600000" step="5000" value={A.costPerKw} data-cpk /></div>
@@ -43,14 +43,14 @@ const A = { rate: 47, costPerKw: 355000, fixed: 180000, sunHours: 4.6, inflation
           <div><div class="rl">10-year savings</div><div class="rv sm" data-o-save>—</div></div>
         </div>
         <div class="warn" data-cap hidden>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5B92E" stroke-width="2.2" style="flex-shrink:0; margin-top:2px"><circle cx="12" cy="12" r="9"></circle><path d="M12 7.6v5.6"></path><path d="M12 16.6v.2"></path></svg>
-          <div><div class="wt">Over the 10 kW net billing cap</div><div class="ws">Homes can only sell surplus power to JPS on systems up to 10 kW. A larger system would need an export-limited (auxiliary) connection, and a battery becomes more valuable. <a href="/learn/net-billing/#cap" style="color:#F5B92E; text-decoration:underline">Read about the cap</a></div></div>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F2A516" stroke-width="2.2" style="flex-shrink:0; margin-top:2px"><circle cx="12" cy="12" r="9"></circle><path d="M12 7.6v5.6"></path><path d="M12 16.6v.2"></path></svg>
+          <div><div class="wt">Over the 10 kW net billing cap</div><div class="ws">Homes can only sell surplus power to JPS on systems up to 10 kW. A larger system would need an export-limited (auxiliary) connection, and a battery becomes more valuable. <a href="/learn/net-billing/#cap" style="color:#F2A516; text-decoration:underline">Read about the cap</a></div></div>
         </div>
         <div class="warn" data-study hidden>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5B92E" stroke-width="2.2" style="flex-shrink:0; margin-top:2px"><circle cx="12" cy="12" r="9"></circle><path d="M12 7.6v5.6"></path><path d="M12 16.6v.2"></path></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F2A516" stroke-width="2.2" style="flex-shrink:0; margin-top:2px"><circle cx="12" cy="12" r="9"></circle><path d="M12 7.6v5.6"></path><path d="M12 16.6v.2"></path></svg>
           <div><div class="wt">Detailed study likely required</div><div class="ws" data-study-msg></div></div>
         </div>
-        <div style="height:1px; background:#1E4577; margin:26px 0 20px"></div>
+        <div style="height:1px; background:#2A3832; margin:26px 0 20px"></div>
         <div class="assump">Assumes <span data-a-rate>J$47</span> per kWh, <span data-a-cpk>J$355,000</span> per kW plus a J$180,000 fixed allowance for mounting, wiring and permits, 4.6 peak sun hours, 82% of your bill offset and 6% annual electricity inflation. Estimates only — always compare written quotes. <a href="/methodology/#calculator">See methodology</a></div>
         <a href="/quote/" class="btn btn-sun btn-sq btn-block" style="margin-top:24px" data-o-cta>Get quotes for this system</a>
       </div>

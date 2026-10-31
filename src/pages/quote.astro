@@ -15,12 +15,12 @@ const supa = { url: import.meta.env.PUBLIC_SUPABASE_URL ?? '', key: import.meta.
 <Base title="Get solar quotes" description="One short form, matched to solar providers that serve your parish in Jamaica. Free and no obligation." section="quote">
   <div class="wrap" style="max-width:808px; padding-top:48px; padding-bottom:80px" data-quote data-pool={JSON.stringify(pool)} data-supa={JSON.stringify(supa)}>
     <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px">
-      <div style="font-size:13px; font-weight:700; letter-spacing:1.3px; text-transform:uppercase; color:#0B6E3C" data-step-label>Step 1 of 5 · Property</div>
-      <div style="font-size:13.5px; color:#8A99AC">Free · no obligation</div>
+      <div style="font-size:13px; font-weight:700; letter-spacing:1.3px; text-transform:uppercase; color:#0F6B4C" data-step-label>Step 1 of 5 · Property</div>
+      <div style="font-size:13.5px; color:#8C9A92">Free · no obligation</div>
     </div>
     <div class="progress"><div data-bar style="width:20%"></div></div>
     <h1 class="h1" style="font-size:32px" data-title>{steps[0].title}</h1>
-    <p style="font-size:16.5px; color:#5C6B80; margin:0 0 30px; line-height:1.6" data-blurb>{steps[0].blurb}</p>
+    <p style="font-size:16.5px; color:#5B6B63; margin:0 0 30px; line-height:1.6" data-blurb>{steps[0].blurb}</p>
 
     {steps.map((s, i) => (
       <div data-panel={i + 1} hidden={i > 0} data-key={s.key} data-title-text={s.title} data-blurb-text={s.blurb}>
@@ -41,19 +41,19 @@ const supa = { url: import.meta.env.PUBLIC_SUPABASE_URL ?? '', key: import.meta.
         <div class="field" style="grid-column:1/-1"><label for="q-email">Email</label><input id="q-email" name="email" type="email" placeholder="you@email.com" autocomplete="email" /></div>
         <div class="field" style="grid-column:1/-1"><label for="q-notes">Anything the installer should know? (optional)</label><textarea id="q-notes" name="notes" rows="3" placeholder="Roof age, backup power needs, EV charging, budget range"></textarea></div>
       </div>
-      <label style="display:flex; gap:10px; align-items:flex-start; font-size:14px; color:#5C6B80; line-height:1.5; margin-bottom:24px">
+      <label style="display:flex; gap:10px; align-items:flex-start; font-size:14px; color:#5B6B63; line-height:1.5; margin-bottom:24px">
         <input type="checkbox" name="consent" required style="margin-top:3px" />
         <span>I agree that Jamaica Solar may share these details with the providers matched to my request. <a href="/privacy/" style="text-decoration:underline">Privacy</a></span>
       </label>
     </form>
 
     <div data-panel="5" hidden data-title-text="Your matches">
-      <div data-sent style="padding:22px; border:1px solid #D2E6D9; background:#F3F9F4; border-radius:12px; margin-bottom:28px; font-size:16px; color:#08532C; line-height:1.6"></div>
+      <div data-sent style="padding:22px; border:1px solid #C9E2D5; background:#EAF3EE; border-radius:12px; margin-bottom:28px; font-size:16px; color:#0B5239; line-height:1.6"></div>
       <div style="display:flex; flex-direction:column; gap:14px; margin-bottom:30px" data-matches></div>
     </div>
 
     <div style="display:flex; gap:12px; align-items:center">
-      <button type="button" data-back hidden style="padding:14px 22px; border-radius:8px; border:1.5px solid #D8E0EA; background:#FFFFFF; cursor:pointer; font-size:15.5px; font-weight:600; color:#5C6B80">Back</button>
+      <button type="button" data-back hidden style="padding:14px 22px; border-radius:8px; border:1.5px solid #CFD8D2; background:#FFFFFF; cursor:pointer; font-size:15.5px; font-weight:600; color:#5B6B63">Back</button>
       <button type="button" class="btn btn-sun btn-sq" data-next>Continue</button>
     </div>
   </div>
@@ -122,7 +122,7 @@ const supa = { url: import.meta.env.PUBLIC_SUPABASE_URL ?? '', key: import.meta.
     box.textContent = sent
       ? `Thanks — your request has been sent. ${m.length ? `We'll share it with ${m.length} provider${m.length > 1 ? 's' : ''} serving ${state.parish}.` : ''}`
       : `Preview mode: quote requests are not being sent yet. In the live site your request would go to the providers below.`;
-    if (!sent) { box.style.background = '#FFFBF0'; box.style.borderColor = '#F0DFA8'; box.style.color = '#14324F'; }
+    if (!sent) { box.style.background = '#FFF3D6'; box.style.borderColor = '#F2D98F'; box.style.color = '#15211C'; }
     const wrap = root.querySelector<HTMLElement>('[data-matches]')!;
     wrap.innerHTML = '';
     if (!m.length) {
@@ -130,10 +130,10 @@ const supa = { url: import.meta.env.PUBLIC_SUPABASE_URL ?? '', key: import.meta.
     }
     m.forEach(p => {
       const d = document.createElement('div');
-      d.style.cssText = 'display:flex; gap:16px; align-items:center; padding:18px; border:1px solid #E2E8F0; border-radius:12px';
+      d.style.cssText = 'display:flex; gap:16px; align-items:center; padding:18px; border:1px solid #D9E0DB; border-radius:12px';
       d.innerHTML = (p.logo ? `<div class="avatar avatar-logo" style="width:56px;height:56px"><img src="${encodeURI(p.logo)}" alt="" /></div>` : `<div class="avatar" style="width:56px;height:56px;font-size:18px">${p.name.replace(/\(.*?\)/g,'').split(/\s+/).filter(Boolean).slice(0,2).map(w=>w[0]).join('').toUpperCase()}</div>`) + `
-        <div style="flex:1; min-width:0"><div style="display:flex; gap:9px; align-items:center; flex-wrap:wrap"><span style="font-family:var(--display); font-weight:700; font-size:16.5px; color:#14324F"></span>${p.sponsored ? '<span class="badge-sponsored">Sponsored</span>' : ''}</div>
-        <div style="font-size:13.5px; color:#5C6B80; margin-top:3px"></div></div>
+        <div style="flex:1; min-width:0"><div style="display:flex; gap:9px; align-items:center; flex-wrap:wrap"><span style="font-family:var(--display); font-weight:700; font-size:16.5px; color:#15211C"></span>${p.sponsored ? '<span class="badge-sponsored">Sponsored</span>' : ''}</div>
+        <div style="font-size:13.5px; color:#5B6B63; margin-top:3px"></div></div>
         <a href="/providers/${p.slug}/" style="font-size:14px; font-weight:600; flex-shrink:0">Profile →</a>`;
       (d.querySelector('span') as HTMLElement).textContent = p.name;
       (d.querySelectorAll('div')[3] as HTMLElement).textContent = p.area;
