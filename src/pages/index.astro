@@ -18,7 +18,7 @@ const featured = [...companies].sort((a, b) => Number(b.sponsored) - Number(a.sp
         <p>Compare costs, estimate savings, and find installers. Clear, independent information to help you decide if solar is right for you.</p>
         <div style="display:flex; gap:14px; flex-wrap:wrap">
           <a href="/journey/" class="btn btn-sun">Explore Solar <span>→</span></a>
-          <a href="/tools/calculator/" class="btn btn-outline-green">Estimate my savings</a>
+          <a href="/tools/system-sizer/" class="btn btn-outline-green">Size my system</a>
         </div>
       </div>
     </div>
@@ -27,7 +27,7 @@ const featured = [...companies].sort((a, b) => Number(b.sponsored) - Number(a.sp
   <section class="wrap quicklinks">
     <div class="grid">
       <a href="/learn/"><div style="display:flex; justify-content:center"><Fragment set:html={book} /></div><div class="t">Learn</div><div class="s">Get the facts on solar</div></a>
-      <a href="/tools/calculator/"><div style="display:flex; justify-content:center"><Fragment set:html={calc} /></div><div class="t">Plan</div><div class="s">Estimate your savings</div></a>
+      <a href="/tools/system-sizer/"><div style="display:flex; justify-content:center"><Fragment set:html={calc} /></div><div class="t">Plan</div><div class="s">Size your system and savings</div></a>
       <a href="/companies/"><div style="display:flex; justify-content:center"><Fragment set:html={worker} /></div><div class="t">Find</div><div class="s">Companies and installers</div></a>
     </div>
   </section>
@@ -115,13 +115,13 @@ const featured = [...companies].sort((a, b) => Number(b.sponsored) - Number(a.sp
         <div style="position:relative; font-family:var(--script); font-size:30px; line-height:1.1; transform:rotate(-3deg)">Same Sun<br>More Possibilities</div>
       </div>
       <div style="padding:46px 44px; background:#FFFFFF">
-        <div class="kicker">Solar savings calculator</div>
-        <h2 class="h2">See What You Could Save</h2>
-        <p style="font-size:16.5px; line-height:1.55; color:#3B4A43; margin:0 0 24px; max-width:420px">Estimate your savings in Jamaican dollars from your monthly JPS bill.</p>
-        <a href="/tools/calculator/" class="btn btn-sun" style="padding:14px 26px; font-size:15.5px; margin-bottom:26px">Try the Calculator <span>→</span></a>
+        <div class="kicker">Solar sizer</div>
+        <h2 class="h2">What Size System Do You Need?</h2>
+        <p style="font-size:16.5px; line-height:1.55; color:#3B4A43; margin:0 0 24px; max-width:420px">Tell us about your home and appliances. Get a rough spec, price range, savings and financing options in Jamaican dollars.</p>
+        <a href="/tools/system-sizer/" class="btn btn-sun" style="padding:14px 26px; font-size:15.5px; margin-bottom:26px">Size My System <span>→</span></a>
         <div style="display:flex; flex-direction:column; gap:12px">
-          <div style="display:flex; gap:11px; align-items:center; font-size:15px; color:#3B4A43"><span style="color:#F2A516; font-size:17px">⬤</span> Takes under a minute</div>
-          <div style="display:flex; gap:11px; align-items:center; font-size:15px; color:#3B4A43"><span style="color:#0F6B4C; font-size:17px">⬤</span> Based on Jamaican rates in JMD</div>
+          <div style="display:flex; gap:11px; align-items:center; font-size:15px; color:#3B4A43"><span style="color:#F2A516; font-size:17px">⬤</span> No need to know your kWh</div>
+          <div style="display:flex; gap:11px; align-items:center; font-size:15px; color:#3B4A43"><span style="color:#0F6B4C; font-size:17px">⬤</span> Panels, battery, inverter and price in JMD</div>
           <div style="display:flex; gap:11px; align-items:center; font-size:15px; color:#3B4A43"><span style="color:#15211C; font-size:17px">⬤</span> Flags when a system goes over the 10 kW net billing cap</div>
         </div>
       </div>
