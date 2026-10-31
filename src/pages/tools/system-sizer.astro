@@ -1,0 +1,300 @@
+---
+import Base from '../../layouts/Base.astro';
+import { PARISHES, inverters } from '../../lib/data';
+import { DEFAULT_ANSWERS } from '../../lib/sizer';
+const hybrids = inverters.filter(i => i.hybrid && i.status === 'Approved' && i.kw).map(i => ({ b: i.brand, m: i.model, kw: i.kw }));
+const supa = { url: (import.meta.env.PUBLIC_SUPABASE_URL ?? '').replace(/\/$/, ''), key: import.meta.env.PUBLIC_SUPABASE_ANON_KEY ?? '' };
+const D = DEFAULT_ANSWERS;
+const seg = (key: string, opts: [string, string][]) => ({ key, opts });
+---
+<Base title="What size solar system do I need?" description="Answer a few questions about your home and appliances to get a rough solar spec — panels, battery, inverter, price range and financing — in Jamaican dollars." section="tools">
+  <div class="wrap pad-section" data-sizer data-inv={JSON.stringify(hybrids)} data-supa={JSON.stringify(supa)}>
+    <div class="kicker">System sizer</div>
+    <h1 class="h1">What size solar system does your home need?</h1>
+    <p class="lede">You don't need to know your kWh. Tell us about your house and appliances and we'll work out a rough spec, a price range and how you could pay for it.</p>
+
+    <div class="sz-grid">
+      <form class="sz-qs" data-form autocomplete="off" onsubmit="return false">
+        <fieldset class="sz-set">
+          <legend>Your home</legend>
+          <div class="sz-row"><label for="sz-parish">Parish</label>
+            <select id="sz-parish" data-k="parish">{PARISHES.map(p => <option value={p} selected={p === D.parish}>{p}</option>)}</select></div>
+          <div class="sz-row"><span class="sz-l">Do you own the home?</span>
+            <div class="sz-seg" data-seg="own"><button type="button" data-v="own">Own</button><button type="button" data-v="rent">Rent</button></div></div>
+          <div class="sz-row"><span class="sz-l">Do you contribute to NHT?<small>Contributors can apply for the NHT Smart Energy Loan</small></span>
+            <div class="sz-seg" data-seg="nht"><button type="button" data-v="yes">Yes</button><button type="button" data-v="no">No</button><button type="button" data-v="unsure">Not sure</button></div></div>
+          <div class="sz-row"><label for="sz-roof">Roof</label>
+            <select id="sz-roof" data-k="roof"><option value="concrete">Concrete slab</option><option value="zinc">Zinc / metal sheet</option><option value="tile">Clay or concrete tile</option><option value="none">No usable roof</option></select></div>
+          <div class="sz-row"><label for="sz-shade">Shade on the roof</label>
+            <select id="sz-shade" data-k="shade"><option value="none">Little or none</option><option value="some">Some trees or buildings</option><option value="heavy">Heavily shaded</option></select></div>
+          <div class="sz-row"><span class="sz-l">Bedrooms</span>
+            <div class="sz-seg" data-seg="beds" data-num><button type="button" data-v="1">1</button><button type="button" data-v="2">2</button><button type="button" data-v="3">3</button><button type="button" data-v="4">4+</button></div></div>
+        </fieldset>
+
+        <fieldset class="sz-set">
+          <legend>Appliances</legend>
+          <div class="sz-row"><span class="sz-l">Fridges</span><div class="sz-step" data-step="fridges" data-min="0" data-max="4"></div></div>
+          <div class="sz-row"><label for="sz-fage">Fridge age</label>
+            <select id="sz-fage" data-k="fridgeAge"><option value="new">Newer (inverter, under 8 years)</option><option value="old">Older</option></select></div>
+          <div class="sz-row"><span class="sz-l">Chest or deep freezers</span><div class="sz-step" data-step="freezers" data-min="0" data-max="3"></div></div>
+          <div class="sz-row"><label for="sz-heater">Hot water</label>
+            <select id="sz-heater" data-k="heater"><option value="none">None, solar or gas</option><option value="elec">Electric water heater</option></select></div>
+          <div class="sz-checks">
+            <label><input type="checkbox" data-k="pump" /> Water pump</label>
+            <label><input type="checkbox" data-k="stove" /> Electric stove</label>
+            <label><input type="checkbox" data-k="dryer" /> Clothes dryer</label>
+          </div>
+        </fieldset>
+
+        <fieldset class="sz-set">
+          <legend>Air conditioning</legend>
+          <div class="sz-row"><span class="sz-l">AC units<small>Usually the biggest power user</small></span><div class="sz-step" data-step="acs" data-min="0" data-max="6"></div></div>
+          <div class="sz-sub" data-ac>
+            <div class="sz-row"><label for="sz-acsize">Typical size</label>
+              <select id="sz-acsize" data-k="acSize"><option value="12">12,000 BTU or smaller</option><option value="18">18,000 BTU or bigger</option></select></div>
+            <div class="sz-row"><label for="sz-actype">Type</label>
+              <select id="sz-actype" data-k="acType"><option value="inv">Inverter (newer)</option><option value="std">Non-inverter (older)</option></select></div>
+            <div class="sz-row"><label for="sz-achrs">Hours each runs per day</label>
+              <select id="sz-achrs" data-k="acHours" data-num>{[2, 4, 6, 8, 10, 12, 16].map(h => <option value={h}>{h}</option>)}</select></div>
+          </div>
+          <div class="sz-row"><label for="sz-ev">Electric vehicle</label>
+            <select id="sz-ev" data-k="ev" data-num><option value="0">No EV, none planned</option><option value="25">Yes, about 25 km a day</option><option value="50">Yes, about 50 km a day</option><option value="80">Yes, 80 km or more a day</option></select></div>
+        </fieldset>
+
+        <fieldset class="sz-set">
+          <legend>What should solar do for you?</legend>
+          <div class="sz-seg" data-seg="goal"><button type="button" data-v="bill">Cut my bill</button><button type="button" data-v="backup">Backup in outages</button><button type="button" data-v="both">Both</button></div>
+          <div class="sz-sub" data-backup>
+            <div class="sz-row"><label for="sz-hours">Hours of backup</label>
+              <select id="sz-hours" data-k="hours" data-num><option value="4">4 hours (evening)</option><option value="8">8 hours (overnight)</option><option value="12">12 hours</option><option value="24">24 hours</option></select></div>
+            <span class="sz-l">Keep these running in an outage</span>
+            <div class="sz-checks">
+              <label><input type="checkbox" data-k="bBase" /> Lights, fans, TV, Wi-Fi</label>
+              <label><input type="checkbox" data-k="bFridge" /> Fridges</label>
+              <label><input type="checkbox" data-k="bFreezer" /> Freezer</label>
+              <label><input type="checkbox" data-k="bPump" /> Water pump</label>
+            </div>
+            <div class="sz-row"><label for="sz-bac">ACs on backup</label>
+              <select id="sz-bac" data-k="bAc"><option value="0">None</option><option value="1">One (bedroom)</option><option value="all">All of them</option></select></div>
+          </div>
+          <div class="sz-row"><span class="sz-l">Net billing with JPS?<small>Sell surplus daytime power back to the grid</small></span>
+            <div class="sz-seg" data-seg="net"><button type="button" data-v="yes">Yes</button><button type="button" data-v="no">No</button><button type="button" data-v="unsure">Not sure</button></div></div>
+          <div class="sz-row"><label for="sz-bill">Monthly JPS bill <small>Optional cross-check</small></label>
+            <select id="sz-bill" data-k="bill" data-num><option value="0">Skip</option><option value="7000">Under J$10,000</option><option value="17500">J$10,000 – 25,000</option><option value="37500">J$25,000 – 50,000</option><option value="75000">J$50,000 – 100,000</option><option value="130000">Over J$100,000</option></select></div>
+        </fieldset>
+      </form>
+
+      <aside class="sz-side" id="results">
+        <div class="calc-out">
+          <div class="k">Your estimate</div>
+          <div class="res">
+            <div><div class="rl">System size</div><div class="rv sm" data-o="size">—</div></div>
+            <div><div class="rl">Battery</div><div class="rv sm" data-o="bat">—</div></div>
+            <div><div class="rl">Installed price</div><div class="rv sm" data-o="price">—</div></div>
+            <div><div class="rl">Biggest power user</div><div class="rv sm" data-o="top">—</div></div>
+          </div>
+          <div data-notes></div>
+
+          <div data-locked>
+            <div class="sz-blur" aria-hidden="true">
+              <div><span>Solar panels</span><b>■.■ kW · ■ panels</b></div>
+              <div><span>Battery</span><b>■■ kWh</b></div>
+              <div><span>Hybrid inverter</span><b>■ kW · BSJ models</b></div>
+              <div><span>Monthly saving</span><b>J$■■,■■■</b></div>
+              <div><span>Loan payment (NHT)</span><b>J$■,■■■/mo</b></div>
+            </div>
+            <form class="sz-gate" data-gate novalidate>
+              <div class="wt">Get your full spec sheet</div>
+              <p>Exact panel, battery and inverter sizes, approved inverter models, monthly savings and loan payments, in a sheet you can print or take to an installer.</p>
+              <input id="sz-name" name="name" placeholder="Your name" autocomplete="name" required />
+              <input id="sz-email" name="email" type="email" placeholder="Email address" autocomplete="email" required />
+              <input id="sz-phone" name="phone" type="tel" placeholder="WhatsApp / phone (optional)" autocomplete="tel" inputmode="tel" />
+              <label class="sz-consent"><input id="sz-consent" type="checkbox" name="contact" checked /> <span>Jamaica Solar may contact me to help me get quotes from a trusted installer. We don't share your details without asking you. <a href="/privacy/">Privacy</a></span></label>
+              <button class="btn btn-sun btn-sq btn-block" type="submit" data-unlock>Show my full spec</button>
+              <div class="sz-err" data-err hidden></div>
+            </form>
+          </div>
+
+          <div data-unlocked hidden>
+            <div class="sz-kv">
+              <div><span>Solar panels</span><b data-f="pv"></b></div>
+              <div><span>Battery</span><b data-f="bat"></b></div>
+              <div><span>Hybrid inverter</span><b data-f="inv"></b></div>
+              <div><span>Estimated use</span><b data-f="use"></b></div>
+              <div><span>Roof space</span><b data-f="roof"></b></div>
+              <div><span>Monthly saving</span><b data-f="save"></b></div>
+              <div><span>Price range</span><b data-f="price"></b></div>
+            </div>
+            <div class="sz-sec">Where your power goes</div>
+            <div class="sz-kv sm" data-f="loads"></div>
+            <div class="sz-sec">Ways to pay (on <span data-f="amt"></span>)</div>
+            <div class="sz-fin" data-f="fin"></div>
+            <div class="sz-sec">BSJ-approved hybrid inverters at this size</div>
+            <div class="sz-chips" data-f="models"></div>
+            <a class="btn btn-sun btn-sq btn-block" style="margin-top:22px" data-sheet href="/spec/">Open my spec sheet</a>
+            <div class="sz-preview" data-preview hidden>Preview mode: Supabase isn't configured, so this request wasn't saved.</div>
+          </div>
+          <div style="height:1px; background:#1E4577; margin:22px 0 16px"></div>
+          <div class="assump">Rough estimate from typical appliance use, about 5 sun-hours a day, J$47/kWh and 2026 Jamaican package prices. Not a quote. <a href="/methodology/#sizer">How we estimate</a></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+  <div class="sz-bar" data-bar><span data-bar-txt></span><a href="#results">See estimate ↓</a></div>
+</Base>
+
+<style is:global>
+  .sz-grid { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,440px); gap:28px; align-items:start; }
+  @media (max-width: 900px) { .sz-grid { grid-template-columns:minmax(0,1fr); } }
+  .sz-qs { display:flex; flex-direction:column; gap:16px; min-width:0; }
+  .sz-set { border:1px solid var(--line); border-radius:14px; margin:0; padding:20px 20px 22px; display:flex; flex-direction:column; gap:16px; min-width:0; }
+  .sz-set legend { font-family:var(--display); font-weight:800; font-size:19px; color:var(--navy); padding:0 8px; margin-left:-8px; }
+  .sz-row { display:flex; flex-wrap:wrap; gap:10px 16px; align-items:center; justify-content:space-between; }
+  .sz-row > label, .sz-l { font-weight:600; font-size:15px; color:var(--navy); flex:1 1 200px; min-width:0; }
+  .sz-row small, .sz-l small { display:block; font-weight:400; font-size:13px; color:var(--muted); }
+  .sz-row select { padding:11px 12px; border:1px solid #D8E0EA; border-radius:8px; font-size:15px; color:var(--ink); background:var(--white); min-width:200px; max-width:100%; }
+  .sz-seg { display:flex; flex-wrap:wrap; gap:6px; }
+  .sz-seg button, .sz-step button { cursor:pointer; border:1.5px solid #D8E0EA; background:var(--white); color:var(--ink); border-radius:8px; padding:9px 14px; font-size:15px; font-weight:500; }
+  .sz-seg button[aria-pressed="true"] { border-color:var(--green); background:var(--green-tint); color:var(--green-dark); font-weight:700; }
+  .sz-step { display:flex; align-items:center; gap:10px; }
+  .sz-step button { width:40px; height:40px; padding:0; font-size:20px; line-height:1; }
+  .sz-step output { font-family:var(--display); font-weight:800; font-size:20px; min-width:2ch; text-align:center; color:var(--navy); }
+  .sz-checks { display:flex; flex-wrap:wrap; gap:8px; }
+  .sz-checks label { display:flex; gap:8px; align-items:center; border:1.5px solid #D8E0EA; border-radius:8px; padding:8px 12px; font-size:14.5px; cursor:pointer; }
+  .sz-checks input { accent-color:var(--green); }
+  .sz-sub { border-top:1px dashed var(--line); padding-top:14px; display:flex; flex-direction:column; gap:14px; }
+  .sz-side { position:sticky; top:96px; min-width:0; }
+  .sz-sub > .sz-l { flex:none; }
+  @media (max-width: 900px) { .sz-side { position:static; } }
+  .sz-side .calc-out { padding:28px; }
+  .sz-note { margin-top:14px; padding:12px 14px; border-radius:8px; font-size:13.5px; line-height:1.55; background:var(--navy-2); color:#D6E4F4; border-left:3px solid #6E93C2; }
+  .sz-note.is-warn { border-left-color:var(--sun); }
+  .sz-note strong { display:block; color:#fff; font-family:var(--display); margin-bottom:3px; }
+  .sz-blur { margin-top:22px; display:flex; flex-direction:column; gap:8px; filter:blur(3px); opacity:.55; user-select:none; }
+  .sz-blur div, .sz-kv div { display:flex; justify-content:space-between; gap:12px; font-size:14px; color:#A8C0DC; border-bottom:1px solid #1E4577; padding-bottom:7px; }
+  .sz-blur b, .sz-kv b { color:#fff; font-weight:600; text-align:right; font-variant-numeric:tabular-nums; }
+  .sz-gate { margin-top:18px; display:flex; flex-direction:column; gap:10px; background:#0F2740; border:1px solid #2A5C96; border-radius:12px; padding:18px; }
+  .sz-gate .wt { font-family:var(--display); font-weight:800; font-size:18px; }
+  .sz-gate p { margin:0; font-size:13.5px; color:#A8C0DC; line-height:1.55; }
+  .sz-gate input:not([type=checkbox]) { padding:12px 13px; border-radius:8px; border:1px solid #2A5C96; background:#fff; color:var(--ink); font-size:15px; width:100%; }
+  .sz-consent { display:flex; gap:9px; align-items:flex-start; font-size:12.5px; color:#A8C0DC; line-height:1.5; }
+  .sz-consent input { margin-top:3px; accent-color:var(--sun); }
+  .sz-consent a, .sz-side .assump a { color:var(--sun); text-decoration:underline; }
+  .sz-err { font-size:13.5px; color:#FFD27A; }
+  .sz-kv { margin-top:20px; display:flex; flex-direction:column; gap:8px; }
+  .sz-kv.sm { margin-top:8px; } .sz-kv.sm div { font-size:13px; }
+  .sz-sec { margin-top:22px; font-size:12px; font-weight:700; letter-spacing:1.2px; text-transform:uppercase; color:var(--sun); }
+  .sz-fin { margin-top:8px; display:flex; flex-direction:column; gap:8px; }
+  .sz-fin > div { background:#0F2740; border-radius:8px; padding:10px 12px; font-size:13px; color:#A8C0DC; }
+  .sz-fin > div.best { outline:1.5px solid var(--sun); }
+  .sz-fin strong { color:#fff; display:flex; justify-content:space-between; gap:10px; font-size:14px; margin-bottom:2px; }
+  .sz-chips { margin-top:8px; display:flex; flex-wrap:wrap; gap:6px; }
+  .sz-chips span { font-size:12px; background:#0F2740; border:1px solid #2A5C96; border-radius:6px; padding:3px 8px; color:#D6E4F4; }
+  .sz-preview { margin-top:12px; font-size:12.5px; color:#FFD27A; }
+  .sz-bar { display:none; position:fixed; left:0; right:0; bottom:0; z-index:20; background:var(--navy); color:#fff; padding:12px 18px calc(12px + env(safe-area-inset-bottom,0px)); font-size:14px; font-weight:600; justify-content:space-between; gap:12px; align-items:center; }
+  .sz-bar a { color:var(--sun); white-space:nowrap; }
+  @media (max-width: 900px) { .sz-bar { display:flex; } }
+</style>
+
+<script>
+  import { compute, financing, sizeBand, priceBand, encodeAnswers, newSpecId, jm, money, DEFAULT_ANSWERS, type Answers } from '../../lib/sizer';
+  const root = document.querySelector<HTMLElement>('[data-sizer]')!;
+  const INV: { b: string; m: string; kw: number }[] = JSON.parse(root.dataset.inv!);
+  const supa = JSON.parse(root.dataset.supa!);
+  const A: Answers = { ...DEFAULT_ANSWERS };
+  const $ = <T extends Element = HTMLElement>(s: string) => document.querySelector<T>(s)!;
+  const LS = 'js-sizer-v1';
+  let saved: { id: string; first: string; preview?: boolean } | null = null;
+  try { saved = JSON.parse(localStorage.getItem(LS) || 'null'); } catch { saved = null; }
+
+  // wire controls
+  root.querySelectorAll<HTMLElement>('[data-seg]').forEach(seg => {
+    const k = seg.dataset.seg as keyof Answers, num = seg.hasAttribute('data-num');
+    seg.addEventListener('click', e => { const b = (e.target as HTMLElement).closest('button'); if (!b) return; (A as any)[k] = num ? Number(b.dataset.v) : b.dataset.v; update(); });
+  });
+  root.querySelectorAll<HTMLElement>('[data-step]').forEach(st => {
+    const k = st.dataset.step as keyof Answers;
+    st.innerHTML = '<button type="button" aria-label="Fewer">−</button><output></output><button type="button" aria-label="More">+</button>';
+    const [minus, , plus] = Array.from(st.children) as HTMLButtonElement[];
+    minus.onclick = () => { (A as any)[k] = Math.max(Number(st.dataset.min), (A as any)[k] - 1); update(); };
+    plus.onclick = () => { (A as any)[k] = Math.min(Number(st.dataset.max), (A as any)[k] + 1); update(); };
+  });
+  root.querySelectorAll<HTMLInputElement | HTMLSelectElement>('[data-k]').forEach(el => {
+    const k = el.dataset.k as keyof Answers;
+    if (el instanceof HTMLInputElement && el.type === 'checkbox') el.checked = !!(A as any)[k]; else el.value = String((A as any)[k]);
+    el.addEventListener('change', () => {
+      (A as any)[k] = el instanceof HTMLInputElement && el.type === 'checkbox' ? el.checked : el.hasAttribute('data-num') ? Number(el.value) : el.value;
+      update();
+    });
+  });
+
+  const esc = (s: string) => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]!));
+
+  function update() {
+    root.querySelectorAll<HTMLElement>('[data-seg]').forEach(seg => seg.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(String((A as any)[seg.dataset.seg!]) === b.dataset.v))));
+    root.querySelectorAll<HTMLElement>('[data-step]').forEach(st => st.querySelector('output')!.textContent = String((A as any)[st.dataset.step!]));
+    $('[data-ac]').hidden = A.acs === 0;
+    $('[data-backup]').hidden = A.goal === 'bill';
+
+    const r = compute(A);
+    const top = r.loads[0], tot = r.loads.reduce((s, l) => s + l[1], 0);
+    $('[data-o="size"]').textContent = sizeBand(r.pvKw);
+    $('[data-o="bat"]').textContent = r.batteryKwh ? 'Recommended' : 'Optional';
+    $('[data-o="price"]').textContent = priceBand(r.priceLow, r.priceHigh);
+    $('[data-o="top"]').textContent = top ? `${top[0].replace(', TV, Wi-Fi', '')} ${Math.round(top[1] / tot * 100)}%` : '—';
+    // the cap alert is always shown; other notes only after unlock
+    const notes = saved ? r.notes : r.notes.filter(n => n.title);
+    $('[data-notes]').innerHTML = notes.map(n => `<div class="sz-note is-${n.tone}">${n.title ? `<strong>${esc(n.title)}</strong>` : ''}${esc(n.text)}</div>`).join('');
+    $('[data-bar-txt]').textContent = saved ? `${r.pvKw.toFixed(1)} kW · ${r.batteryKwh ? r.batteryKwh + ' kWh' : 'no battery'} · ${jm(r.priceLow)}–${jm(r.priceHigh)}` : `${sizeBand(r.pvKw)} · ${priceBand(r.priceLow, r.priceHigh)}`;
+
+    $('[data-locked]').hidden = !!saved;
+    $('[data-unlocked]').hidden = !saved;
+    if (!saved) return;
+    const f = (k: string) => $(`[data-f="${k}"]`);
+    f('pv').textContent = `${r.pvKw.toFixed(1)} kW · ${r.panels} panels`;
+    f('bat').textContent = r.batteryKwh ? `${r.batteryKwh} kWh` : 'None (add later)';
+    f('inv').textContent = r.inverterKw ? `${r.inverterKw} kW` : '15 kW+';
+    f('use').textContent = `${Math.round(r.dailyKwh)} kWh/day`;
+    f('roof').textContent = `~${r.roofM2} m²`;
+    f('save').textContent = `${money(r.savingMonth)}/mo`;
+    f('price').textContent = `${jm(r.priceLow)} – ${jm(r.priceHigh)}`;
+    f('loads').innerHTML = r.loads.map(l => `<div><span>${esc(l[0])}</span><b>${l[1].toFixed(1)} kWh · ${Math.round(l[1] / tot * 100)}%</b></div>`).join('');
+    const fin = financing(A, r);
+    f('amt').textContent = money(fin.amount);
+    f('fin').innerHTML = fin.options.map(o => `<div class="${o.best ? 'best' : ''}"><strong><span>${esc(o.name)}</span><span>${esc(o.monthly)}${o.monthly.startsWith('J$') ? '/mo' : ''}</span></strong>${esc(o.rate)} · ${esc(o.term)}. ${esc(o.note)}</div>`).join('');
+    const kw = r.inverterKw ?? 15;
+    const models = INV.filter(i => Math.abs(i.kw - kw) < 0.6).slice(0, 8);
+    f('models').innerHTML = models.length ? models.map(i => `<span>${esc(i.b)} ${esc(i.m)}</span>`).join('') : '<span>Ask your installer</span>';
+    const q = new URLSearchParams({ s: encodeAnswers(A), id: saved.id, n: saved.first });
+    $<HTMLAnchorElement>('[data-sheet]').href = `/spec/?${q}`;
+    $('[data-preview]').hidden = !saved.preview;
+  }
+
+  $<HTMLFormElement>('[data-gate]').addEventListener('submit', async e => {
+    e.preventDefault();
+    const form = e.currentTarget as HTMLFormElement, err = $('[data-err]'), btn = $<HTMLButtonElement>('[data-unlock]');
+    const fd = new FormData(form);
+    const name = String(fd.get('name') || '').trim(), email = String(fd.get('email') || '').trim(), phone = String(fd.get('phone') || '').trim();
+    err.hidden = true;
+    if (name.length < 2) { err.textContent = 'Add your name so we know what to call you.'; err.hidden = false; return; }
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { err.textContent = 'Enter a valid email address so we can send your spec sheet.'; err.hidden = false; return; }
+    btn.disabled = true; btn.textContent = 'Saving…';
+    const r = compute(A), id = newSpecId();
+    const row = { spec_id: id, name, email, phone: phone || null, parish: A.parish, nht_contributor: A.nht, contact_ok: fd.get('contact') === 'on',
+      answers: A, pv_kw: r.pvKw, battery_kwh: r.batteryKwh, inverter_kw: r.inverterKw, price_low: r.priceLow, price_high: r.priceHigh };
+    let ok = false, preview = false;
+    if (supa.url && supa.key) {
+      try {
+        const res = await fetch(`${supa.url}/rest/v1/spec_requests`, { method: 'POST', headers: { apikey: supa.key, Authorization: `Bearer ${supa.key}`, 'Content-Type': 'application/json', Prefer: 'return=minimal' }, body: JSON.stringify(row) });
+        ok = res.ok;
+      } catch { ok = false; }
+    } else { ok = true; preview = true; }
+    btn.disabled = false; btn.textContent = 'Show my full spec';
+    if (!ok) { err.textContent = "We couldn't save your request just now. Check your connection and try again."; err.hidden = false; return; }
+    saved = { id, first: name.split(/\s+/)[0].slice(0, 40), preview };
+    try { localStorage.setItem(LS, JSON.stringify(saved)); } catch {}
+    update();
+  });
+
+  update();
+</script>
