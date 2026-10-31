@@ -12,7 +12,7 @@ const rows = [...inverters].sort((a, b) => a.brand.localeCompare(b.brand) || (a.
 
     <label class="sr-only" for="q">Inverter brand or model</label>
     <input id="q" class="search-in" type="search" placeholder="e.g. Deye Sun-8K, Sol-Ark 15K, Growatt MTL" autocomplete="off" data-q />
-    <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin:14px 0 22px; font-size:14.5px; color:#5C6B80">
+    <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin:14px 0 22px; font-size:14.5px; color:#5B6B63">
       <select class="select" style="min-width:200px; padding:10px 12px" data-brand aria-label="Brand">
         <option value="">All {brands.length} brands</option>
         {brands.map(b => <option value={b}>{b}</option>)}
@@ -32,15 +32,15 @@ const rows = [...inverters].sort((a, b) => a.brand.localeCompare(b.brand) || (a.
       <strong>Tip:</strong> match the <em>exact</em> model. Approvals are often for a specific variant (for example “-US” for 120/240V split-phase vs “-EU” for 230V). If your model is close but not identical, ask the installer for the BSJ approval report number.
     </div>
 
-    <div style="overflow:auto; border:1px solid #E2E8F0; border-radius:12px; max-height:70vh">
+    <div style="overflow:auto; border:1px solid #D9E0DB; border-radius:12px; max-height:70vh">
       <table class="dtable">
         <thead><tr><th>Brand</th><th>Model</th><th>Output</th><th class="hide-sm">AC voltage</th><th>Status</th><th class="hide-sm">Approved</th><th class="hide-sm">BSJ report</th></tr></thead>
         <tbody>
           {rows.map(i => (
             <tr data-row data-k={(i.brand + ' ' + i.model + ' ' + i.key).toLowerCase().replace(/[^a-z0-9. ]/g, '')} data-b={i.brand} data-s={i.size} data-h={i.hybrid ? '1' : '0'}>
-              <td style="font-weight:600; color:#14324F">{i.brand}</td>
-              <td>{i.model}{i.issue && <div style="font-size:12px; color:#9A6A00; margin-top:3px" title={i.issue}>⚠ {i.issue.split(';')[0]}</div>}</td>
-              <td style="white-space:nowrap">{i.kw != null ? `${i.kw} kW` : '—'}{i.hybrid && <div style="font-size:12px; color:#08532C">Hybrid / battery</div>}</td>
+              <td style="font-weight:600; color:#15211C">{i.brand}</td>
+              <td>{i.model}{i.issue && <div style="font-size:12px; color:#8A5A00; margin-top:3px" title={i.issue}>⚠ {i.issue.split(';')[0]}</div>}</td>
+              <td style="white-space:nowrap">{i.kw != null ? `${i.kw} kW` : '—'}{i.hybrid && <div style="font-size:12px; color:#0B5239">Hybrid / battery</div>}</td>
               <td class="hide-sm">{i.voltage}</td>
               <td class={i.status === 'Approved' ? 'status-ok' : 'status-cond'}>{i.status}</td>
               <td class="hide-sm" style="white-space:nowrap">{i.date}</td>
@@ -50,7 +50,7 @@ const rows = [...inverters].sort((a, b) => a.brand.localeCompare(b.brand) || (a.
         </tbody>
       </table>
       <div class="empty" data-none hidden style="margin:16px; border-radius:10px">
-        <strong style="color:#14324F">No match on the BSJ list.</strong> That does not always mean the model is unapproved — the list may spell it differently. Ask your installer for the BSJ approval report number, or contact BSJ.
+        <strong style="color:#15211C">No match on the BSJ list.</strong> That does not always mean the model is unapproved — the list may spell it differently. Ask your installer for the BSJ approval report number, or contact BSJ.
       </div>
     </div>
     <p class="small" style="margin-top:16px; line-height:1.6">Source: Bureau of Standards Jamaica, Electrical &amp; Electronics Branch — approved inverter list (read 16 October 2026). We corrected obvious typos for search only and flag rows where the published figures look inconsistent; the BSJ list is the official record. “Hybrid / battery” is inferred from the model name. Conditional approval “limited use” (FLU) means the model is approved for limited use in Jamaica only.</p>

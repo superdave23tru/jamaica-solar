@@ -32,12 +32,12 @@ const featured = [...companies].sort((a, b) => Number(b.sponsored) - Number(a.sp
     </div>
   </section>
 
-  <section style="background:#F1F7F1; margin-top:56px">
+  <section style="background:#E8EFEA; margin-top:56px">
     <div class="wrap split" style="padding-top:64px; padding-bottom:64px">
       <div>
         <div class="kicker">Find a solar provider near you</div>
         <h2 class="h2" style="font-size:34px">Trusted Providers. Real Solutions.</h2>
-        <p style="font-size:16.5px; line-height:1.55; color:#3D4C5A; margin:0 0 24px; max-width:520px">Search our directory of solar companies, individual installers and equipment suppliers across all 14 parishes.</p>
+        <p style="font-size:16.5px; line-height:1.55; color:#3B4A43; margin:0 0 24px; max-width:520px">Search our directory of solar companies, individual installers and equipment suppliers across all 14 parishes.</p>
         <form action="/companies/" method="get" style="display:flex; gap:12px; flex-wrap:wrap; align-items:center">
           <label class="sr-only" for="h-parish">Parish</label>
           <select id="h-parish" name="parish" class="select">
@@ -58,15 +58,15 @@ const featured = [...companies].sort((a, b) => Number(b.sponsored) - Number(a.sp
       </div>
       <div class="map-card">
         <svg viewBox="0 0 520 290" width="100%" height="100%" style="position:absolute; inset:0" aria-hidden="true">
-          <defs><linearGradient id="sea" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#E3EFE6"/><stop offset="1" stop-color="#D6E8DC"/></linearGradient></defs>
+          <defs><linearGradient id="sea" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#DDE9E2"/><stop offset="1" stop-color="#D3E5DB"/></linearGradient></defs>
           <rect width="520" height="290" fill="url(#sea)"/>
-          <path d="M58 150c22-24 60-34 96-38 30-3 52-14 84-16 40-2 66 6 98 4 34-2 58-10 92 0 24 7 40 20 40 34 0 12-16 18-34 24-26 9-40 26-70 30-30 4-50-10-82-6-30 4-48 18-80 18-34 0-48-12-76-14-22-2-46 6-64-4-10-6-4-20-4-32z" fill="#BFDCC8" stroke="#9CC7AA" stroke-width="2"/>
+          <path d="M58 150c22-24 60-34 96-38 30-3 52-14 84-16 40-2 66 6 98 4 34-2 58-10 92 0 24 7 40 20 40 34 0 12-16 18-34 24-26 9-40 26-70 30-30 4-50-10-82-6-30 4-48 18-80 18-34 0-48-12-76-14-22-2-46 6-64-4-10-6-4-20-4-32z" fill="#B9D9C9" stroke="#93C2AB" stroke-width="2"/>
           {[[110,150],[175,128],[240,146],[300,118],[352,150],[402,136],[440,160],[270,180],[200,176]].map(([x, y]) =>
-            <g transform={`translate(${x},${y})`}><path d="M0 0c-7-9-11-14-11-20a11 11 0 0122 0c0 6-4 11-11 20z" fill="#0B6E3C"/><circle cy="-20" r="4" fill="#fff"/></g>)}
+            <g transform={`translate(${x},${y})`}><path d="M0 0c-7-9-11-14-11-20a11 11 0 0122 0c0 6-4 11-11 20z" fill="#0F6B4C"/><circle cy="-20" r="4" fill="#fff"/></g>)}
         </svg>
         <div class="note">
-          <div style="font-family:var(--display); font-weight:700; font-size:15px; color:#14324F">Support Local.</div>
-          <div style="font-size:14px; color:#6B7A88; margin-top:3px">Build a Brighter Jamaica.</div>
+          <div style="font-family:var(--display); font-weight:700; font-size:15px; color:#15211C">Support Local.</div>
+          <div style="font-size:14px; color:#66766D; margin-top:3px">Build a Brighter Jamaica.</div>
         </div>
       </div>
     </div>
@@ -85,8 +85,8 @@ const featured = [...companies].sort((a, b) => Number(b.sponsored) - Number(a.sp
           <div style="display:flex; gap:16px; align-items:flex-start">
             <Avatar p={c} size={74} />
             <div style="min-width:0">
-              <a href={`/providers/${c.slug}/`} style="font-family:var(--display); font-weight:700; font-size:18px; color:#14324F">{c.name}</a>
-              <div style="font-size:13.5px; color:#6B7A88; margin-top:3px">{c.tagline}</div>
+              <a href={`/providers/${c.slug}/`} style="font-family:var(--display); font-weight:700; font-size:18px; color:#15211C">{c.name}</a>
+              <div style="font-size:13.5px; color:#66766D; margin-top:3px">{c.tagline}</div>
               <div style="margin-top:9px">{c.verified
                 ? <span class="badge-verified"><Fragment set:html={shield} />Details verified</span>
                 : <span class="badge-unverified">Unverified</span>}</div>
@@ -95,7 +95,7 @@ const featured = [...companies].sort((a, b) => Number(b.sponsored) - Number(a.sp
           <div class="tags" style="margin:16px 0 14px">{c.tags.map(t => <span class="tag">{t}</span>)}</div>
           <div class="meta-row" style="margin-bottom:10px"><span><Fragment set:html={pin} />{areaLabel(c)}</span></div>
           {c.website && <div class="meta-row" style="margin-bottom:10px"><span><Fragment set:html={globe} />{hostOf(c.website)}</span></div>}
-          {c.tags.includes('Maintenance') && <div class="meta-row" style="font-weight:600; color:#08532C; margin-bottom:14px"><span><Fragment set:html={wrench} />Post-install service available</span></div>}
+          {c.tags.includes('Maintenance') && <div class="meta-row" style="font-weight:600; color:#0B5239; margin-bottom:14px"><span><Fragment set:html={wrench} />Post-install service available</span></div>}
           <a href={`/providers/${c.slug}/`} class="link-arrow" style="font-size:14.5px">View profile →</a>
         </div>
       ))}
@@ -106,10 +106,10 @@ const featured = [...companies].sort((a, b) => Number(b.sponsored) - Number(a.sp
     <div class="calc-promo">
       <div class="art">
         <svg viewBox="0 0 400 260" style="position:absolute; inset:0; width:100%; height:100%; opacity:.9" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
-          <circle cx="300" cy="70" r="38" fill="#F5B92E"/>
-          <g stroke="#F5B92E" stroke-width="5" stroke-linecap="round" opacity=".8"><path d="M300 12v-10M242 70h-10M368 70h-10M259 29l-7-7M341 29l7-7"/></g>
+          <circle cx="300" cy="70" r="38" fill="#F2A516"/>
+          <g stroke="#F2A516" stroke-width="5" stroke-linecap="round" opacity=".8"><path d="M300 12v-10M242 70h-10M368 70h-10M259 29l-7-7M341 29l7-7"/></g>
           <g transform="translate(40,140) skewX(-18)">
-            {[0,1,2,3].map(c => [0,1].map(r => <rect x={c*62} y={r*46} width="56" height="40" rx="3" fill="#14324F" stroke="#5B8FD6" stroke-width="1.5"/>))}
+            {[0,1,2,3].map(c => [0,1].map(r => <rect x={c*62} y={r*46} width="56" height="40" rx="3" fill="#15211C" stroke="#4CC796" stroke-width="1.5"/>))}
           </g>
         </svg>
         <div style="position:relative; font-family:var(--script); font-size:30px; line-height:1.1; transform:rotate(-3deg)">Same Sun<br>More Possibilities</div>
@@ -117,12 +117,12 @@ const featured = [...companies].sort((a, b) => Number(b.sponsored) - Number(a.sp
       <div style="padding:46px 44px; background:#FFFFFF">
         <div class="kicker">Solar savings calculator</div>
         <h2 class="h2">See What You Could Save</h2>
-        <p style="font-size:16.5px; line-height:1.55; color:#3D4C5A; margin:0 0 24px; max-width:420px">Estimate your savings in Jamaican dollars from your monthly JPS bill.</p>
+        <p style="font-size:16.5px; line-height:1.55; color:#3B4A43; margin:0 0 24px; max-width:420px">Estimate your savings in Jamaican dollars from your monthly JPS bill.</p>
         <a href="/tools/calculator/" class="btn btn-sun" style="padding:14px 26px; font-size:15.5px; margin-bottom:26px">Try the Calculator <span>→</span></a>
         <div style="display:flex; flex-direction:column; gap:12px">
-          <div style="display:flex; gap:11px; align-items:center; font-size:15px; color:#3D4C5A"><span style="color:#F5B92E; font-size:17px">⬤</span> Takes under a minute</div>
-          <div style="display:flex; gap:11px; align-items:center; font-size:15px; color:#3D4C5A"><span style="color:#0B6E3C; font-size:17px">⬤</span> Based on Jamaican rates in JMD</div>
-          <div style="display:flex; gap:11px; align-items:center; font-size:15px; color:#3D4C5A"><span style="color:#14324F; font-size:17px">⬤</span> Flags when a system goes over the 10 kW net billing cap</div>
+          <div style="display:flex; gap:11px; align-items:center; font-size:15px; color:#3B4A43"><span style="color:#F2A516; font-size:17px">⬤</span> Takes under a minute</div>
+          <div style="display:flex; gap:11px; align-items:center; font-size:15px; color:#3B4A43"><span style="color:#0F6B4C; font-size:17px">⬤</span> Based on Jamaican rates in JMD</div>
+          <div style="display:flex; gap:11px; align-items:center; font-size:15px; color:#3B4A43"><span style="color:#15211C; font-size:17px">⬤</span> Flags when a system goes over the 10 kW net billing cap</div>
         </div>
       </div>
     </div>
@@ -133,7 +133,7 @@ const featured = [...companies].sort((a, b) => Number(b.sponsored) - Number(a.sp
     <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:20px; flex-wrap:wrap; margin-bottom:26px">
       <div>
         <h2 class="h2" style="font-size:34px; margin-bottom:8px">Knowledge for a Brighter Tomorrow</h2>
-        <p style="font-size:16.5px; color:#3D4C5A; margin:0">Guides and explainers to help you make an informed decision.</p>
+        <p style="font-size:16.5px; color:#3B4A43; margin:0">Guides and explainers to help you make an informed decision.</p>
       </div>
       <a href="/learn/" class="link-arrow">View all guides →</a>
     </div>
@@ -141,7 +141,7 @@ const featured = [...companies].sort((a, b) => Number(b.sponsored) - Number(a.sp
       {guides.map(g => (
         <a href={`/learn/${g.slug}/`} class="article-card">
           <div class="img" style={`background:${g.tint}`}><span style="font-size:11.5px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:#fff; background:rgba(0,0,0,.18); padding:4px 8px; border-radius:4px">{g.kicker}</span></div>
-          <div class="body"><div class="t">{g.title}</div><div class="d">{g.desc}</div><span style="font-size:14px; font-weight:600; color:#0B6E3C">Read more →</span></div>
+          <div class="body"><div class="t">{g.title}</div><div class="d">{g.desc}</div><span style="font-size:14px; font-weight:600; color:#0F6B4C">Read more →</span></div>
         </a>
       ))}
     </div>
@@ -159,9 +159,9 @@ const featured = [...companies].sort((a, b) => Number(b.sponsored) - Number(a.sp
   <section class="cta-band">
     <div class="wrap inner">
       <div>
-        <div class="kicker" style="color:#F5B92E">Be part of a brighter Jamaica</div>
+        <div class="kicker" style="color:#F2A516">Be part of a brighter Jamaica</div>
         <h2 class="h2" style="font-size:36px; color:#FFFFFF; margin-bottom:8px">Ready to Go Solar?</h2>
-        <p style="font-size:16.5px; color:#CDE5D6; margin:0">Learn, plan, compare providers and make the switch.</p>
+        <p style="font-size:16.5px; color:#C9E2D5; margin:0">Learn, plan, compare providers and make the switch.</p>
       </div>
       <a href="/quote/" class="btn btn-sun" style="padding:16px 32px; font-size:16.5px">Get Started <span>→</span></a>
     </div>

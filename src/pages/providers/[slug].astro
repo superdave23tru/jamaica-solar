@@ -45,13 +45,13 @@ const about = p.kind === 'supplier'
                 : <span class="badge-unverified">Unverified listing</span>}
             </div>
             <h1 class="h1" style="font-size:36px; margin-bottom:8px">{p.name}</h1>
-            <div style="font-size:17px; color:#5C6B80">{p.tagline}</div>
+            <div style="font-size:17px; color:#5B6B63">{p.tagline}</div>
           </div>
         </div>
 
         {!p.verified && (
           <div class="callout callout-sun" style="margin-top:0">
-            <strong style="color:#14324F">Not yet verified.</strong> We compiled this listing from public sources on {DATA_AS_OF}. We have not yet confirmed these details with {shortName}. Call or check their website before relying on them.
+            <strong style="color:#15211C">Not yet verified.</strong> We compiled this listing from public sources on {DATA_AS_OF}. We have not yet confirmed these details with {shortName}. Call or check their website before relying on them.
           </div>
         )}
 
@@ -60,7 +60,7 @@ const about = p.kind === 'supplier'
         </div>
 
         <h2 class="h3">About</h2>
-        <p style="font-size:17px; line-height:1.7; color:#22314A; margin:0 0 34px; max-width:680px">{about}</p>
+        <p style="font-size:17px; line-height:1.7; color:#24332C; margin:0 0 34px; max-width:680px">{about}</p>
 
         <h2 class="h3">Services</h2>
         <div class="tags" style="gap:9px; margin-bottom:34px">{p.tags.map(t => <span class="tag" style="font-size:14px; padding:7px 13px; border-radius:6px">{t}</span>)}</div>
@@ -69,33 +69,33 @@ const about = p.kind === 'supplier'
         <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px">
           {p.parishes.length ? p.parishes.map(x => <span class="pill">{x}</span>) : <span class="pill">Not yet confirmed</span>}
         </div>
-        <div style="font-size:14px; color:#8A99AC">Service areas are self-reported by the provider.</div>
+        <div style="font-size:14px; color:#8C9A92">Service areas are self-reported by the provider.</div>
 
         {p.sources.length > 0 && (
-          <div style="margin-top:30px; font-size:14px; color:#5C6B80; line-height:1.6">
-            <strong style="color:#14324F">Listing sources:</strong>{' '}
+          <div style="margin-top:30px; font-size:14px; color:#5B6B63; line-height:1.6">
+            <strong style="color:#15211C">Listing sources:</strong>{' '}
             {p.sources.map((s, i) => <>{i > 0 && ' · '}{SOURCE_URLS[s] ? <a href={SOURCE_URLS[s]} rel="nofollow noopener" target="_blank" style="text-decoration:underline">{s}</a> : s}</>)}
           </div>
         )}
 
-        <div style="margin-top:36px; padding:22px; border:1px solid #E2E8F0; border-radius:12px">
-          <div style="font-family:var(--display); font-weight:700; font-size:16px; color:#14324F; margin-bottom:10px">What we verify</div>
-          <div style="font-size:15px; line-height:1.65; color:#5C6B80">We confirm contact details and business registration with the provider, and publish the date last checked. We do not inspect work, guarantee pricing, or endorse providers. <a href="/methodology/" style="text-decoration:underline">Methodology</a></div>
+        <div style="margin-top:36px; padding:22px; border:1px solid #D9E0DB; border-radius:12px">
+          <div style="font-family:var(--display); font-weight:700; font-size:16px; color:#15211C; margin-bottom:10px">What we verify</div>
+          <div style="font-size:15px; line-height:1.65; color:#5B6B63">We confirm contact details and business registration with the provider, and publish the date last checked. We do not inspect work, guarantee pricing, or endorse providers. <a href="/methodology/" style="text-decoration:underline">Methodology</a></div>
         </div>
       </div>
 
       <aside class="side-card">
-        <div style="font-family:var(--display); font-weight:700; font-size:19px; color:#14324F; margin-bottom:6px">Contact {shortName}</div>
-        <div style="font-size:14.5px; color:#5C6B80; line-height:1.55; margin-bottom:20px">
+        <div style="font-family:var(--display); font-weight:700; font-size:19px; color:#15211C; margin-bottom:6px">Contact {shortName}</div>
+        <div style="font-size:14.5px; color:#5B6B63; line-height:1.55; margin-bottom:20px">
           {p.kind === 'supplier' ? 'Ask about stock, pricing and delivery.' : 'Send one request and compare replies from providers in your parish.'}
         </div>
         {p.kind !== 'supplier' && <a href={`/quote/?provider=${p.slug}`} class="btn btn-sun btn-sq btn-block" style="margin-bottom:12px">Request a quote</a>}
         {p.phone && <a href={`tel:${tel}`} class="btn btn-outline-navy btn-block" style="margin-bottom:12px; font-size:15px">{p.phone.split(';')[0]}</a>}
         {p.website && <a href={p.website} rel="nofollow noopener" target="_blank" class="btn btn-outline-navy btn-block" style="margin-bottom:12px; font-size:15px">{hostOf(p.website)} ↗</a>}
         {p.email && <a href={`mailto:${p.email.split(';')[0].trim()}`} style="display:block; text-align:center; font-size:14.5px; margin-bottom:6px; word-break:break-all">{p.email.split(';')[0].trim()}</a>}
-        {p.address && <div style="font-size:14px; color:#5C6B80; text-align:center; line-height:1.5; margin-top:8px">{p.address}</div>}
-        <div style="height:1px; background:#EDF1F6; margin:22px 0"></div>
-        <div style="font-size:13.5px; color:#8A99AC; line-height:1.6">
+        {p.address && <div style="font-size:14px; color:#5B6B63; text-align:center; line-height:1.5; margin-top:8px">{p.address}</div>}
+        <div style="height:1px; background:#E8EDE9; margin:22px 0"></div>
+        <div style="font-size:13.5px; color:#8C9A92; line-height:1.6">
           {p.verified ? <>Listing last checked {p.checked}.</> : <>Compiled from public sources {DATA_AS_OF}; not yet checked with the business.</>}
           {' '}Is this your business? <a href={`/list-your-business/?claim=${p.slug}`} style="text-decoration:underline">Claim or correct</a> this page — it's free.
         </div>

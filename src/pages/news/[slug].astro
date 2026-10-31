@@ -7,15 +7,15 @@ const { n } = Astro.props as { n: NewsItem };
 <Base title={n.title} description={n.excerpt} section="resources">
   <div class="wrap" style="max-width:808px; padding-top:44px; padding-bottom:72px">
     <div class="crumbs" style="margin-bottom:22px"><a href="/news/">News</a> / {n.category}</div>
-    <div style="display:flex; gap:10px; align-items:center; margin-bottom:16px"><span class="cat">{n.category}</span><span style="font-size:13px; color:#8A99AC">{n.date}</span></div>
+    <div style="display:flex; gap:10px; align-items:center; margin-bottom:16px"><span class="cat">{n.category}</span><span style="font-size:13px; color:#8C9A92">{n.date}</span></div>
     <h1 class="h1" style="font-size:clamp(30px,4.5vw,40px); line-height:1.1; letter-spacing:-1.4px; margin-bottom:20px">{n.title}</h1>
     <div class="prose" style="font-size:18px; line-height:1.75">
       <p class="intro">{n.excerpt}</p>
       {n.body.map(p => <p>{p}</p>)}
       {n.takeaway && <div class="callout"><strong>What it means for you:</strong> {n.takeaway}</div>}
-      <p style="font-size:15px; color:#5C6B80">Source: <a href={n.source.url} target="_blank" rel="noopener" style="text-decoration:underline">{n.source.label}</a></p>
+      <p style="font-size:15px; color:#5B6B63">Source: <a href={n.source.url} target="_blank" rel="noopener" style="text-decoration:underline">{n.source.label}</a></p>
     </div>
-    <div style="margin-top:40px; padding-top:26px; border-top:1px solid #E2E8F0; display:flex; gap:18px; align-items:center; flex-wrap:wrap">
+    <div style="margin-top:40px; padding-top:26px; border-top:1px solid #D9E0DB; display:flex; gap:18px; align-items:center; flex-wrap:wrap">
       <a href="/news/" class="link-arrow">← All news</a>
       <a href="/tools/calculator/" class="link-arrow">Try the payback calculator →</a>
     </div>

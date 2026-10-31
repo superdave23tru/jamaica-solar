@@ -15,16 +15,16 @@ const related = guides.filter(g => g.slug !== slug).slice(0, 3);
       <div class="crumbs"><a href="/">Home</a> / <a href="/learn/">Learn</a> / {kicker}</div>
       <div class="kicker" style="letter-spacing:1.4px">Guide · {kicker}</div>
       <h1 class="h1" style="font-size:42px; letter-spacing:-1.3px; max-width:780px; margin-bottom:14px">{title}</h1>
-      <div style="font-size:14.5px; color:#5C6B80">Updated {updated} · Sources listed at the end</div>
+      <div style="font-size:14.5px; color:#5B6B63">Updated {updated} · Sources listed at the end</div>
     </div>
   </div>
   <div class="wrap guide">
     <aside>
       <div class="toc">
-        <div style="font-size:12px; font-weight:700; letter-spacing:1.2px; text-transform:uppercase; color:#8A99AC; margin-bottom:14px">On this page</div>
+        <div style="font-size:12px; font-weight:700; letter-spacing:1.2px; text-transform:uppercase; color:#8C9A92; margin-bottom:14px">On this page</div>
         <div class="links">{toc.map(t => <a href={`#${t.id}`}>{t.label}</a>)}</div>
-        <div style="margin-top:26px; padding:18px; background:#F7F9FC; border-radius:10px">
-          <div style="font-weight:700; font-size:14.5px; color:#14324F; margin-bottom:8px">Estimate your own payback</div>
+        <div style="margin-top:26px; padding:18px; background:#EEF2EF; border-radius:10px">
+          <div style="font-weight:700; font-size:14.5px; color:#15211C; margin-bottom:8px">Estimate your own payback</div>
           <a href="/tools/calculator/" style="font-size:14px; font-weight:600">Open the calculator →</a>
         </div>
       </div>
@@ -39,13 +39,13 @@ const related = guides.filter(g => g.slug !== slug).slice(0, 3);
         <a href="/quote/" class="btn btn-sun btn-sq" style="padding:14px 24px; font-size:15.5px">Get a Quote</a>
       </div>
       <div class="sources">
-        <strong style="color:#14324F">Sources</strong>
+        <strong style="color:#15211C">Sources</strong>
         <ol style="margin:8px 0 0; padding-left:20px; font-size:14px">
           {sources.map(s => <li style="margin-bottom:4px"><a href={s.url} rel="noopener" target="_blank">{s.label}</a></li>)}
         </ol>
         <p style="font-size:13.5px; margin:12px 0 0">Rules change. If something here is out of date, <a href="/contact/">tell us</a>.</p>
       </div>
-      <h3 style="font-family:var(--display); font-size:20px; font-weight:700; color:#14324F; margin:48px 0 16px">Related guides</h3>
+      <h3 style="font-family:var(--display); font-size:20px; font-weight:700; color:#15211C; margin:48px 0 16px">Related guides</h3>
       <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:16px">
         {related.map(g => <a href={`/learn/${g.slug}/`} class="guide-card"><div class="k">{g.kicker}</div><div class="t">{g.title}</div></a>)}
       </div>

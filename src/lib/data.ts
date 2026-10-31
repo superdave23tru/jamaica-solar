@@ -145,8 +145,8 @@ export const news: NewsItem[] = [
 
 export type Guide = { slug: string; kicker: string; title: string; desc: string; tint: string };
 export const guides: Guide[] = [
-  { slug: 'net-billing', kicker: 'Bills & savings', title: 'How JPS net billing works, and the 10 kW cap', desc: 'What you are paid for exports, and how it shapes system size.', tint: 'linear-gradient(135deg,#0B6E3C,#14324F)' },
-  { slug: 'licences-and-approvals', kicker: 'Approvals', title: 'Licences and approvals: net billing, auxiliary and wheeling', desc: 'Which route fits your system, the fees, and the steps.', tint: 'linear-gradient(135deg,#14324F,#17457F)' },
-  { slug: 'batteries', kicker: 'Batteries', title: 'Do you need battery storage?', desc: 'Backup during outages, using more of your own power, and costs.', tint: 'linear-gradient(135deg,#F5B92E,#E0A514)' },
-  { slug: 'how-solar-pv-works', kicker: 'Basics', title: 'How solar PV works', desc: 'Panels, inverters and the grid, in plain language.', tint: 'linear-gradient(135deg,#08532C,#0B6E3C)' },
+  { slug: 'net-billing', kicker: 'Bills & savings', title: 'How JPS net billing works, and the 10 kW cap', desc: 'What you are paid for exports, and how it shapes system size.', tint: 'linear-gradient(135deg,#0F6B4C,#15211C)' },
+  { slug: 'licences-and-approvals', kicker: 'Approvals', title: 'Licences and approvals: net billing, auxiliary and wheeling', desc: 'Which route fits your system, the fees, and the steps.', tint: 'linear-gradient(135deg,#15211C,#22302A)' },
+  { slug: 'batteries', kicker: 'Batteries', title: 'Do you need battery storage?', desc: 'Backup during outages, using more of your own power, and costs.', tint: 'linear-gradient(135deg,#F2A516,#D9920C)' },
+  { slug: 'how-solar-pv-works', kicker: 'Basics', title: 'How solar PV works', desc: 'Panels, inverters and the grid, in plain language.', tint: 'linear-gradient(135deg,#0B5239,#0F6B4C)' },
 ];

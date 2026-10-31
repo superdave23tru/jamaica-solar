@@ -1,0 +1,238 @@
+---
+import Base from '../layouts/Base.astro';
+import Logo from '../components/Logo.astro';
+import { inverters } from '../lib/data';
+const hybrids = inverters.filter(i => i.hybrid && i.status === 'Approved' && i.kw).map(i => ({ b: i.brand, m: i.model, kw: i.kw }));
+---
+<Base title="Your solar spec sheet" description="A printable solar system spec to take to installers: system size, backup plan, price range, financing and questions to ask." section="tools">
+  <div class="wrap spec-page" data-spec data-inv={JSON.stringify(hybrids)}>
+    <div class="spec-actions no-print">
+      <a href="/tools/system-sizer/" class="link-arrow">← Change my answers</a>
+      <button type="button" class="btn btn-sun btn-sq btn-sm" data-print>Print or save as PDF</button>
+    </div>
+    <div class="spec-sample no-print" data-sample hidden>This is an example spec for a sample household. <a href="/tools/system-sizer/">Answer the questions</a> to get your own.</div>
+
+    <article class="sheet">
+      <header class="sheet-mast">
+        <Logo />
+        <div class="sheet-id"><span>Spec ID</span><b data-s="id">—</b><span data-s="date"></span></div>
+      </header>
+
+      <div>
+        <h1 class="sheet-h1">Your home solar spec</h1>
+        <p class="sheet-for" data-s="for"></p>
+      </div>
+
+      <section>
+        <h2 class="sheet-h2">Recommended system</h2>
+        <div class="sheet-head">
+          <div><b data-s="pv"></b><small data-s="pvs"></small></div>
+          <div><b data-s="bat"></b><small>Lithium battery</small></div>
+          <div><b data-s="inv"></b><small>Hybrid inverter</small></div>
+          <div><b data-s="price"></b><small>Installed price range</small></div>
+        </div>
+      </section>
+
+      <div data-s="cap"></div>
+
+      <section>
+        <h2 class="sheet-h2">Paying for it</h2>
+        <div class="sheet-vs">
+          <div><span>Est. bill saving</span><b data-s="save"></b></div>
+          <div><span data-s="loanlbl">Loan payment</span><b data-s="loan"></b></div>
+          <div><span>Solar tax credit</span><b data-s="credit"></b></div>
+          <p data-s="vsmsg"></p>
+        </div>
+        <div class="sheet-table"><table>
+          <thead><tr><th>Option</th><th>Rate</th><th>Term</th><th data-s="amt">Monthly</th><th>Notes</th></tr></thead>
+          <tbody data-s="fin"></tbody>
+        </table></div>
+        <p class="sheet-fine">Rates are indicative. NHT Smart Energy Loan terms from nht.gov.jm; bank rates are a typical range for comparison. The 30% income tax credit applies to a primary residence, on costs up to J$4M. Confirm current terms with each lender before you apply.</p>
+      </section>
+
+      <div class="sheet-two">
+        <section>
+          <h2 class="sheet-h2">Your household</h2>
+          <dl class="sheet-kv" data-s="house"></dl>
+        </section>
+        <section>
+          <h2 class="sheet-h2">Where your power goes</h2>
+          <div class="sheet-use" data-s="use"></div>
+          <div class="sheet-bar" data-s="bars"></div>
+          <div class="sheet-legend" data-s="legend"></div>
+          <h2 class="sheet-h2" style="margin-top:20px">Outage backup plan</h2>
+          <p style="margin:0" data-s="backup"></p>
+        </section>
+      </div>
+
+      <section data-s="notes-wrap">
+        <h2 class="sheet-h2">Things to know</h2>
+        <ul class="sheet-notes" data-s="notes"></ul>
+      </section>
+
+      <section>
+        <h2 class="sheet-h2" data-s="invh">BSJ-approved hybrid inverters</h2>
+        <div class="sheet-chips" data-s="models"></div>
+        <p class="sheet-fine">From the Bureau of Standards Jamaica approved list. Required for net billing. Check the exact model number on every quote.</p>
+      </section>
+
+      <section>
+        <h2 class="sheet-h2">Questions to ask every installer</h2>
+        <ol class="sheet-ask">
+          <li>Is the inverter on the BSJ approved list? What is the exact model number?</li>
+          <li>Will you handle the JPS net billing application and licence paperwork?</li>
+          <li>What wind rating are the roof mounts certified for?</li>
+          <li>What are the warranties on panels, inverter, battery and workmanship, and who honours them locally?</li>
+          <li>How many cycles is the battery rated for, and at what depth of discharge?</li>
+          <li>Can you provide an NHT pro forma invoice and letter of undertaking if I finance through NHT?</li>
+        </ol>
+      </section>
+
+      <div class="sheet-cta">
+        <div>
+          <strong>Want quotes on this spec?</strong>
+          Email <span class="sel">hello@jamaicasolar.com.jm</span> with your spec ID <b data-s="id2"></b> and we'll connect you with a trusted installer in <span data-s="parish"></span>.
+        </div>
+      </div>
+
+      <footer class="sheet-foot">
+        <span>This is an estimate from the answers you gave, not a quote. Final size and price depend on a site visit by a licensed installer.</span>
+        <span>Assumes about 5 sun-hours a day, 80% system efficiency and J$47/kWh. Residential net billing limit: 10 kW.</span>
+        <span>Jamaica Solar · jamaicasolar.com.jm · Impartial solar information for Jamaica</span>
+      </footer>
+    </article>
+  </div>
+</Base>
+
+<style is:global>
+  .spec-page { padding-top:28px; padding-bottom:64px; max-width:880px; }
+  .spec-actions { display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:14px; }
+  .spec-sample { background:var(--sun-wash); border:1px solid var(--sun-border); border-radius:10px; padding:12px 16px; margin-bottom:14px; font-size:14.5px; }
+  .sheet { background:#fff; border:1px solid var(--line); border-radius:6px; box-shadow:var(--shadow-float); padding:clamp(20px,5vw,48px); display:flex; flex-direction:column; gap:26px; color:var(--ink); }
+  .sheet section { min-width:0; }
+  .sheet-mast { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap; padding-bottom:18px; border-bottom:3px solid var(--navy); }
+  .sheet-id { text-align:right; font-size:12px; color:var(--muted); display:flex; flex-direction:column; gap:2px; text-transform:uppercase; letter-spacing:1px; }
+  .sheet-id b { font-family:var(--display); font-size:22px; color:var(--navy); letter-spacing:1px; }
+  .sheet-h1 { font-family:var(--display); font-weight:800; font-size:clamp(24px,4vw,32px); color:var(--navy); margin:0; letter-spacing:-.8px; }
+  .sheet-for { color:var(--muted); margin:6px 0 0; }
+  .sheet-h2 { font-size:12.5px; font-weight:700; letter-spacing:1.6px; text-transform:uppercase; color:var(--green); margin:0 0 10px; }
+  .sheet-head { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:8px; overflow:hidden; }
+  .sheet-head div { background:#fff; padding:14px; display:flex; flex-direction:column; gap:4px; }
+  .sheet-head b { font-family:var(--display); font-weight:800; font-size:24px; color:var(--navy); line-height:1.1; }
+  .sheet-head small { color:var(--muted); font-size:12.5px; }
+  @media (max-width:600px) { .sheet-head { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+  .sheet-cap { display:flex; gap:10px; border-radius:8px; padding:12px 14px; font-size:14px; line-height:1.55; }
+  .sheet-cap.ok { background:var(--green-tint); } .sheet-cap.ok b { color:var(--green-dark); }
+  .sheet-cap.warn { background:var(--sun-wash); border:1px solid var(--sun-border); } .sheet-cap.warn b { color:#8A5A00; }
+  .sheet-vs { display:flex; flex-wrap:wrap; gap:12px 28px; align-items:baseline; background:var(--sun-wash); border:1px solid var(--sun-border); border-radius:8px; padding:14px 16px; margin-bottom:12px; }
+  .sheet-vs span { display:block; font-size:12px; color:var(--muted); }
+  .sheet-vs b { font-family:var(--display); font-weight:800; font-size:22px; color:var(--navy); }
+  .sheet-vs p { flex:1 1 100%; margin:0; font-size:14px; }
+  .sheet-table { overflow-x:auto; border:1px solid var(--line); border-radius:8px; }
+  .sheet-table table { border-collapse:collapse; width:100%; min-width:600px; font-size:13.5px; }
+  .sheet-table th { text-align:left; padding:9px 12px; background:var(--panel-2); font-size:11.5px; letter-spacing:.8px; text-transform:uppercase; color:var(--muted); }
+  .sheet-table td { padding:10px 12px; border-top:1px solid var(--line-3); vertical-align:top; }
+  .sheet-table td.n { white-space:nowrap; font-variant-numeric:tabular-nums; }
+  .sheet-table tr.best td { background:var(--green-tint); }
+  .sheet-tag { display:inline-block; font-size:10.5px; font-weight:700; letter-spacing:.8px; text-transform:uppercase; background:var(--green); color:#fff; border-radius:4px; padding:2px 6px; margin-left:6px; }
+  .sheet-fine { font-size:12px; color:var(--muted-2); margin:8px 0 0; }
+  .sheet-two { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:28px; }
+  @media (max-width:640px) { .sheet-two { grid-template-columns:minmax(0,1fr); } }
+  .sheet-kv { display:grid; grid-template-columns:1fr auto; margin:0; font-size:14px; }
+  .sheet-kv dt, .sheet-kv dd { padding:6px 0; border-bottom:1px dotted var(--line); }
+  .sheet-kv dd { margin:0; text-align:right; font-weight:600; color:var(--navy); }
+  .sheet-use { font-family:var(--display); font-weight:800; font-size:22px; color:var(--navy); }
+  .sheet-use small { font:400 13px var(--text); color:var(--muted); }
+  .sheet-bar { display:flex; height:10px; border-radius:5px; overflow:hidden; margin:6px 0 10px; background:var(--line-3); }
+  .sheet-legend { display:flex; flex-wrap:wrap; gap:4px 14px; font-size:12.5px; color:var(--muted); }
+  .sheet-legend i { display:inline-block; width:9px; height:9px; border-radius:2px; margin-right:5px; }
+  .sheet-notes { margin:0; padding-left:18px; display:flex; flex-direction:column; gap:6px; font-size:14px; }
+  .sheet-chips { display:flex; flex-wrap:wrap; gap:6px; }
+  .sheet-chips span { font-size:12.5px; border:1px solid var(--line); border-radius:5px; padding:3px 8px; }
+  .sheet-ask { margin:0; padding-left:20px; display:flex; flex-direction:column; gap:6px; font-size:14.5px; }
+  .sheet-ask li::marker { font-weight:700; color:var(--green); }
+  .sheet-cta { border:2px solid var(--navy); border-radius:8px; padding:16px 18px; font-size:14.5px; line-height:1.6; }
+  .sheet-cta strong { display:block; font-family:var(--display); font-size:18px; color:var(--navy); }
+  .sheet-cta .sel { user-select:all; font-weight:600; }
+  .sheet-foot { border-top:1px solid var(--line); padding-top:12px; font-size:11.5px; color:var(--muted); display:flex; flex-direction:column; gap:4px; }
+  @media print {
+    @page { size: letter; margin: 12mm; }
+    .site-header, .site-footer, .no-print { display:none !important; }
+    .spec-page { padding:0; max-width:none; }
+    .sheet { box-shadow:none; border:none; padding:0; gap:16px; }
+    .sheet section, .sheet-cta, .sheet-vs { break-inside: avoid; }
+    .sheet-table table { min-width:0; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+
+<script>
+  import { compute, financing, decodeAnswers, DEFAULT_ANSWERS, jm, money, SIZER, type Answers } from '../lib/sizer';
+  const root = document.querySelector<HTMLElement>('[data-spec]')!;
+  const INV: { b: string; m: string; kw: number }[] = JSON.parse(root.dataset.inv!);
+  const q = new URLSearchParams(location.search);
+  const decoded = q.get('s') ? decodeAnswers(q.get('s')!) : null;
+  const A: Answers = decoded ?? DEFAULT_ANSWERS;
+  const sample = !decoded;
+  const id = sample ? 'JS-SAMPL' : (/^JS-[A-Z0-9]{5}$/.test(q.get('id') || '') ? q.get('id')! : 'JS-—');
+  const first = sample ? 'Sample household' : (q.get('n') || '').slice(0, 40);
+  const S = (k: string) => root.querySelector<HTMLElement>(`[data-s="${k}"]`)!;
+  const esc = (s: string) => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]!));
+  root.querySelector<HTMLElement>('[data-sample]')!.hidden = !sample;
+  root.querySelector('[data-print]')!.addEventListener('click', () => window.print());
+
+  const r = compute(A), fin = financing(A, r);
+  const roof = { concrete: 'concrete slab', zinc: 'zinc / metal', tile: 'tile', none: 'no usable roof' }[A.roof];
+  S('id').textContent = id; S('id2').textContent = id; S('parish').textContent = A.parish;
+  S('date').textContent = new Date().toLocaleDateString('en-JM', { day: 'numeric', month: 'short', year: 'numeric' });
+  S('for').innerHTML = `${first ? `Prepared for <strong>${esc(first)}</strong> · ` : ''}${esc(A.parish)} · ${A.beds === 4 ? '4+' : A.beds}-bedroom, ${roof} roof`;
+  S('pv').textContent = `${r.pvKw.toFixed(1)} kW`; S('pvs').textContent = `Solar panels (${r.panels} × ${SIZER.panelW} W)`;
+  S('bat').textContent = r.batteryKwh ? `${r.batteryKwh} kWh` : 'None';
+  S('inv').textContent = r.inverterKw ? `${r.inverterKw} kW` : '15 kW+';
+  S('price').textContent = `${jm(r.priceLow)}–${jm(r.priceHigh)}`;
+  S('cap').innerHTML = r.overCap
+    ? `<div class="sheet-cap warn"><span>!</span><span><b>Over the 10 kW net billing limit.</b> At ${r.pvKw.toFixed(1)} kW this system can't sell power back to JPS. Trim the load to get under 10 kW, or ask about an export-limited (auxiliary) setup.</span></div>`
+    : `<div class="sheet-cap ok"><span>✓</span><span><b>Net billing ready.</b> At ${r.pvKw.toFixed(1)} kW this system is under the 10 kW residential limit. Choose a BSJ-approved inverter and your installer can apply to JPS for net billing.</span></div>`;
+
+  const nht = fin.options[0], best = fin.options.find(o => o.best);
+  S('save').textContent = `${money(r.savingMonth)}/mo`;
+  S('loanlbl').textContent = best ? `${best.name.replace(' Smart Energy Loan', '')} payment` : 'NHT loan payment';
+  S('loan').textContent = `${(best ?? nht).monthly}/mo`;
+  S('credit').textContent = `up to ${jm(Math.min(SIZER.taxCredit.cap, (r.priceLow + r.priceHigh) / 2 * SIZER.taxCredit.pct))}`;
+  const maxPay = Number(((best ?? nht).monthly.split('–').pop() || '').replace(/[^\d]/g, ''));
+  S('vsmsg').textContent = A.own === 'rent'
+    ? 'Renting? A roof-mounted system needs your landlord’s written approval before you finance or install.'
+    : maxPay && r.savingMonth > maxPay ? 'Your estimated saving is more than the loan payment, so the system can pay for itself from the first month.'
+    : 'Your estimated saving covers a large part of the loan payment. A longer term lowers the monthly cost.';
+  S('amt').textContent = `Monthly on ${jm(fin.amount)}`;
+  S('fin').innerHTML = fin.options.map(o => `<tr class="${o.best ? 'best' : ''}"><td><strong>${esc(o.name)}</strong>${o.best ? '<span class="sheet-tag">Best fit</span>' : ''}</td><td class="n">${esc(o.rate)}</td><td class="n">${esc(o.term)}</td><td class="n">${esc(o.monthly)}</td><td>${esc(o.note)}</td></tr>`).join('');
+
+  const acDesc = A.acs ? `${A.acs} × ${A.acSize}k BTU ${A.acType === 'inv' ? 'inverter' : 'non-inverter'}, ${A.acHours} hrs/day` : 'None';
+  const house: [string, string][] = [
+    ['Bedrooms', A.beds === 4 ? '4+' : String(A.beds)], ['Fridges', `${A.fridges} (${A.fridgeAge === 'new' ? 'newer' : 'older'})`], ['Freezers', String(A.freezers)],
+    ['Air conditioning', acDesc], ['Water heater', A.heater === 'elec' ? 'Electric' : 'None / solar / gas'], ['Water pump', A.pump ? 'Yes' : 'No'],
+    ['Electric stove / dryer', [A.stove && 'Stove', A.dryer && 'Dryer'].filter(Boolean).join(', ') || 'No'], ['EV', A.ev ? `~${A.ev} km/day` : 'None planned'],
+    ['Roof', `${roof[0].toUpperCase() + roof.slice(1)}, ~${r.roofM2} m² needed`], ['Net billing', { yes: 'Wanted', no: 'Not wanted', unsure: 'Undecided' }[A.net]],
+  ];
+  S('house').innerHTML = house.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('');
+  const tot = r.loads.reduce((s, l) => s + l[1], 0);
+  const colors = ['var(--sun)', 'var(--green)', 'var(--navy)', 'var(--blue)', 'var(--muted-3)', 'var(--sun-border)', 'var(--green-tint-border)', 'var(--line)', 'var(--ink-2)'];
+  S('use').innerHTML = `${Math.round(r.dailyKwh)} kWh/day <small>≈ ${Math.round(r.dailyKwh * 30)} kWh/month</small>`;
+  S('bars').innerHTML = r.loads.map((l, i) => `<span style="width:${l[1] / tot * 100}%;background:${colors[i]}"></span>`).join('');
+  S('legend').innerHTML = r.loads.map((l, i) => `<span><i style="background:${colors[i]}"></i>${esc(l[0])} ${Math.round(l[1] / tot * 100)}%</span>`).join('');
+  if (A.goal === 'bill') S('backup').textContent = 'No backup requested. A battery can be added later if the inverter is a hybrid.';
+  else {
+    const keep = [A.bBase && 'lights, fans, TV and Wi-Fi', A.bFridge && A.fridges && 'fridge', A.bFreezer && A.freezers && 'freezer', A.bPump && A.pump && 'water pump'].filter(Boolean) as string[];
+    const nAc = A.bAc === 'all' ? A.acs : Math.min(Number(A.bAc), A.acs);
+    if (nAc) keep.push(nAc === 1 ? 'one AC' : `${nAc} ACs`);
+    S('backup').innerHTML = `About <strong>${A.hours} hours</strong> running ${esc(keep.join(', ').replace(/, ([^,]*)$/, ' and $1') || 'essential loads')}.`;
+  }
+  const notes = r.notes.filter(n => !n.title);
+  S('notes-wrap').hidden = !notes.length;
+  S('notes').innerHTML = notes.map(n => `<li>${esc(n.text)}</li>`).join('');
+  const kw = r.inverterKw ?? 15;
+  S('invh').textContent = `BSJ-approved hybrid inverters at ${kw} kW`;
+  const models = INV.filter(i => Math.abs(i.kw - kw) < 0.6).slice(0, 10);
+  S('models').innerHTML = models.length ? models.map(i => `<span>${esc(i.b)} ${esc(i.m)}</span>`).join('') : '<span>Ask your installer for an approved model</span>';
+  document.title = `Solar spec ${id} · Jamaica Solar`;
+</script>

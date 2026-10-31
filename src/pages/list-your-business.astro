@@ -16,12 +16,12 @@ import { PARISHES, SERVICES } from '../lib/data';
       <div class="field"><label for="l-phone">Phone / WhatsApp</label><input id="l-phone" name="phone" required inputmode="tel" /></div>
       <div class="field"><label for="l-email">Email</label><input id="l-email" name="email" type="email" /></div>
       <div class="field"><label for="l-web">Website or social page</label><input id="l-web" name="website" /></div>
-      <fieldset style="grid-column:1/-1; border:1px solid #E2E8F0; border-radius:10px; padding:14px 16px">
-        <legend style="font-size:14px; font-weight:600; color:#14324F; padding:0 6px">Parishes you serve</legend>
+      <fieldset style="grid-column:1/-1; border:1px solid #D9E0DB; border-radius:10px; padding:14px 16px">
+        <legend style="font-size:14px; font-weight:600; color:#15211C; padding:0 6px">Parishes you serve</legend>
         <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:6px 12px; font-size:14.5px">{PARISHES.map(p => <label><input type="checkbox" name="parishes" value={p} /> {p}</label>)}</div>
       </fieldset>
-      <fieldset style="grid-column:1/-1; border:1px solid #E2E8F0; border-radius:10px; padding:14px 16px">
-        <legend style="font-size:14px; font-weight:600; color:#14324F; padding:0 6px">Services</legend>
+      <fieldset style="grid-column:1/-1; border:1px solid #D9E0DB; border-radius:10px; padding:14px 16px">
+        <legend style="font-size:14px; font-weight:600; color:#15211C; padding:0 6px">Services</legend>
         <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:6px 12px; font-size:14.5px">{SERVICES.map(s => <label><input type="checkbox" name="services" value={s} /> {s}</label>)}</div>
       </fieldset>
       <div class="field" style="grid-column:1/-1"><label for="l-logo">Logo (PNG, JPG or SVG, square, under 1 MB)</label><input id="l-logo" name="logo" type="file" accept="image/png,image/jpeg,image/webp,image/svg+xml" style="padding:10px" /><div class="small" style="margin-top:6px">By uploading, you confirm you're authorised to let Jamaica Solar display this logo on your listing.</div></div>
