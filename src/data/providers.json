@@ -1483,18 +1483,20 @@
   "parishes": [
    "St. Andrew"
   ],
-  "address": "Ferry Pen, St. Andrew",
-  "website": "",
-  "phone": "",
-  "email": "",
+  "address": "30 Automotive Parkway, Ferry Commercial Park, Mandela Highway, Kingston 20",
+  "website": "https://tropical-energy.com",
+  "phone": "(876) 923-6231-3; toll-free (888) 767-4225",
+  "email": "sales@tropical-energy.com",
   "batteryStorage": true,
   "sponsored": false,
   "verified": false,
   "checked": "",
   "sources": [
-   "Jamaica Observer"
+   "Jamaica Observer",
+   "tropical-energy.com"
   ],
-  "notes": "~1,000 resellers; stores in Kgn, Ochi, Mandeville, MoBay"
+  "notes": "~1,000 resellers; stores in Kgn, Ochi, Mandeville, MoBay",
+  "logo": "https://tropical-energy.com/images/tropical-renewable-energy-logo.svg"
  },
  {
   "slug": "us-solar-jamaica",
