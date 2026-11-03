@@ -1393,18 +1393,20 @@
   "city": "Kingston",
   "parishHq": null,
   "parishes": [],
-  "address": "",
-  "website": "",
-  "phone": "",
-  "email": "",
+  "address": "27 Seaward Drive, Kingston 11 (also Catherine Hall, Montego Bay)",
+  "website": "https://www.tankweld.com/solar/",
+  "phone": "(876) 618-8265; Mr. Solar WhatsApp (876) 451-9663",
+  "email": "kingston.sales@tankweld.com",
   "batteryStorage": true,
   "sponsored": false,
   "verified": false,
   "checked": "",
   "sources": [
-   "Gleaner Jan 2026"
+   "Gleaner Jan 2026",
+   "tankweld.com"
   ],
-  "notes": "Supplies independent installers - good source for installer leads"
+  "notes": "Supplies independent installers - good source for installer leads",
+  "logo": "https://www.tankweld.com/assets/site/tank-weld-logo-wslogan2023.png"
  },
  {
   "slug": "the-solar-specialist",
