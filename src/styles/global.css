@@ -148,6 +148,8 @@ main { flex: 1; }
 .split { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 44px; align-items: center; }
 .select { padding: 13px 14px; border: 1px solid #CBD8CF; border-radius: 8px; font-size: 15px; background: var(--white); color: var(--navy); min-width: 180px; }
 .map-card { position: relative; min-height: 290px; border-radius: 14px; overflow: hidden; background: var(--green-wash-2); }
+.map-card { display: flex; align-items: flex-end; justify-content: center; padding: 92px 22px 26px; }
+.map-card .map-img { width: 100%; height: auto; display: block; }
 .map-card .note { position: absolute; right: 14px; top: 14px; background: var(--white); border-radius: 10px; padding: 14px 18px; box-shadow: 0 8px 24px rgba(12,42,30,.14); }
 .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
 .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; }
