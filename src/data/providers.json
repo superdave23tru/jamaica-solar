@@ -245,17 +245,19 @@
   "tagline": "Solar installation",
   "tags": [
    "Solar PV",
-   "Battery Storage"
+   "Battery Storage",
+   "Water Heaters",
+   "Off-grid"
   ],
-  "servicesRaw": "Solar PV; Home automation",
+  "servicesRaw": "Solar PV (grid-tie, hybrid, off-grid); Solar water heaters; Solar pumps; Inverter AC; Generators; Home automation",
   "city": "Kingston",
   "parishHq": "St. Andrew",
   "parishes": [
    "St. Andrew"
   ],
   "address": "38 Cassia Park Road, Kingston 10",
-  "website": "",
-  "phone": "WhatsApp 876-373-3157",
+  "website": "https://www.carisolgroup.com",
+  "phone": "(876) 373-3157; WhatsApp (876) 346-4606",
   "email": "",
   "batteryStorage": true,
   "sponsored": false,
@@ -264,9 +266,11 @@
   "sources": [
    "ENF Solar directory",
    "JaRanks (Aug 2026)",
-   "Instagram ad (Oct 2026)"
+   "Instagram ad (Oct 2026)",
+   "carisolgroup.com"
   ],
-  "notes": "ENF lists 'Carisol'; JaRanks 'The Solar Place' - likely same group; IG @carisolgroup; ad confirms address + island-wide delivery"
+  "notes": "ENF lists 'Carisol'; JaRanks 'The Solar Place' - likely same group; IG @carisolgroup; ad confirms address + island-wide delivery",
+  "logo": "https://www.carisolgroup.com/image/catalog/Home%20Page%20CGI/Logos/Carisol_logo.png"
  },
  {
   "slug": "carribsol",
