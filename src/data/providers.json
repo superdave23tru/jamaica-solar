@@ -280,15 +280,19 @@
   "tagline": "Solar installation",
   "tags": [
    "Solar PV",
-   "Battery Storage"
+   "Battery Storage",
+   "Commercial",
+   "Maintenance"
   ],
   "servicesRaw": "Solar PV",
-  "city": "",
-  "parishHq": null,
-  "parishes": [],
-  "address": "33 Washington Palm",
+  "city": "Clarendon",
+  "parishHq": "Clarendon",
+  "parishes": [
+   "Clarendon"
+  ],
+  "address": "Clarendon (no street address published)",
   "website": "https://carribsol.com",
-  "phone": "",
+  "phone": "(876) 839-0044 (call/WhatsApp)",
   "email": "info@carribsol.com",
   "batteryStorage": true,
   "sponsored": false,
@@ -296,9 +300,11 @@
   "checked": "",
   "sources": [
    "ENF Solar directory",
-   "ENF Solar profile (Sep 2026)"
+   "ENF Solar profile (Sep 2026)",
+   "carribsol.com"
   ],
-  "notes": "Parent Carribsol Canada; inverters SMA/SRNE/Growatt/Deye; panels JA/Risen/LONGi; address lacks area - confirm; ENF start date 2024"
+  "notes": "Parent Carribsol Canada; inverters SMA/SRNE/Growatt/Deye; panels JA/Risen/LONGi; address lacks area - confirm; ENF start date 2024",
+  "logo": "https://carribsol.com/assets/img/logo-carribsol-dark.png"
  },
  {
   "slug": "civilectric-solutions-ltd",
