@@ -19,6 +19,10 @@ const facts = [
 ];
 const shortName = p.name.replace(/\s*\(.*?\)\s*/g, ' ').replace(/\b(Ltd|Limited|Company)\b\.?/gi, '').trim();
 const tel = p.phone ? p.phone.split(/[;/]/)[0].replace(/[^\d+]/g, '') : '';
+// Google Maps search for the business; reviews show on its Maps listing (no API key, no Google data stored here)
+const googleReviewsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+  [p.name.replace(/\s*\(.*?\)\s*/g, ' ').trim(), p.city || p.parishHq || '', 'Jamaica'].filter(Boolean).join(' ')
+)}`;
 const SOURCE_URLS: Record<string, string> = {
   'ENF Solar directory': 'https://www.enfsolar.com/directory/installer/Jamaica',
   'JaRanks (Aug 2026)': 'https://www.jaranks.com/lists/best-solar-companies-in-jamaica',
@@ -94,6 +98,7 @@ const about = p.kind === 'supplier'
         {p.website && <a href={p.website} rel="nofollow noopener" target="_blank" class="btn btn-outline-navy btn-block" style="margin-bottom:12px; font-size:15px">{hostOf(p.website)} ↗</a>}
         {p.email && <a href={`mailto:${p.email.split(';')[0].trim()}`} style="display:block; text-align:center; font-size:14.5px; margin-bottom:6px; word-break:break-all">{p.email.split(';')[0].trim()}</a>}
         {p.address && <div style="font-size:14px; color:#5B6B63; text-align:center; line-height:1.5; margin-top:8px">{p.address}</div>}
+        <a href={googleReviewsUrl} rel="nofollow noopener" target="_blank" style="display:block; text-align:center; font-size:14.5px; margin-top:14px; text-decoration:underline">★ See Google reviews ↗</a>
         <div style="height:1px; background:#E8EDE9; margin:22px 0"></div>
         <div style="font-size:13.5px; color:#8C9A92; line-height:1.6">
           {p.verified ? <>Listing last checked {p.checked}.</> : <>Compiled from public sources {DATA_AS_OF}; not yet checked with the business.</>}
