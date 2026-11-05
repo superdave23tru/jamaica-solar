@@ -61,7 +61,9 @@
   "tagline": "Solar installation",
   "tags": [
    "Solar PV",
-   "Battery Storage"
+   "Battery Storage",
+   "Water Heaters",
+   "Commercial"
   ],
   "servicesRaw": "Solar PV",
   "city": "Kingston",
@@ -80,9 +82,11 @@
   "sources": [
    "ENF Solar directory",
    "JaRanks (Aug 2026)",
-   "ENF Solar profile"
+   "ENF Solar profile",
+   "aepjamaica.com"
   ],
-  "notes": "HQ unclear - ENF now shows Portmore; confirm current branches"
+  "notes": "HQ unclear - ENF now shows Portmore; confirm current branches",
+  "logo": "https://aepjamaica.com/wp-content/uploads/2025/05/aep.png"
  },
  {
   "slug": "alternative-power-sources",
